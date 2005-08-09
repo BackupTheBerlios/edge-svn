@@ -1,0 +1,100 @@
+\chapter{Introduction}
+\label{sec:Introduction}
+\section{Context Information}
+\label{Sec:ContextInformation}
+This thesis is part of the field in computer graphics that deals with
+physically based animation. Physically based animation deals with the movement
+of particles and rigid bodies according to the laws of physics and how these
+particles change with time. The book Physics for Game developers \cite{Bourg}
+gives an overview of physics applied to games.  More advanced mechanics are
+covered in the SIGGRAPH course notes by Witkin and Baraff \cite{PBMNotes}, in
+Otte's thesis \cite{Otte} and in Goldstein's book on classical mechanics
+\cite{Goldstein}.  A method for setting up a constrained dynamics system based
+on the SIGGRAPH course notes \cite{PBMNotes} is described and implemented. An
+alternative approach using the Lagrangian dynamics to specify constraints was
+studied. Other alternative methods for rigid body simulation include the
+Featherstone technique \cite{Featherstone} where a notation, \textit{spatial
+notation}, is introduced that greatly simplifies the analysis of rigid body
+dynamics. In \cite{Hahn} a technique using collision detection and response is
+used to simulate the motion of rigid bodies. A similar technique,
+\textit{impulse-based simulation}, is used in \cite{Mirtich}. Barr et al.
+\cite{BarzelBarr} describes a method for constrained dynamics similar to
+\cite{PBMNotes}, the method used to implement the dynamics system in this
+thesis.
+
+Control of a rigid body, such as a humanoid or hexapod, is a field of active
+research. McKenna et al. \cite{McKennaZeltzer} describes a system to control an
+insect. The system is divided into into a gait controller, motor controller and
+dynamics system.  At the University of Auckland Russel Smith devised a neural
+network system for control of an artificial robot \cite{RusselSmith}. Karl Sims
+describes a technique to evolve controllers for virtual creatures in a
+simulated three dimensional physical world using genetic algorithms
+\cite{Sims}. The physical simulation, like \cite{McKennaZeltzer}, uses
+Featherstone's algorithm. Sanders et al.  \cite{SandersLobbRiddle} describes an
+evolutionary algorithm for the locomotion of a two dimensional creature made
+out of a mass spring system.  Some impressive work in composing controllers is
+described by Faloutsos in \cite{FaloutsosvandePanneTerzopolous}. Composition of
+controllers involves deciding when to transition from a controller that
+describes, for example, a running gait to a controller that describes a walking
+gait. The learning algorithm used is known as \textit{Support Vector Machines}
+(SVM) and is a method for fitting functions to an existing set of training
+data. For more information on SVMs see \cite{BennetCampbell, Burges}.
+
+\section{Goals}
+\label{Sec:Goals}
+The goals of this thesis were the following:
+\begin{itemize}
+\item To implement a physically based animation engine that could handle
+constrained particle dynamics.
+\item To test the implementation on simple systems like a pendulum and hence
+verify its correctness.
+\item To construct a model of a hexapod using the constrained dynamics system.
+\item To investigate control of the hexapod under the system.
+\item To investigate constrained dynamics using Lagrangian methods as an
+alternative to the Newtonian based method described by Witkin and Baraff
+\cite{PBMNotes}  
+\end{itemize}
+
+\section{Tools Used}
+\label{Sec:Tools}
+The system was written using Visual C++ 7.1. The Boost \footnote{see \url{http://www.boost.org}} packages
+used were the unit testing package, the Boost implementation of UBLAS, the
+Boost Graph Library and the shared pointer library. Bitkeeper was used for
+revision control. OpenGL was used to render the scene. The STL, specifically
+the container classes vector, list and map, were heavily used. Source code for
+this thesis can be found at \url{http://edge.bkbits.net}. 
+The computer systems used were a Pentium 4 with 2.8
+Ghz running Windows XP and a AMD 1.5 GHz machine running Windows XP and Linux.
+The majority of this thesis was produced using Latex on Linux using Dia \footnote{\url{http://www.gnome.org/projects/dia/}}
+for the diagrams.
+
+\section{Chapter Overview}
+\label{Sec:ChapterOverview}
+\subsection{Chapter 2}
+This chapter discusses physically based animation. Animation is discussed in
+terms of Newtonian dynamics. Constrained dynamics are covered in detail and
+various constraints are evaluated. A section on Lagrangian dynamics is included.
+
+\subsection{Chapter 3}
+This chapter covers the scene graph implementation and how the constrained dyanmics
+system is implemented. It also describes a technique that can eliminate messy
+dynamic casting from base to child nodes when traversing a scene graph. Details
+of how the system was verified are also given.
+
+\subsection{Chapter 4} 
+Here the implementation of the hexapod and details of the
+attempts at making it move are mentioned.
+
+\subsection{Chapter 5}
+This is the conclusion in which a summary of the results and suggestions
+for future work are given.
+
+\subsection{Appendix A}
+Here we present an introduction to numerical differential equation solvers. It
+covers the Euler method, Midpoint method and the Runge-Kutta 4th order method.
+
+\subsection{Appendix B}
+A simple proof that is used in the derivation of formulae in
+the constrained dynamics section in Chapter 2 is given.
+
+

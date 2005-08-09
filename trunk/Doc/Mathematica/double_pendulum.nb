@@ -1,0 +1,551 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     20509,        481]*)
+(*NotebookOutlinePosition[     21174,        504]*)
+(*  CellTagsIndexPosition[     21130,        500]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \(\(Clear[x1, \ y1, \ x2, \ y2, \ theta1, \ theta2, \ x1', \ x2', \ 
+        y1', \ y2', \ theta1', \ theta2', \ x1'', \ x2'', \ y1'', \ y2'', \ 
+        theta1'', \ theta2'', \ L1, \ L2, \ m1, m2, \ g];\)\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(Clear::"ssym"\), \(\(:\)\(\ \)\), "\<\"\\!\\(\\*SuperscriptBox[\
+\\\"x1\\\", \\\"\[Prime]\\\", Rule[MultilineFunction, None]]\\) is not a \
+symbol or a string. \\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", ButtonStyle->\
+\\\"RefGuideLinkText\\\", ButtonFrame->None, ButtonData:>\\\"Clear::ssym\\\"]\
+\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    RowBox[{\(Clear::"ssym"\), \(\(:\)\(\ \)\), "\<\"\\!\\(\\*SuperscriptBox[\
+\\\"x2\\\", \\\"\[Prime]\\\", Rule[MultilineFunction, None]]\\) is not a \
+symbol or a string. \\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", ButtonStyle->\
+\\\"RefGuideLinkText\\\", ButtonFrame->None, ButtonData:>\\\"Clear::ssym\\\"]\
+\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    RowBox[{\(Clear::"ssym"\), \(\(:\)\(\ \)\), "\<\"\\!\\(\\*SuperscriptBox[\
+\\\"y1\\\", \\\"\[Prime]\\\", Rule[MultilineFunction, None]]\\) is not a \
+symbol or a string. \\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", ButtonStyle->\
+\\\"RefGuideLinkText\\\", ButtonFrame->None, ButtonData:>\\\"Clear::ssym\\\"]\
+\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    RowBox[{\(General::"stop"\), \(\(:\)\(\ \)\), "\<\"Further output of \
+\\!\\(Clear :: \\\"ssym\\\"\\) will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", ButtonStyle->\\\"RefGuideLinkText\
+\\\", ButtonFrame->None, ButtonData:>\\\"General::stop\\\"]\\)\"\>"}]], \
+"Message"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(x1''\)[
+        t_] := \(-\((\(theta'\)[t])\)^2\)\ Sin[theta1[t]]\  + \ \(theta1''\)[
+            t]\ L1\ Cos[theta1[t]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(y1''\)[
+        t_] := \((\(theta1'\)[t])\)^2\ L1\ Cos[theta1[t]] + \(theta1''\)[t] 
+          L1\ Sin[theta1[t]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(x2''\)[
+        t_] := \ \(x1''\)[
+          t] - \((\(theta2'\)[t])\)^2\ L2\ Sin[theta2[t]]\  + \ \(theta2''\)[
+            t] L2\ Cos[theta2[t]]\)], "Input"],
+
+Cell[BoxData[
+    \(\(y2''\)[
+        t_] := \(y1''\)[
+          t]\  + \ \((\(theta2'\)[t])\)^2\ L2\ Cos[
+            theta2[t]]\  + \ \(theta2''\)[t]\ L2\ Sin[theta2[t]]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(eqn1 = 
+      Sin[theta1[t]] \((m1\ \(y1''\)[t]\  + \ m2\ \(y2''\)[t] + m2\ g\  + \ 
+              m1\ g)\)\  \[Equal] \(-Cos[
+              theta1[t]]\)\ \((m1\ \(x1''\)[t]\  + \ 
+              m2\ \(x2''\)[t])\)\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{\(Sin[theta1[t]]\), " ", 
+        RowBox[{"(", 
+          RowBox[{\(g\ m1\), "+", \(g\ m2\), "+", 
+            RowBox[{"m1", " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"L1", " ", \(Cos[theta1[t]]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["theta1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{"L1", " ", \(Sin[theta1[t]]\), " ", 
+                    RowBox[{
+                      SuperscriptBox["theta1", "\[Prime]\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}]}]}], 
+                ")"}]}], "+", 
+            RowBox[{"m2", " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"L1", " ", \(Cos[theta1[t]]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["theta1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{"L2", " ", \(Cos[theta2[t]]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["theta2", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{"L1", " ", \(Sin[theta1[t]]\), " ", 
+                    RowBox[{
+                      SuperscriptBox["theta1", "\[Prime]\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                  RowBox[{"L2", " ", \(Sin[theta2[t]]\), " ", 
+                    RowBox[{
+                      SuperscriptBox["theta2", "\[Prime]\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}]}]}], 
+                ")"}]}]}], ")"}]}], "\[Equal]", 
+      RowBox[{\(-Cos[theta1[t]]\), " ", 
+        RowBox[{"(", 
+          RowBox[{
+            RowBox[{"m1", " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{\(-Sin[theta1[t]]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["theta", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{"L1", " ", \(Cos[theta1[t]]\), " ", 
+                    RowBox[{
+                      SuperscriptBox["theta1", "\[Prime]\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}]}]}], 
+                ")"}]}], "+", 
+            RowBox[{"m2", " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{\(-Sin[theta1[t]]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["theta", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "-", 
+                  RowBox[{"L2", " ", \(Sin[theta2[t]]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["theta2", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{"L1", " ", \(Cos[theta1[t]]\), " ", 
+                    RowBox[{
+                      SuperscriptBox["theta1", "\[Prime]\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                  RowBox[{"L2", " ", \(Cos[theta2[t]]\), " ", 
+                    RowBox[{
+                      SuperscriptBox["theta2", "\[Prime]\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}]}]}], 
+                ")"}]}]}], ")"}]}]}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(eqn2 = 
+      Sin[theta2[t]]\ \((m2\ \(y2''\)[t]\  + \ m2\ g)\)\  \[Equal] \ \(-Cos[
+              theta2[t]]\) \((m2\ \(x2''\)[t])\)\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{\(Sin[theta2[t]]\), " ", 
+        RowBox[{"(", 
+          RowBox[{\(g\ m2\), "+", 
+            RowBox[{"m2", " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{"L1", " ", \(Cos[theta1[t]]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["theta1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{"L2", " ", \(Cos[theta2[t]]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["theta2", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{"L1", " ", \(Sin[theta1[t]]\), " ", 
+                    RowBox[{
+                      SuperscriptBox["theta1", "\[Prime]\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                  RowBox[{"L2", " ", \(Sin[theta2[t]]\), " ", 
+                    RowBox[{
+                      SuperscriptBox["theta2", "\[Prime]\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}]}]}], 
+                ")"}]}]}], ")"}]}], "\[Equal]", 
+      RowBox[{\(-m2\), " ", \(Cos[theta2[t]]\), " ", 
+        RowBox[{"(", 
+          RowBox[{
+            RowBox[{\(-Sin[theta1[t]]\), " ", 
+              SuperscriptBox[
+                RowBox[{
+                  SuperscriptBox["theta", "\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}], "2"]}], "-", 
+            RowBox[{"L2", " ", \(Sin[theta2[t]]\), " ", 
+              SuperscriptBox[
+                RowBox[{
+                  SuperscriptBox["theta2", "\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}], "2"]}], "+", 
+            RowBox[{"L1", " ", \(Cos[theta1[t]]\), " ", 
+              RowBox[{
+                SuperscriptBox["theta1", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}]}], "+", 
+            RowBox[{"L2", " ", \(Cos[theta2[t]]\), " ", 
+              RowBox[{
+                SuperscriptBox["theta2", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}]}]}], 
+          ")"}]}]}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(sol\  = 
+      Simplify[Solve[{eqn1, \ 
+            eqn2}, {\(theta1''\)[t], \(theta2''\)[
+              t]}]]\)\(\[IndentingNewLine]\)
+    \)\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{"{", 
+        RowBox[{
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["theta1", "\[Prime]\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "\[Rule]", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{
+                  "2", " ", \((\((2\ m1 + m2)\)\ Cos[theta1[t]] - 
+                        m2\ Cos[theta1[t] - 2\ theta2[t]])\), 
+                    " ", \(Sin[theta1[t]]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["theta", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "-", 
+                  RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                      
+                      RowBox[{\(g\ \((\((2\ m1 + m2)\)\ Sin[theta1[t]] + 
+                              m2\ Sin[theta1[t] - 2\ theta2[t]])\)\), "+", 
+                        RowBox[{
+                        "L1", " ", \(Cos[theta1[t]]\), 
+                          " ", \((\((2\ m1 + m2)\)\ Sin[theta1[t]] + 
+                              m2\ Sin[theta1[t] - 2\ theta2[t]])\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["theta1", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}], "+", 
+                        RowBox[{
+                        "2", " ", "L2", " ", "m2", 
+                          " ", \(Sin[theta1[t] - theta2[t]]\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["theta2", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}]}], ")"}]}]}], ")"}], 
+              "/", \((2\ L1\ \((2\ m1 + m2 - 
+                      m2\ Cos[2\ \((theta1[t] - theta2[t])\)])\))\)}]}], ",", 
+          
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["theta2", "\[Prime]\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "\[Rule]", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{"2", " ", \(Sin[theta1[t] - theta2[t]]\), " ", 
+                  RowBox[{"(", 
+                    
+                    RowBox[{\(g\ m1\ Cos[theta1[t]]\), 
+                      "+", \(g\ m2\ Cos[theta1[t]]\), "+", 
+                      
+                      RowBox[{\((m1 + m2)\), " ", \(Sin[theta1[t]]\^2\), " ", 
+                        
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["theta", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{
+                      "L1", " ", \((m1 + m2)\), " ", \(Cos[theta1[t]]\^2\), 
+                        " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["theta1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{
+                      "L2", " ", "m2", " ", \(Cos[theta1[t] - theta2[t]]\), 
+                        " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["theta2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}]}], ")"}]}], ")"}], 
+              "/", \((L2\ \((2\ m1 + m2 - 
+                      m2\ Cos[2\ \((theta1[t] - theta2[t])\)])\))\)}]}]}], 
+        "}"}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(eqn3[t] := \(t1''\)[t] \[Equal] \(theta1''\)[t] /. sol\)], "Input"],
+
+Cell[BoxData[
+    \(eqn4[t] := \(t2''\)[t] \[Equal] \(theta2''\)[t] /. sol\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(NDSolve[{eqn3[t], eqn4[t], 
+        theta1[0] \[Equal] \[Pi]/2, \ \(theta1'\)[0] \[Equal] 0, \ 
+        theta2[0] \[Equal] \[Pi]/2, \(theta2'\)[0] \[Equal] 0}, {theta1, \ 
+        theta2}, {t, 0, 50}]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(NDSolve::"ndnco"\), \(\(:\)\(\ \)\), "\<\"The number of \
+constraints (\\!\\(4\\)) (initial conditions) is not equal to the total \
+differential order of the system (\\!\\(2\\)). \\!\\(\\*ButtonBox[\\\"More\
+\[Ellipsis]\\\", ButtonStyle->\\\"RefGuideLinkText\\\", ButtonFrame->None, \
+ButtonData:>\\\"NDSolve::ndnco\\\"]\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    RowBox[{"NDSolve", "[", 
+      RowBox[{
+        RowBox[{"{", 
+          RowBox[{
+            RowBox[{"{", 
+              RowBox[{
+                RowBox[{
+                  SuperscriptBox["t1", "\[Prime]\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+                RowBox[{
+                  RowBox[{"(", 
+                    RowBox[{
+                      RowBox[{
+                      "2", " ", \((\((2\ m1 + m2)\)\ Cos[theta1[t]] - 
+                            m2\ Cos[theta1[t] - 2\ theta2[t]])\), 
+                        " ", \(Sin[theta1[t]]\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["theta", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "-", 
+                      RowBox[{"2", " ", 
+                        RowBox[{"(", 
+                          
+                          RowBox[{\(g\ \((\((2\ m1 + m2)\)\ Sin[theta1[t]] + 
+                                  m2\ Sin[theta1[t] - 2\ theta2[t]])\)\), "+",
+                             
+                            RowBox[{
+                            "L1", " ", \(Cos[theta1[t]]\), 
+                              " ", \((\((2\ m1 + m2)\)\ Sin[theta1[t]] + 
+                                  m2\ Sin[theta1[t] - 2\ theta2[t]])\), " ", 
+                              SuperscriptBox[
+                                RowBox[{
+                                  SuperscriptBox["theta1", "\[Prime]",
+                                    MultilineFunction->None], "[", "t", "]"}],
+                                 "2"]}], "+", 
+                            RowBox[{
+                            "2", " ", "L2", " ", "m2", 
+                              " ", \(Sin[theta1[t] - theta2[t]]\), " ", 
+                              SuperscriptBox[
+                                RowBox[{
+                                  SuperscriptBox["theta2", "\[Prime]",
+                                    MultilineFunction->None], "[", "t", "]"}],
+                                 "2"]}]}], ")"}]}]}], ")"}], 
+                  "/", \((2\ L1\ \((2\ m1 + m2 - 
+                          m2\ Cos[2\ \((theta1[t] - theta2[t])\)])\))\)}]}], 
+              "}"}], ",", 
+            RowBox[{"{", 
+              RowBox[{
+                RowBox[{
+                  SuperscriptBox["t2", "\[Prime]\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+                RowBox[{
+                  RowBox[{"(", 
+                    RowBox[{"2", " ", \(Sin[theta1[t] - theta2[t]]\), " ", 
+                      RowBox[{"(", 
+                        
+                        RowBox[{\(g\ m1\ Cos[theta1[t]]\), 
+                          "+", \(g\ m2\ Cos[theta1[t]]\), "+", 
+                          
+                          RowBox[{\((m1 + m2)\), " ", \(Sin[theta1[t]]\^2\), 
+                            " ", 
+                            SuperscriptBox[
+                              RowBox[{
+                                SuperscriptBox["theta", "\[Prime]",
+                                  MultilineFunction->None], "[", "t", "]"}], 
+                              "2"]}], "+", 
+                          RowBox[{
+                          "L1", " ", \((m1 + m2)\), 
+                            " ", \(Cos[theta1[t]]\^2\), " ", 
+                            SuperscriptBox[
+                              RowBox[{
+                                SuperscriptBox["theta1", "\[Prime]",
+                                  MultilineFunction->None], "[", "t", "]"}], 
+                              "2"]}], "+", 
+                          RowBox[{
+                          "L2", " ", "m2", 
+                            " ", \(Cos[theta1[t] - theta2[t]]\), " ", 
+                            SuperscriptBox[
+                              RowBox[{
+                                SuperscriptBox["theta2", "\[Prime]",
+                                  MultilineFunction->None], "[", "t", "]"}], 
+                              "2"]}]}], ")"}]}], ")"}], 
+                  "/", \((L2\ \((2\ m1 + m2 - 
+                          m2\ Cos[2\ \((theta1[t] - theta2[t])\)])\))\)}]}], 
+              "}"}], ",", \(theta1[0] \[Equal] \[Pi]\/2\), ",", 
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["theta1", "\[Prime]",
+                  MultilineFunction->None], "[", "0", "]"}], "\[Equal]", 
+              "0"}], ",", \(theta2[0] \[Equal] \[Pi]\/2\), ",", 
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["theta2", "\[Prime]",
+                  MultilineFunction->None], "[", "0", "]"}], "\[Equal]", 
+              "0"}]}], "}"}], ",", \({theta1, theta2}\), 
+        ",", \({t, 0, 50}\)}], "]"}]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input"]
+},
+FrontEndVersion->"5.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1280}, {0, 933}},
+WindowSize->{1264, 896},
+WindowMargins->{{Automatic, 2}, {Automatic, 0}},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 236, 3, 56, "Input"],
+Cell[2015, 58, 349, 5, 29, "Message"],
+Cell[2367, 65, 349, 5, 29, "Message"],
+Cell[2719, 72, 349, 5, 29, "Message"],
+Cell[3071, 79, 329, 5, 29, "Message"]
+}, Open  ]],
+Cell[3415, 87, 155, 3, 35, "Input"],
+Cell[3573, 92, 148, 3, 35, "Input"],
+Cell[3724, 97, 181, 4, 35, "Input"],
+Cell[3908, 103, 184, 4, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[4117, 111, 246, 5, 35, "Input"],
+Cell[4366, 118, 3849, 83, 98, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8252, 206, 166, 3, 35, "Input"],
+Cell[8421, 211, 2329, 50, 98, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10787, 266, 179, 5, 56, "Input"],
+Cell[10969, 273, 3848, 82, 140, "Output"]
+}, Open  ]],
+Cell[14832, 358, 87, 1, 35, "Input"],
+Cell[14922, 361, 87, 1, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[15034, 366, 233, 4, 56, "Input"],
+Cell[15270, 372, 371, 5, 29, "Message"],
+Cell[15644, 379, 4820, 97, 298, "Output"]
+}, Open  ]],
+Cell[20479, 479, 26, 0, 35, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

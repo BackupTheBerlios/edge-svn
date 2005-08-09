@@ -1,0 +1,9 @@
+#disable all warnings so that we don't get that warning about #pragma once being obsoleted
+#Couldn't find a way to specify the exact warning I wanted to disable via a command-line option
+#so unfortuantely have to disable all.
+env = Environment(CXXFLAGS = '-w -g')
+source_files = ['Node.cpp', 'Translate.cpp', 'Light.cpp', 'AmbientLight.cpp', 'Mesh.cpp', 
+				'Camera.cpp', 'NodeVisitor.cpp', 'PointLight.cpp', 'Material.cpp', 'RGBColor.cpp',
+				'Rotate.cpp', 'Scale.cpp', 'PreRenderVisitor.cpp', 'DirectionLight.cpp', 'RenderVisitor.cpp',
+				'BoundNode.cpp', 'BoundingBox.cpp']
+env.StaticLibrary('Render', source_files, LIBS=['Math'])

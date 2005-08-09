@@ -1,0 +1,15 @@
+\documentclass[12pt,pdftex,colorlinks]{report}
+\usepackage{epsfig,amssymb,amsmath,amsfonts,url,pslatex}
+\begin{document}
+Given a ray with it's origin at $\mathbf{p_0}$ and a direction $\mathbf{u}$ work
+out the point of intersection with a plane defined by
+$\mathbf{n}\cdot\mathbf{p}-d=0$
+\begin{eqnarray}
+\begin{split}
+	\mathbf{n}\cdot(\mathbf{p_0} + t\mathbf{u}) - d = 0 \\
+	\mathbf{n}\cdot\mathbf{p_0} + t\mathbf{n} \cdot \mathbf{u} - d = 0 \\
+	t\mathbf{n} \cdot \mathbf{u} = d - \mathbf{n} \cdot \mathbf{p_0} \\
+	t = \frac{d - \mathbf{n} \cdot \mathbf{p_0}}{\mathbf{n} \cdot \mathbf{u}}
+\end{split}
+\end{eqnarray}
+\end{document}

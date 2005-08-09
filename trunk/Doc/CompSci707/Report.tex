@@ -1,0 +1,241 @@
+\documentclass{article}
+\begin{document}
+\title{\bfseries A Scene Graph Implementation}
+\date{\today}
+\author{Sashan Govender \\
+Student ID: 3477445 \\
+CompSci707 - Project} 
+\maketitle
+\begin{abstract}
+This project implements a basic scene graph. A scene graph is an data structure
+for organizing the graphical data, like meshes, lights and materials. It allows
+one to separate the details of the rendering from the data that is being rendered.
+The scene graph implemented is a DAG (directed acyclic graph). This means that each node can
+have only 1 parent. Some scene graphs, like the Maya scene graph, allow for more than one parent
+per node.  
+\end{abstract}
+\section{Goals}
+The initial goal was to implement a basic scene graph library capable of
+rendering textures, lighting and displaying meshes. Since there are already many
+implementations, I felt that to make it different it would be good to try and
+emulate the concepts ebodied in the C++ STL. The C++ STL is striking because it
+diverges from traditional object oriented design, where concepts are related by
+an inheritence hierarchy. It is easy to abuse this and force an inheritance
+structure where there should not be one. It is also easy force a hideous number
+of member functions into a class. The STL approach is more like a 'whole-part'
+relation. The whole object is composed of distinct parts. There need not be an
+iheritance structure between the parts and the object as a whole. Another key is
+that data structures and algorithms are seperated. The separation is achieved
+using iterators that decouple the algorithm from the data structure. In order to
+achieve this, where the scene graph is essentially a data structure, with
+algorithms separated, I decided that it should be implemented using the boost
+graph library. Unfortunately this didn't work out as planned and the problem (a
+user interface problem) is described later.
+\section{Features}
+The scene graph has classes that represent the following concepts that are
+common when programming computer graphics applications.
+\begin{itemize}
+	\item Translation
+    \item Rotation
+    \item Scaling
+    \item Texture    
+    \item Material
+    \item Mesh
+    \item Point Light
+    \item Direction Light     
+\end{itemize}
+\section{Architecture}
+\subsection{The Node class}
+All elements that can be members of the scene graph inherit from a base class
+called Node. The Node class implements a container for it's children using
+std::list, as shown:
+\newline
+\verb|std::list<NodePtr> m_Children;|
+\newline
+Building the scene graph is a matter of defining a root node and then attaching
+children to it. For example:
+\begin{verbatim}
+Node::NodePtr g_pRoot(new Node);
+Translate::TranslatePtr pTrans(new Translate);
+Mesh::MeshPtr pMesh(new Mesh);
+pTrans->AddChild(pMesh);
+g_pRoot->AddChild(pTrans);	
+\end{verbatim}
+\subsection{Traversing the scene graph}
+There are two classes used to traverse the scene graph. All traversal is done
+using a depth first search. One is PreRenderVistior and the other is
+RenderVisitor. PreRenderVisitor is meant to be run only once on the scene graph
+during the entire application. It does the initializing work, like loading and
+generating textures. RenderVisitor is run on the graph whenever the display
+needs updating. It's important to note that \textbf{none} of the classes derived from
+Node, like Translate, Rotate, Material etc... contain any information about the
+API doing the rendering. In other words there are no calls OpenGL calls in any
+of those classes. All the knowledge about OpenGL is separated into RenderVisitor
+and PreRenderVisitor. This makes it easy to add another class, say
+DirectGraphicsVisitor, that traverses the graph and renders using
+DirectGraphics, without having to modify the classes derived from Node.
+\subsection{Meshes, Materials and TextureMaps}
+The surface color of a Mesh is defined by the Material or TextureMap nodes that
+parent it. Initially it might make more sense to make Material and TextureMap
+objects member variables of a mesh class. But what happens when the same
+Material or TextureMap is used by several meshes. Then the calls to
+glBindTexture will be repeated per mesh. This is inefficient since the graphics
+card has to constantly shift textures in and out of memory. It would be better
+if all the meshes that used the same texture were drawn while that texture was
+in the cards memory. Making the TextureMap class a parent Node of the Mesh and
+not a member variable allows the system to accomplish this.
+\subsection{Smart Pointers}
+All classes that can be elements of the scene graph have a smart pointer
+implementation using \verb|boost::shared_ptr|. The problems with using raw pointers in
+conjunction with container classes is well known (memory leakage) and using a
+smart pointer implementation avoids the memory leak problem. However it does
+introduce other problems. For example consider dynamic casting. This is easy to
+accomplish with a raw pointer:
+\newline
+\verb|Derived* pD = dynamic_cast<Derived*>(pBase)|
+\newline
+However when using a \verb|shared_ptr| that wraps the raw pointer, using
+\verb|dynamic_cast| isn't going to help. Fortunately the Boost smart pointer
+library provides a casting function \verb|dynamic_pointer_cast| that handles objects 
+of type \verb|shared_ptr<T>|. It is used exactly like an ordinary dynamic cast:
+\newline
+\verb|shared_ptr<Derived> pD = dynamic_pointer_cast<Derived>(pBase)|
+\newline
+\paragraph{}
+Another issue faced was how to deal with the \verb|this| pointer when the object
+that calls the member function is a shared pointer. Often we'd like to convert the this
+pointer into it's corresponding shared pointer. The following case makes the
+problem faced apparent. Consider the case of generating textures. When
+the PreRenderVisitor encounters a TextureMap it generates a texture for it. The
+initial version of the function was like this:
+\begin{verbatim}
+void TextureMap::ApplyVisitor(Edge::NodeVisitor* pVisitor)
+{
+    PreRenderVisitor* pOGLTexGen = dynamic_cast<PreRenderVisitor*>(pVisitor);
+    if (pOGLTexGen)
+    {
+        pOGLTexGen->GenerateTexture(this);
+    }
+    Node::ApplyVisitor(pVisitor);
+}
+\end{verbatim}
+This passes a raw pointer to the member function \verb|GenerateTexture|.
+\begin{verbatim}
+void PreRenderVisitor::GenerateTexture(TextureMap* pTexMap)
+{
+    GLuint ID;	
+    glGenTextures(1, &ID);
+    m_IDToTexture[ID] = pTexMap;
+}
+\end{verbatim}
+\verb|m_IDToTexture| is just map that maps from the ID to the corresponding
+texture. As you can see by doing it like this a raw pointer unreferenced pointer
+is stored. This violates our rule stating that it's bad to place raw pointers in
+container classes. It's especially bad in this case because pTexMap is uncounted
+for by the smart pointer system. The solution is to make the interface
+to \verb|GenerateTexture| require a smart pointer:
+\begin{verbatim}
+void PreRenderVisitor::GenerateTexture(TextureMapPtr pTexMap)
+\end{verbatim}
+Now the problem is how to convert the this pointer into a it's corresponding
+smart pointer. You could force ApplyVisitor to pass the this smart pointer
+explicitly 
+\begin{verbatim}
+void TextureMap::ApplyVisitor(Edge::NodeVisitor* pVisitor, TextureMapPtr pThis)
+{
+    PreRenderVisitor* pOGLTexGen = dynamic_cast<PreRenderVisitor*>(pVisitor);
+    if (pOGLTexGen)
+    {
+        pOGLTexGen->GenerateTexture(pThis);
+    }
+    Node::ApplyVisitor(pVisitor);
+}
+\end{verbatim}
+but this solution is ugly. Fortunately the smart pointer implementation has a class 
+\verb|enable_shared_from_this| that allows a class to generate a smart pointer
+to itself. The \verb|Node| class inherits from \verb|enable_shared_from_this|
+for this reason. 
+\begin{verbatim}
+class Node : public boost::enable_shared_from_this<Node>
+\end{verbatim}
+The final implementation of \verb|ApplyVisitor| is
+\begin{verbatim}
+void TextureMap::ApplyVisitor(Edge::NodeVisitor* pVisitor)
+{
+    PreRenderVisitor* pOGLTexGen = dynamic_cast<PreRenderVisitor*>(pVisitor);
+    if (pOGLTexGen)
+    {
+        TextureMapPtr pThis(dynamic_pointer_cast<TextureMap>(shared_from_this()));
+        pOGLTexGen->GenerateTexture(pThis);
+    }
+    Node::ApplyVisitor(pVisitor);
+}  
+\end{verbatim}
+\section{Problems}
+\subsection{The Boost Graph Library (BGL)}
+To explain the user interface type problem I had with the BGL it's first
+important to discuss the basics of the BGL. The BGL allows one to create a type
+to represent a graph. It is highly flexible and complicated. It allows one to
+choose between a directed or undirected graph, the container classes used to
+hold vertices, the container class used to hold edges and change the properties of the vertices
+and edges. It provides various algorithms for traversing the graph and finding the 
+shortest path between vertices.  
+To construct a graph type:
+\begin{verbatim}
+typedef adjacency_list < vecS, vecS, directedS > graph_t;
+\end{verbatim}
+This means make a graph using std:vector as the edge container and std::list as
+the vertex container. \verb|vecS| is an identifier defined in the BGL headers to
+mean std::vector. You can traverse the graph like this:
+\begin{verbatim}
+graph_t g;
+depth_first_search(g, visitor(OGLVisitor));
+\end{verbatim}
+If the graph type is changed to use std::list as the vertex container class
+\begin{verbatim}
+typedef adjacency_list < vecS, listS, directedS > graph_t;
+\end{verbatim}
+then this doesn't compile
+\begin{verbatim}
+graph_t g;
+depth_first_search(g, visitor(OGLVisitor));
+\end{verbatim}
+The solution is to manually assign indices to the \verb|vertex_index| property
+of the graph like this:
+\begin{verbatim}
+int main()
+{	    
+     typedef adjacency_list < vecS, listS, directedS,
+        property< vertex_index_t, int> > graph_t;
+
+     graph_t g;
+     OpenGLVisitor OGLVisitor;
+     graph_t::vertex_iterator i, e;
+     int id(0);
+     for(tie(i, e) = vertices(g); i != e; ++i, ++id)
+        put(vertex_index, g, *i, id);
+     depth_first_search(g, visitor(OGLVisitor));	    
+    return 0;        
+}    
+\end{verbatim}
+I felt that this was an artificial solution and not very nice behaviour so I
+stopped using the BGL.  
+For more information see the thread at 
+http://article.gmane.org/gmane.comp.lib.boost.devel/26501/
+\section{Sample Applications}
+There are two sample applications. They can be found in the WinApp directory. In
+the texture demo pressing 'm' changes to \verb|GL_MODULATE| and 'r' changes to
+\verb|GL_REPLACE|.
+\section{Documentation}
+Documentaion was generated using doxygen. See the directory \verb|Doc\html|.
+There wasn't enough time to document all the classes thoroughly but you can get
+an overview of the class hierarchy and relationships.
+\section{Conclusion}
+The scene graph can be extended to support bump maps and specular maps. The
+video cards on the university computers don't support these basic features.
+In hindsight I would not have tried to use the BGL given the time constraint.
+Future work could move the Translate, Rotate and Scale nodes into a
+TransformGroup node and the TextureMap and Material nodes can become part of a
+ShaderGroup node.  
+\end{document}
+

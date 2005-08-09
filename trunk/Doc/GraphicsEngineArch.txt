@@ -1,0 +1,50 @@
+Thoughts on the software engineering of graphics programs...
+
+Most programs take data and give it a 'view' using some form of data structure.
+For example:
+map<type1, type2> my_map;
+
+This is useful for lookups:
+b = my_map[a]
+
+But not useful for iterating over. However there may be need to iteration over
+the data values of the map. 
+
+So you define: 
+vector<type2> my_vector;
+
+and populate it with the values of my_map. Now there are 2 views on the same
+data. They define 2 perspectives for looking at the data and the data becomes
+more useful as a result. Similarly we can apply these ideas at a higher level to
+graphics engines. A scene graph presents a view of the data represented as a
+graph. Travelling the graph with a renderer (OpenGL, Direct3D) implies changing
+the state of the renderer as it moves from node to node. A scene graph describes
+state transformations.
+
+Other views of the graphics are less abstract and closer to the way the data
+may be layed out in memory. For example a polygon soup type
+view places all the polygons in the scene in the same contiguous block of
+memory. This perspective of the data has different uses. Consider for example,
+if you wanted to translate every polygon by a distance, d but your engine
+was scene graph based. Then translating the points would mean traversing the
+graph and changing the mesh nodes vertex data, or changing a parents translate
+data to simulate the change. However with a perspective of the data as being a
+flat array of vertices, the translation of all of them is in practice simpler.
+For these reasons writing a graphics engine should not constrain the user to
+using one view of the data only. It should provide a variety of views on the
+same data. Doing so will enhance clarity and efficiency.
+
+These ideas have analogies in maths when people talk about basis transforms. 
+For example a Fourier transform provides another view on the same data. Changing
+coordinate systems provides another view of a point in space. Lagrangian methods
+provide an alternative view of Newtonian mechanics. These differing perspectives
+of the same data have a context dependent usefulness rating. There's no reason
+why a graphics engine cannot offer these views and not constrain one to using
+say a scene graph based approach only.
+
+Naturally these ideas can be applied to any form of library. In my experience I 
+haven't seen many implementations that explicitly offer these features to the programmer.
+Some libraries may have them implicitly, but in these cases there is no concious recognition 
+of the existance of different perspectives. No languages I am aware of offer these as a
+fundamental construct.
+

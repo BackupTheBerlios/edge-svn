@@ -1,0 +1,51 @@
+
+\documentclass{article}
+
+\begin{document}
+Equations of motion for a single particle mass connected by two springs. The springs connect the mass to 
+two fixed points. We know the following.
+\begin{itemize}
+\item $k_{0}$ = the spring constant of spring 0.
+\item $k_{1}$ = the spring constant of spring 1.
+\item $m$ = the mass of the particle.
+\end{itemize}
+We have to find an equation for:
+\begin{itemize}
+\item $x(t)$ = the displacement of the particle from it's resting position.
+\end{itemize}
+Let $F_{0}$ be the force on the particle due to spring 0.
+\begin{equation}
+	F_{0} = -k_{0}x
+\end{equation}
+Let $F_{1}$ be the force on the particle due to spring 1.
+\begin{equation}
+	F_{1} = -k_{1}x
+\end{equation}
+Then the total force on the particle is
+\begin{equation}
+	F = F_{0} + F_{1}
+\end{equation}
+and using Newton's law $F = ma$
+\[F = (-k_{0} - k_{1})x = m\ddot{x}	\]
+\[\ddot{x} + \frac{(k_{0} + k_{1})}{m}x = 0\]
+Letting $K = \frac{(k_{0} + k_{1})}{m}$
+\begin{equation}
+	\ddot{x} + Kx = 0
+\end{equation}
+This is a standard 2nd order ODE that we can solve by letting $x = e^{rt}$.
+Then $\ddot{x} = r^{2}e^{rt} = r^{2}x$ Therefore:
+\[
+	r^{2}x + Kx = 0
+\]
+and solving for r gives:
+\[r = \pm\sqrt{-K} = \pm i \sqrt{K}\]
+Therefore a general solution is:
+\begin{equation}
+	x(t) = Ae^{i\sqrt{K}t} + Be^{-i\sqrt{K}t}	
+\end{equation}
+and by using $e^{i\theta} = cos(\theta) + isin(\theta)$ can also be written as
+\begin{equation}
+	x(t) = Ccos(\sqrt{K}t) + Dsin(\sqrt{K}t)
+\end{equation}
+\end{document}
+

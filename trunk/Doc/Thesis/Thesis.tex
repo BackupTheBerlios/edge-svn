@@ -1,0 +1,45 @@
+\documentclass[12pt,pdftex,colorlinks]{book}
+\usepackage{epsfig,amssymb,amsmath,amsfonts,url,pslatex}
+\usepackage{listings}
+%hyperef must be the last package included
+\usepackage{graphicx}
+%\usepackage[pdftex,colorlinks]{hyperref}
+\usepackage{hyperref}
+\hypersetup{citecolor=blue,urlcolor=blue}
+\hypersetup{colorlinks=false}
+\newcommand{\identifier}[1]{\textbf{\textsf{#1}}}
+\linespread{1.3}
+\begin{document}
+\frontmatter
+\lstset{basicstyle=\small}
+\title{A Physically Based Animation Engine Applied to a Hexapod Model}
+\date{9th July 2004}
+\author{Sashan Kesniel Govender\\
+The University of Auckland, \\
+New Zealand.\\
+\\
+A thesis submitted in partial fulfilment \\
+of the requirements for the degree of\\
+Master of Science in Computer Science\\
+The University of Auckland\\
+} 
+\maketitle
+\newpage
+\tableofcontents
+\listoffigures
+\newpage
+\include{Abstract}
+\include{Acknowledgements}
+\mainmatter
+\include{Introduction}
+\include{ConstrainedSystems}
+\include{SystemArchitecture}
+\include{InsectDesign}
+\include{Conclusion}
+\appendix
+\include{DESolvers}
+\include{SomeProofs}
+\bibliographystyle{plain}
+\bibliography{bibfile}
+\end{document}
+

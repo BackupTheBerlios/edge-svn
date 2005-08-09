@@ -1,0 +1,94 @@
+\chapter{A Simple Proof}
+\label{Cha:SimpleProof}
+Show that the following is true. Assume that $\mathbf{u}$, $\mathbf{v}$ and $\mathbf{a}$ are
+vectors of dimension 3.
+\begin{equation}
+    \label{ApdxB:Proof1}
+    \frac{d}{d\mathbf{a}}\left[\mathbf{u}\cdot\mathbf{v}\right] =
+    \mathbf{u}^T\frac{d\mathbf{v}}{d\mathbf{a}} + \mathbf{v}^T\frac{d\mathbf{u}}{d\mathbf{a}}
+\end{equation}
+\begin{eqnarray*}    
+    \frac{d}{d\mathbf{a}}\left[\mathbf{u}\cdot\mathbf{v}\right]
+    &=& \frac{d}{d\mathbf{a}}\left[v_1 u_1 + v_2 u_2 + v_3 u_3\right]\\ 
+    &=& \displaystyle\frac{d[v_1 u_1]}{d\mathbf{a}} + \displaystyle\frac{d[v_2 u_2]}{d\mathbf{a}} + \displaystyle\frac{d[v_3 u_3]}{d\mathbf{a}}\\
+    &=& \begin{bmatrix}
+      \displaystyle\frac{d[v_1 u_1]}{da_1} \: \displaystyle\frac{d[v_1 u_1]}{da_2} \: \displaystyle\frac{d[v_1 u_1]}{da_3}
+      \end{bmatrix}
+      +
+      \begin{bmatrix}
+      \displaystyle\frac{d[v_2 u_2]}{da_1} \: \displaystyle\frac{d[v_2 u_2]}{da_2} \: \displaystyle\frac{d[v_2 u_2]}{da_3}
+      \end{bmatrix}
+      +
+      \begin{bmatrix}
+      \displaystyle\frac{d[v_3 u_3]}{da_1} \: \frac{d[v_3 u_3]}{da_2} \: \frac{d[v_3 u_3]}{da_3}
+      \end{bmatrix}\\
+    &=&      
+      \begin{bmatrix}
+      \displaystyle v_1\frac{du_1}{da_1} \: v_1\frac{du_1}{da_2} \: v_1\frac{du_1}{da_3}
+      \end{bmatrix}
+      +
+      \begin{bmatrix}
+      \displaystyle u_1\frac{dv_1}{da_1} \: u_1\frac{dv_1}{da_2} \: u_1\frac{dv_1}{da_3}
+      \end{bmatrix}
+      +
+      \begin{bmatrix}
+      \displaystyle v_2\frac{du_2}{da_1} \: v_2\frac{du_2}{da_2} \: v_2\frac{du_2}{da_3}
+      \end{bmatrix}\\
+    &+&
+      \begin{bmatrix}
+      \displaystyle u_2\frac{dv_2}{da_1} \: u_2\frac{dv_2}{da_2} \: u_2\frac{dv_2}{da_3}
+      \end{bmatrix}
+      +
+      \begin{bmatrix}
+      \displaystyle v_3\frac{du_3}{da_1} \: v_3\frac{du_3}{da_2} \: v_3\frac{du_3}{da_3}
+      \end{bmatrix}
+      +
+      \begin{bmatrix}
+      \displaystyle u_3\frac{dv_3}{da_1} \: u_3\frac{dv_3}{da_2} \: u_3\frac{dv_3}{da_3}
+      \end{bmatrix}
+      \\
+    &=& \begin{bmatrix}
+      \displaystyle \mathbf{v}\cdot\frac{d\mathbf{u}}{da_1} \: \mathbf{v}\cdot\frac{d\mathbf{u}}{da_2} \: \mathbf{v}\cdot\frac{d\mathbf{u}}{da_3}
+      \end{bmatrix}
+      +
+      \begin{bmatrix}
+      \displaystyle \mathbf{u}\cdot\frac{d\mathbf{v}}{da_1} \: \mathbf{u}\cdot\frac{d\mathbf{v}}{da_2} \: \mathbf{u}\cdot\frac{d\mathbf{v}}{da_3}
+      \end{bmatrix}\\
+    &=&  
+      \begin{bmatrix}
+      \displaystyle \mathbf{v}^T\frac{d\mathbf{u}}{da_1} \: \mathbf{v}^T\frac{d\mathbf{u}}{da_2} \: \mathbf{v}^T\frac{d\mathbf{u}}{da_3}
+      \end{bmatrix}
+      +
+      \begin{bmatrix}
+      \displaystyle \mathbf{u}^T\frac{d\mathbf{v}}{da_1} \: \mathbf{u}^T\frac{d\mathbf{v}}{da_2} \: \mathbf{u}^T\frac{d\mathbf{v}}{da_3}
+      \end{bmatrix}\\
+    &=& 
+      \begin{bmatrix}
+      \displaystyle
+      v_1 \: v_2 \: v_3
+      \end{bmatrix}
+      \begin{bmatrix}
+      \displaystyle
+      \frac{du_1}{da_1} \frac{du_1}{da_2} \frac{du_1}{da_3}\\
+      \displaystyle
+      \frac{du_2}{da_1} \frac{du_2}{da_2} \frac{du_2}{da_3}\\
+      \displaystyle
+      \frac{du_3}{da_1} \frac{du_3}{da_2} \frac{du_3}{da_3}\\
+      \end{bmatrix} 
+     +
+      \begin{bmatrix}
+      \displaystyle
+      u_1 \: u_2 \: u_3
+      \end{bmatrix}
+      \begin{bmatrix}
+      \displaystyle
+      \frac{dv_1}{da_1} \frac{dv_1}{da_2} \frac{dv_1}{da_3}\\
+      \displaystyle
+      \frac{dv_2}{da_1} \frac{dv_2}{da_2} \frac{dv_2}{da_3}\\
+      \displaystyle
+      \frac{dv_3}{da_1} \frac{dv_3}{da_2} \frac{dv_3}{da_3}\\
+      \end{bmatrix} \\
+    &=& 
+        \mathbf{u}^T\frac{d\mathbf{v}}{d\mathbf{a}} + \mathbf{v}^T\frac{d\mathbf{u}}{d\mathbf{a}}
+\end{eqnarray*}
+

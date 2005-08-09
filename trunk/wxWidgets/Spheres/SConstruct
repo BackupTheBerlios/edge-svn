@@ -1,0 +1,11 @@
+import os
+import sys
+
+flags = os.popen("wx-config --cxxflags")
+flags = flags.read()
+flags = flags.rstrip('\n')
+flags += " -w -g"
+
+env = Environment(CXXFLAGS=flags)
+env.Program('Spheres.cpp', LIBS=['pthread', 'wx_gtk2-2.4', 'wx_gtk2_gl-2.4',
+            'GL', 'GLU', 'Render', 'Math'], LIBPATH=["../../Math", "../../Render"])

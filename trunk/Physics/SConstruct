@@ -1,0 +1,6 @@
+env = Environment(CXXFLAGS = '-w')
+source_files = ['Particle.cpp', 'Constraint.cpp', 'FixedVector.cpp',
+				'FixedAngle.cpp', 'FixedDist.cpp', 'FixedPlane.cpp',
+				'FixedPosition.cpp', 'ConstraintSystem.cpp', 'Chain.cpp',
+				'IdealGasSystem.cpp', 'MassSpringSystem.cpp', 'PartConstRB.cpp', 'Spring.cpp']
+env.StaticLibrary('Physics', source_files)

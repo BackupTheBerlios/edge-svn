@@ -1,0 +1,6 @@
+SConscript(['Math/SConstruct',
+            'Physics/SConstruct',
+            'Render/SConstruct',
+            'wxWidgets/SConstruct'
+            'Console/SConstruct'])
+

@@ -1,0 +1,24 @@
+\documentclass[12pt,pdftex,colorlinks]{report}
+\usepackage{epsfig,amssymb,amsmath,amsfonts,url,pslatex}
+\begin{document}
+Given a ray with it's origin at $\mathbf{p_0}$ and a direction $\mathbf{u}$ work
+out the point of intersection with a sphere defined by
+$(\mathbf{p} - \mathbf{o})\cdot(\mathbf{p} - \mathbf{o}) = r^2$ where
+$\mathbf{p}$ is a point on the sphere and $\mathbf{o}$ is the center of the
+sphere and $r$ is the radius.
+\begin{eqnarray}
+\begin{split}
+	[(\mathbf{p_0} + t\mathbf{u}) - \mathbf{o}] \cdot [(\mathbf{p_0} + t\mathbf{u}) - \mathbf{o}] = r^2 \\
+	\mathbf{p_0}\cdot\mathbf{p_0} - 2\mathbf{p_0}\cdot\mathbf{o} + \mathbf{o}
+	\cdot \mathbf{o} + 2t\mathbf{p_0} \cdot \mathbf{u} - 2t\mathbf{u} \cdot
+	\mathbf{o} + t^2\mathbf{u}\cdot\mathbf{u} = r^2 \\
+	(\mathbf{p_0} - \mathbf{o}) \cdot (\mathbf{p_0} - \mathbf{o}) - r^2 +
+	2t\mathbf{u} \cdot (\mathbf{p_0} - \mathbf{o}) +
+	t^2\mathbf{u}\cdot\mathbf{u} = 0  
+\end{split}
+\end{eqnarray}
+That's a quadratic equation that we can solve for t using the quadratic formula
+\[
+	t = \frac{-b +- \sqrt{b^2 - 4ac}}{2a}
+\]
+\end{document}

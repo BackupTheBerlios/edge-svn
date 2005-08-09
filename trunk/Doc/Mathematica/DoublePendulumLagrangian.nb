@@ -1,0 +1,1827 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     78164,       1701]*)
+(*NotebookOutlinePosition[     78830,       1724]*)
+(*  CellTagsIndexPosition[     78786,       1720]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \(L1 = \((1/2)\) m1 \((\(x1'\)[t]^2 + \(y1'\)[t]^2)\) - 
+        m1\ g\ y1[t]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(\(-g\)\ m1\ y1[t]\), "+", 
+      RowBox[{\(1\/2\), " ", "m1", " ", 
+        RowBox[{"(", 
+          RowBox[{
+            SuperscriptBox[
+              RowBox[{
+                SuperscriptBox["x1", "\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}], "2"], "+", 
+            SuperscriptBox[
+              RowBox[{
+                SuperscriptBox["y1", "\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+          ")"}]}]}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(L2 = \((1/2)\) m2 \((\(x2'\)[t]^2\  + \ \(y2'\)[t]^2)\) - 
+        m2\ g\ y2[t]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(\(-g\)\ m2\ y2[t]\), "+", 
+      RowBox[{\(1\/2\), " ", "m2", " ", 
+        RowBox[{"(", 
+          RowBox[{
+            SuperscriptBox[
+              RowBox[{
+                SuperscriptBox["x2", "\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}], "2"], "+", 
+            SuperscriptBox[
+              RowBox[{
+                SuperscriptBox["y2", "\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+          ")"}]}]}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(constr1 = x1[t]^2 + y1[t]^2 - r1^2\)], "Input"],
+
+Cell[BoxData[
+    \(\(-r1\^2\) + x1[t]\^2 + y1[t]\^2\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(constr2\  = \ \((x2[t] - x1[t])\)^2\  + \ \((y2[t] - y1[t])\)^2 - 
+        r2^2\)], "Input"],
+
+Cell[BoxData[
+    \(\(-r2\^2\) + \((\(-x1[t]\) + x2[t])\)\^2 + \((\(-y1[t]\) + \
+y2[t])\)\^2\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(eqn1 = 
+      D[L1, x1[t]] - 
+          Dt[D[L1, \(x1'\)[t]], t, Constants \[Rule] {m1, g, r1}] + 
+          lambda1\ D[constr1, x1[t]] \[Equal] 0\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{\(2\ lambda1\ x1[t]\), "-", 
+        RowBox[{"m1", " ", 
+          RowBox[{
+            SuperscriptBox["x1", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}]}]}], "\[Equal]", 
+      "0"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(eqn2 = 
+      D[L1, y1[t]] - 
+          Dt[D[L1, \(y1'\)[t]], t, Constants \[Rule] {m1, g, r1}] + 
+          lambda1\ D[constr1, y1[t]] \[Equal] 0\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{\(\(-g\)\ m1\), "+", \(2\ lambda1\ y1[t]\), "-", 
+        RowBox[{"m1", " ", 
+          RowBox[{
+            SuperscriptBox["y1", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}]}]}], "\[Equal]", 
+      "0"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(eqn3 = 
+      D[L2, x2[t]] - 
+          Dt[D[L2, \(x2'\)[t]], t, Constants \[Rule] {m2, g, r2}] + 
+          lambda2\ D[constr2, x2[t]] \[Equal] 0\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{\(2\ lambda2\ \((\(-x1[t]\) + x2[t])\)\), "-", 
+        RowBox[{"m2", " ", 
+          RowBox[{
+            SuperscriptBox["x2", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}]}]}], "\[Equal]", 
+      "0"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(eqn4 = 
+      D[L2, y2[t]] - 
+          Dt[D[L2, \(y2'\)[t]], t, Constants \[Rule] {m2, g, r2}] + 
+          lambda2\ D[constr2, y2[t]] \[Equal] 0\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{\(\(-g\)\ m2\), "+", \(2\ lambda2\ \((\(-y1[t]\) + y2[t])\)\), 
+        "-", 
+        RowBox[{"m2", " ", 
+          RowBox[{
+            SuperscriptBox["y2", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}]}]}], "\[Equal]", 
+      "0"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(constreqn1 = 
+      Dt[constr1, {t, 2}, Constants \[Rule] {m1, g, r1}] \[Equal] 
+        0\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{
+        RowBox[{"2", " ", 
+          SuperscriptBox[
+            RowBox[{
+              SuperscriptBox["x1", "\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "2"]}], "+", 
+        RowBox[{"2", " ", 
+          SuperscriptBox[
+            RowBox[{
+              SuperscriptBox["y1", "\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "2"]}], "+", 
+        RowBox[{"2", " ", \(x1[t]\), " ", 
+          RowBox[{
+            SuperscriptBox["x1", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}]}], "+", 
+        RowBox[{"2", " ", \(y1[t]\), " ", 
+          RowBox[{
+            SuperscriptBox["y1", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}]}]}], "\[Equal]", 
+      "0"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(constreqn2 = 
+      Dt[constr2, {t, 2}, Constants \[Rule] {m2, g, r2}] \[Equal] 
+        0\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{
+        RowBox[{"2", " ", 
+          SuperscriptBox[
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{"-", 
+                  RowBox[{
+                    SuperscriptBox["x1", "\[Prime]",
+                      MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                RowBox[{
+                  SuperscriptBox["x2", "\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}]}], ")"}], 
+            "2"]}], "+", 
+        RowBox[{"2", " ", 
+          SuperscriptBox[
+            RowBox[{"(", 
+              RowBox[{
+                RowBox[{"-", 
+                  RowBox[{
+                    SuperscriptBox["y1", "\[Prime]",
+                      MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                RowBox[{
+                  SuperscriptBox["y2", "\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}]}], ")"}], 
+            "2"]}], "+", 
+        RowBox[{"2", " ", \((\(-x1[t]\) + x2[t])\), " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{"-", 
+                RowBox[{
+                  SuperscriptBox["x1", "\[Prime]\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}]}], "+", 
+              RowBox[{
+                SuperscriptBox["x2", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}]}], ")"}]}], "+", 
+        RowBox[{"2", " ", \((\(-y1[t]\) + y2[t])\), " ", 
+          RowBox[{"(", 
+            RowBox[{
+              RowBox[{"-", 
+                RowBox[{
+                  SuperscriptBox["y1", "\[Prime]\[Prime]",
+                    MultilineFunction->None], "[", "t", "]"}]}], "+", 
+              RowBox[{
+                SuperscriptBox["y2", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}]}], ")"}]}]}], 
+      "\[Equal]", "0"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(symsol = 
+      Solve[{eqn1, eqn2, eqn3, eqn4, constreqn1, 
+          constreqn2}, {\(x1''\)[t], \(y1''\)[t], \(x2''\)[t], \(y2''\)[t], 
+          lambda1, lambda2}]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{"{", 
+        RowBox[{
+          RowBox[{"lambda1", "\[Rule]", 
+            RowBox[{"-", 
+              FractionBox[
+                RowBox[{\(\(-g\)\ m1\ y1[t]\), "+", 
+                  RowBox[{"m1", " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["x1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{"m1", " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["y1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], 
+                      "2"]}]}], \(2\ \((x1[t]\^2 + y1[t]\^2)\)\)]}]}], ",", 
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["x2", "\[Prime]\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "\[Rule]", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{\((x1[t] - x2[t])\), " ", 
+                  RowBox[{"(", 
+                    
+                    RowBox[{\(g\ x1[t]\^2\ y1[t]\), 
+                      "-", \(g\ x1[t]\ x2[t]\ y1[t]\), "+", \(g\ y1[t]\^3\), 
+                      "-", \(g\ y1[t]\^2\ y2[t]\), "+", 
+                      RowBox[{\(x1[t]\), " ", \(x2[t]\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["x1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{\(y1[t]\), " ", \(y2[t]\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["x1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "-", 
+                      RowBox[{"2", " ", \(x1[t]\^2\), " ", 
+                        RowBox[{
+                          SuperscriptBox["x1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], " ", 
+                        RowBox[{
+                          SuperscriptBox["x2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}]}], "-", 
+                      
+                      RowBox[{"2", " ", \(y1[t]\^2\), " ", 
+                        RowBox[{
+                          SuperscriptBox["x1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], " ", 
+                        RowBox[{
+                          SuperscriptBox["x2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                      
+                      RowBox[{\(x1[t]\^2\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["x2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{\(y1[t]\^2\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["x2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{\(x1[t]\), " ", \(x2[t]\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["y1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{\(y1[t]\), " ", \(y2[t]\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["y1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "-", 
+                      RowBox[{"2", " ", \(x1[t]\^2\), " ", 
+                        RowBox[{
+                          SuperscriptBox["y1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], " ", 
+                        RowBox[{
+                          SuperscriptBox["y2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}]}], "-", 
+                      
+                      RowBox[{"2", " ", \(y1[t]\^2\), " ", 
+                        RowBox[{
+                          SuperscriptBox["y1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], " ", 
+                        RowBox[{
+                          SuperscriptBox["y2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                      
+                      RowBox[{\(x1[t]\^2\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["y2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{\(y1[t]\^2\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["y2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}]}], ")"}]}], ")"}], 
+              "/", \((\((x1[t]\^2 + y1[t]\^2)\)\ \((x1[t]\^2 - 
+                      2\ x1[t]\ x2[t] + x2[t]\^2 + y1[t]\^2 - 
+                      2\ y1[t]\ y2[t] + y2[t]\^2)\))\)}]}], ",", 
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["y2", "\[Prime]\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "\[Rule]", 
+            RowBox[{\(-g\), "-", 
+              RowBox[{\(1\/m2\), 
+                RowBox[{"(", 
+                  RowBox[{"2", " ", \((\(-y1[t]\) + y2[t])\), " ", 
+                    RowBox[{"(", 
+                      RowBox[{
+                        RowBox[{
+                          RowBox[{"(", 
+                            RowBox[{
+                            "2", " ", \(m2\^2\), 
+                              " ", \((\(-x1[t]\) + x2[t])\), " ", 
+                              RowBox[{"(", 
+                                RowBox[{\(\(-g\)\ x1[t]\ y1[t]\), "+", 
+                                  RowBox[{\(x1[t]\), " ", 
+                                    SuperscriptBox[
+                                      RowBox[{
+                                        SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}], "2"]}], "+", 
+                                  RowBox[{\(x1[t]\), " ", 
+                                    SuperscriptBox[
+                                      RowBox[{
+                                        SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}], "2"]}]}], ")"}]}], ")"}], 
+                          "/", \((\((x1[t]\^2 + 
+                                  y1[t]\^2)\)\ \((4\ m2\ \((\(-x1[t]\) + \
+x2[t])\)\^2 + 4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}], "+", 
+                        RowBox[{
+                          RowBox[{"(", 
+                            RowBox[{
+                            "2", " ", \(m2\^2\), 
+                              " ", \((\(-y1[t]\) + y2[t])\), " ", 
+                              RowBox[{"(", 
+                                RowBox[{\(g\ x1[t]\^2\), "+", 
+                                  RowBox[{\(y1[t]\), " ", 
+                                    SuperscriptBox[
+                                      RowBox[{
+                                        SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}], "2"]}], "+", 
+                                  RowBox[{\(y1[t]\), " ", 
+                                    SuperscriptBox[
+                                      RowBox[{
+                                        SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}], "2"]}]}], ")"}]}], ")"}], 
+                          "/", \((\((x1[t]\^2 + 
+                                  y1[t]\^2)\)\ \((4\ m2\ \((\(-x1[t]\) + \
+x2[t])\)\^2 + 4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}], "+", 
+                        RowBox[{
+                          RowBox[{"(", 
+                            
+                            RowBox[{\(\(-2\)\ g\ m2\^2\ \((\(-y1[t]\) + 
+                                    y2[t])\)\), "+", 
+                              RowBox[{\(m2\^2\), " ", 
+                                RowBox[{"(", 
+                                  RowBox[{
+                                    RowBox[{"2", " ", 
+                                      SuperscriptBox[
+                                        RowBox[{"(", 
+                                        RowBox[{
+                                        RowBox[{"-", 
+                                        RowBox[{
+                                        SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], "+", 
+                                        RowBox[{
+                                        SuperscriptBox["x2", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], ")"}], "2"]}], "+", 
+                                    RowBox[{"2", " ", 
+                                      SuperscriptBox[
+                                        RowBox[{"(", 
+                                        RowBox[{
+                                        RowBox[{"-", 
+                                        RowBox[{
+                                        SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], "+", 
+                                        RowBox[{
+                                        SuperscriptBox["y2", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], ")"}], "2"]}]}], ")"}]}]}], 
+                            ")"}], 
+                          "/", \((4\ m2\ \((\(-x1[t]\) + x2[t])\)\^2 + 
+                              4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\)}]}], 
+                      ")"}]}], ")"}]}]}]}], ",", 
+          RowBox[{"lambda2", "\[Rule]", 
+            RowBox[{
+              RowBox[{"-", 
+                RowBox[{
+                  RowBox[{"(", 
+                    RowBox[{
+                    "2", " ", \(m2\^2\), " ", \((\(-x1[t]\) + x2[t])\), " ", 
+                      RowBox[{"(", 
+                        RowBox[{\(\(-g\)\ x1[t]\ y1[t]\), "+", 
+                          RowBox[{\(x1[t]\), " ", 
+                            SuperscriptBox[
+                              RowBox[{
+                                SuperscriptBox["x1", "\[Prime]",
+                                  MultilineFunction->None], "[", "t", "]"}], 
+                              "2"]}], "+", 
+                          RowBox[{\(x1[t]\), " ", 
+                            SuperscriptBox[
+                              RowBox[{
+                                SuperscriptBox["y1", "\[Prime]",
+                                  MultilineFunction->None], "[", "t", "]"}], 
+                              "2"]}]}], ")"}]}], ")"}], 
+                  "/", \((\((x1[t]\^2 + 
+                          y1[t]\^2)\)\ \((4\ m2\ \((\(-x1[t]\) + x2[t])\)\^2 \
++ 4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}]}], "-", 
+              RowBox[{
+                RowBox[{"(", 
+                  RowBox[{
+                  "2", " ", \(m2\^2\), " ", \((\(-y1[t]\) + y2[t])\), " ", 
+                    RowBox[{"(", 
+                      RowBox[{\(g\ x1[t]\^2\), "+", 
+                        RowBox[{\(y1[t]\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["x1", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}], "+", 
+                        RowBox[{\(y1[t]\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["y1", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}]}], ")"}]}], ")"}], 
+                "/", \((\((x1[t]\^2 + 
+                        y1[t]\^2)\)\ \((4\ m2\ \((\(-x1[t]\) + x2[t])\)\^2 + 
+                        4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}], "-", 
+              RowBox[{
+                RowBox[{"(", 
+                  
+                  RowBox[{\(\(-2\)\ g\ m2\^2\ \((\(-y1[t]\) + y2[t])\)\), "+",
+                     
+                    RowBox[{\(m2\^2\), " ", 
+                      RowBox[{"(", 
+                        RowBox[{
+                          RowBox[{"2", " ", 
+                            SuperscriptBox[
+                              RowBox[{"(", 
+                                RowBox[{
+                                  RowBox[{"-", 
+                                    RowBox[{
+                                      SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}]}], "+", 
+                                  RowBox[{
+                                    SuperscriptBox["x2", "\[Prime]",
+                                      MultilineFunction->None], "[", "t", 
+                                    "]"}]}], ")"}], "2"]}], "+", 
+                          RowBox[{"2", " ", 
+                            SuperscriptBox[
+                              RowBox[{"(", 
+                                RowBox[{
+                                  RowBox[{"-", 
+                                    RowBox[{
+                                      SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}]}], "+", 
+                                  RowBox[{
+                                    SuperscriptBox["y2", "\[Prime]",
+                                      MultilineFunction->None], "[", "t", 
+                                    "]"}]}], ")"}], "2"]}]}], ")"}]}]}], 
+                  ")"}], "/", \((4\ m2\ \((\(-x1[t]\) + x2[t])\)\^2 + 
+                    4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\)}]}]}], ",", 
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["x1", "\[Prime]\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "\[Rule]", 
+            RowBox[{"-", 
+              FractionBox[
+                RowBox[{\(\(-g\)\ x1[t]\ y1[t]\), "+", 
+                  RowBox[{\(x1[t]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["x1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{\(x1[t]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["y1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], 
+                      "2"]}]}], \(x1[t]\^2 + y1[t]\^2\)]}]}], ",", 
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["y1", "\[Prime]\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "\[Rule]", 
+            RowBox[{"-", 
+              FractionBox[
+                RowBox[{\(g\ x1[t]\^2\), "+", 
+                  RowBox[{\(y1[t]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["x1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{\(y1[t]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["y1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], 
+                      "2"]}]}], \(x1[t]\^2 + y1[t]\^2\)]}]}]}], "}"}], 
+      "}"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(accEqns = \({x1dotdot \[Equal] \(x1''\)[t], 
+            y1dotdot \[Equal] \(y1''\)[t], x2dotdot \[Equal] \(x2''\)[t], 
+            y2dotdot \[Equal] \(y2''\)[t]} /. 
+          symsol\) /. {x1dotdot \[Rule] \(x1''\)[t], 
+          y1dotdot \[Rule] \(y1''\)[t], x2dotdot \[Rule] \(x2''\)[t], 
+          y2dotdot \[Rule] \(y2''\)[t]}\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(General::"spell1"\), \(\(:\)\(\ \)\), "\<\"Possible spelling \
+error: new symbol name \\\"\\!\\(y1dotdot\\)\\\" is similar to existing \
+symbol \\\"\\!\\(x1dotdot\\)\\\". \\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", \
+ButtonStyle->\\\"RefGuideLinkText\\\", ButtonFrame->None, \
+ButtonData:>\\\"General::spell1\\\"]\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    RowBox[{\(General::"spell1"\), \(\(:\)\(\ \)\), "\<\"Possible spelling \
+error: new symbol name \\\"\\!\\(y2dotdot\\)\\\" is similar to existing \
+symbol \\\"\\!\\(x2dotdot\\)\\\". \\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", \
+ButtonStyle->\\\"RefGuideLinkText\\\", ButtonFrame->None, \
+ButtonData:>\\\"General::spell1\\\"]\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{"{", 
+        RowBox[{
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["x1", "\[Prime]\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+            RowBox[{"-", 
+              FractionBox[
+                RowBox[{\(\(-g\)\ x1[t]\ y1[t]\), "+", 
+                  RowBox[{\(x1[t]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["x1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{\(x1[t]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["y1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], 
+                      "2"]}]}], \(x1[t]\^2 + y1[t]\^2\)]}]}], ",", 
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["y1", "\[Prime]\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+            RowBox[{"-", 
+              FractionBox[
+                RowBox[{\(g\ x1[t]\^2\), "+", 
+                  RowBox[{\(y1[t]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["x1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                  "+", 
+                  RowBox[{\(y1[t]\), " ", 
+                    SuperscriptBox[
+                      RowBox[{
+                        SuperscriptBox["y1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], 
+                      "2"]}]}], \(x1[t]\^2 + y1[t]\^2\)]}]}], ",", 
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["x2", "\[Prime]\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+            RowBox[{
+              RowBox[{"(", 
+                RowBox[{\((x1[t] - x2[t])\), " ", 
+                  RowBox[{"(", 
+                    
+                    RowBox[{\(g\ x1[t]\^2\ y1[t]\), 
+                      "-", \(g\ x1[t]\ x2[t]\ y1[t]\), "+", \(g\ y1[t]\^3\), 
+                      "-", \(g\ y1[t]\^2\ y2[t]\), "+", 
+                      RowBox[{\(x1[t]\), " ", \(x2[t]\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["x1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{\(y1[t]\), " ", \(y2[t]\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["x1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "-", 
+                      RowBox[{"2", " ", \(x1[t]\^2\), " ", 
+                        RowBox[{
+                          SuperscriptBox["x1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], " ", 
+                        RowBox[{
+                          SuperscriptBox["x2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}]}], "-", 
+                      
+                      RowBox[{"2", " ", \(y1[t]\^2\), " ", 
+                        RowBox[{
+                          SuperscriptBox["x1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], " ", 
+                        RowBox[{
+                          SuperscriptBox["x2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                      
+                      RowBox[{\(x1[t]\^2\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["x2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{\(y1[t]\^2\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["x2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{\(x1[t]\), " ", \(x2[t]\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["y1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{\(y1[t]\), " ", \(y2[t]\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["y1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "-", 
+                      RowBox[{"2", " ", \(x1[t]\^2\), " ", 
+                        RowBox[{
+                          SuperscriptBox["y1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], " ", 
+                        RowBox[{
+                          SuperscriptBox["y2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}]}], "-", 
+                      
+                      RowBox[{"2", " ", \(y1[t]\^2\), " ", 
+                        RowBox[{
+                          SuperscriptBox["y1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], " ", 
+                        RowBox[{
+                          SuperscriptBox["y2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                      
+                      RowBox[{\(x1[t]\^2\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["y2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{\(y1[t]\^2\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["y2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}]}], ")"}]}], ")"}], 
+              "/", \((\((x1[t]\^2 + y1[t]\^2)\)\ \((x1[t]\^2 - 
+                      2\ x1[t]\ x2[t] + x2[t]\^2 + y1[t]\^2 - 
+                      2\ y1[t]\ y2[t] + y2[t]\^2)\))\)}]}], ",", 
+          RowBox[{
+            RowBox[{
+              SuperscriptBox["y2", "\[Prime]\[Prime]",
+                MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+            RowBox[{\(-g\), "-", 
+              RowBox[{\(1\/m2\), 
+                RowBox[{"(", 
+                  RowBox[{"2", " ", \((\(-y1[t]\) + y2[t])\), " ", 
+                    RowBox[{"(", 
+                      RowBox[{
+                        RowBox[{
+                          RowBox[{"(", 
+                            RowBox[{
+                            "2", " ", \(m2\^2\), 
+                              " ", \((\(-x1[t]\) + x2[t])\), " ", 
+                              RowBox[{"(", 
+                                RowBox[{\(\(-g\)\ x1[t]\ y1[t]\), "+", 
+                                  RowBox[{\(x1[t]\), " ", 
+                                    SuperscriptBox[
+                                      RowBox[{
+                                        SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}], "2"]}], "+", 
+                                  RowBox[{\(x1[t]\), " ", 
+                                    SuperscriptBox[
+                                      RowBox[{
+                                        SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}], "2"]}]}], ")"}]}], ")"}], 
+                          "/", \((\((x1[t]\^2 + 
+                                  y1[t]\^2)\)\ \((4\ m2\ \((\(-x1[t]\) + \
+x2[t])\)\^2 + 4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}], "+", 
+                        RowBox[{
+                          RowBox[{"(", 
+                            RowBox[{
+                            "2", " ", \(m2\^2\), 
+                              " ", \((\(-y1[t]\) + y2[t])\), " ", 
+                              RowBox[{"(", 
+                                RowBox[{\(g\ x1[t]\^2\), "+", 
+                                  RowBox[{\(y1[t]\), " ", 
+                                    SuperscriptBox[
+                                      RowBox[{
+                                        SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}], "2"]}], "+", 
+                                  RowBox[{\(y1[t]\), " ", 
+                                    SuperscriptBox[
+                                      RowBox[{
+                                        SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}], "2"]}]}], ")"}]}], ")"}], 
+                          "/", \((\((x1[t]\^2 + 
+                                  y1[t]\^2)\)\ \((4\ m2\ \((\(-x1[t]\) + \
+x2[t])\)\^2 + 4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}], "+", 
+                        RowBox[{
+                          RowBox[{"(", 
+                            
+                            RowBox[{\(\(-2\)\ g\ m2\^2\ \((\(-y1[t]\) + 
+                                    y2[t])\)\), "+", 
+                              RowBox[{\(m2\^2\), " ", 
+                                RowBox[{"(", 
+                                  RowBox[{
+                                    RowBox[{"2", " ", 
+                                      SuperscriptBox[
+                                        RowBox[{"(", 
+                                        RowBox[{
+                                        RowBox[{"-", 
+                                        RowBox[{
+                                        SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], "+", 
+                                        RowBox[{
+                                        SuperscriptBox["x2", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], ")"}], "2"]}], "+", 
+                                    RowBox[{"2", " ", 
+                                      SuperscriptBox[
+                                        RowBox[{"(", 
+                                        RowBox[{
+                                        RowBox[{"-", 
+                                        RowBox[{
+                                        SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], "+", 
+                                        RowBox[{
+                                        SuperscriptBox["y2", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], ")"}], "2"]}]}], ")"}]}]}], 
+                            ")"}], 
+                          "/", \((4\ m2\ \((\(-x1[t]\) + x2[t])\)\^2 + 
+                              4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\)}]}], 
+                      ")"}]}], ")"}]}]}]}]}], "}"}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(boundaryCond = {\(x1'\)[0] \[Equal] 0, \(y1'\)[0] \[Equal] 
+          0, \(x2'\)[0] \[Equal] 0, \(y2'\)[0] \[Equal] 0, 
+        x1[0] \[Equal] Cos[Pi/4], y1[0] \[Equal] \(-Sin[Pi/4]\), 
+        x2[0] \[Equal] Cos[Pi/4], y2[0] \[Equal] \(-Sin[Pi/4]\)}\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["x1", "\[Prime]",
+              MultilineFunction->None], "[", "0", "]"}], "\[Equal]", "0"}], 
+        ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["y1", "\[Prime]",
+              MultilineFunction->None], "[", "0", "]"}], "\[Equal]", "0"}], 
+        ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["x2", "\[Prime]",
+              MultilineFunction->None], "[", "0", "]"}], "\[Equal]", "0"}], 
+        ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["y2", "\[Prime]",
+              MultilineFunction->None], "[", "0", "]"}], "\[Equal]", "0"}], 
+        ",", \(x1[0] \[Equal] 1\/\@2\), 
+        ",", \(y1[0] \[Equal] \(-\(1\/\@2\)\)\), 
+        ",", \(x2[0] \[Equal] 1\/\@2\), 
+        ",", \(y2[0] \[Equal] \(-\(1\/\@2\)\)\)}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(diffEqns = Flatten[{accEqns, boundaryCond}]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["x1", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"-", 
+            FractionBox[
+              RowBox[{\(\(-g\)\ x1[t]\ y1[t]\), "+", 
+                RowBox[{\(x1[t]\), " ", 
+                  SuperscriptBox[
+                    RowBox[{
+                      SuperscriptBox["x1", "\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                "+", 
+                RowBox[{\(x1[t]\), " ", 
+                  SuperscriptBox[
+                    RowBox[{
+                      SuperscriptBox["y1", "\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}], 
+                    "2"]}]}], \(x1[t]\^2 + y1[t]\^2\)]}]}], ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["y1", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"-", 
+            FractionBox[
+              RowBox[{\(g\ x1[t]\^2\), "+", 
+                RowBox[{\(y1[t]\), " ", 
+                  SuperscriptBox[
+                    RowBox[{
+                      SuperscriptBox["x1", "\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                "+", 
+                RowBox[{\(y1[t]\), " ", 
+                  SuperscriptBox[
+                    RowBox[{
+                      SuperscriptBox["y1", "\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}], 
+                    "2"]}]}], \(x1[t]\^2 + y1[t]\^2\)]}]}], ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["x2", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{
+            RowBox[{"(", 
+              RowBox[{\((x1[t] - x2[t])\), " ", 
+                RowBox[{"(", 
+                  
+                  RowBox[{\(g\ x1[t]\^2\ y1[t]\), 
+                    "-", \(g\ x1[t]\ x2[t]\ y1[t]\), "+", \(g\ y1[t]\^3\), 
+                    "-", \(g\ y1[t]\^2\ y2[t]\), "+", 
+                    RowBox[{\(x1[t]\), " ", \(x2[t]\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["x1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "+", 
+                    RowBox[{\(y1[t]\), " ", \(y2[t]\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["x1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "-", 
+                    RowBox[{"2", " ", \(x1[t]\^2\), " ", 
+                      RowBox[{
+                        SuperscriptBox["x1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], " ", 
+                      RowBox[{
+                        SuperscriptBox["x2", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}]}], "-", 
+                    RowBox[{"2", " ", \(y1[t]\^2\), " ", 
+                      RowBox[{
+                        SuperscriptBox["x1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], " ", 
+                      RowBox[{
+                        SuperscriptBox["x2", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                    RowBox[{\(x1[t]\^2\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["x2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "+", 
+                    RowBox[{\(y1[t]\^2\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["x2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "+", 
+                    RowBox[{\(x1[t]\), " ", \(x2[t]\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["y1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "+", 
+                    RowBox[{\(y1[t]\), " ", \(y2[t]\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["y1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "-", 
+                    RowBox[{"2", " ", \(x1[t]\^2\), " ", 
+                      RowBox[{
+                        SuperscriptBox["y1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], " ", 
+                      RowBox[{
+                        SuperscriptBox["y2", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}]}], "-", 
+                    RowBox[{"2", " ", \(y1[t]\^2\), " ", 
+                      RowBox[{
+                        SuperscriptBox["y1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], " ", 
+                      RowBox[{
+                        SuperscriptBox["y2", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                    RowBox[{\(x1[t]\^2\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["y2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "+", 
+                    RowBox[{\(y1[t]\^2\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["y2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], 
+                        "2"]}]}], ")"}]}], ")"}], 
+            "/", \((\((x1[t]\^2 + y1[t]\^2)\)\ \((x1[t]\^2 - 
+                    2\ x1[t]\ x2[t] + x2[t]\^2 + y1[t]\^2 - 2\ y1[t]\ y2[t] + 
+                    y2[t]\^2)\))\)}]}], ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["y2", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{\(-g\), "-", 
+            RowBox[{\(1\/m2\), 
+              RowBox[{"(", 
+                RowBox[{"2", " ", \((\(-y1[t]\) + y2[t])\), " ", 
+                  RowBox[{"(", 
+                    RowBox[{
+                      RowBox[{
+                        RowBox[{"(", 
+                          RowBox[{
+                          "2", " ", \(m2\^2\), " ", \((\(-x1[t]\) + x2[t])\), 
+                            " ", 
+                            RowBox[{"(", 
+                              RowBox[{\(\(-g\)\ x1[t]\ y1[t]\), "+", 
+                                RowBox[{\(x1[t]\), " ", 
+                                  SuperscriptBox[
+                                    RowBox[{
+                                      SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}], "2"]}], "+", 
+                                RowBox[{\(x1[t]\), " ", 
+                                  SuperscriptBox[
+                                    RowBox[{
+                                      SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}], "2"]}]}], ")"}]}], ")"}], 
+                        "/", \((\((x1[t]\^2 + 
+                                y1[t]\^2)\)\ \((4\ m2\ \((\(-x1[t]\) + x2[t])\
+\)\^2 + 4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}], "+", 
+                      RowBox[{
+                        RowBox[{"(", 
+                          RowBox[{
+                          "2", " ", \(m2\^2\), " ", \((\(-y1[t]\) + y2[t])\), 
+                            " ", 
+                            RowBox[{"(", 
+                              RowBox[{\(g\ x1[t]\^2\), "+", 
+                                RowBox[{\(y1[t]\), " ", 
+                                  SuperscriptBox[
+                                    RowBox[{
+                                      SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}], "2"]}], "+", 
+                                RowBox[{\(y1[t]\), " ", 
+                                  SuperscriptBox[
+                                    RowBox[{
+                                      SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}], "2"]}]}], ")"}]}], ")"}], 
+                        "/", \((\((x1[t]\^2 + 
+                                y1[t]\^2)\)\ \((4\ m2\ \((\(-x1[t]\) + x2[t])\
+\)\^2 + 4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}], "+", 
+                      RowBox[{
+                        RowBox[{"(", 
+                          
+                          RowBox[{\(\(-2\)\ g\ m2\^2\ \((\(-y1[t]\) + 
+                                  y2[t])\)\), "+", 
+                            RowBox[{\(m2\^2\), " ", 
+                              RowBox[{"(", 
+                                RowBox[{
+                                  RowBox[{"2", " ", 
+                                    SuperscriptBox[
+                                      RowBox[{"(", 
+                                        RowBox[{
+                                        RowBox[{"-", 
+                                        RowBox[{
+                                        SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], "+", 
+                                        RowBox[{
+                                        SuperscriptBox["x2", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], ")"}], "2"]}], "+", 
+                                  RowBox[{"2", " ", 
+                                    SuperscriptBox[
+                                      RowBox[{"(", 
+                                        RowBox[{
+                                        RowBox[{"-", 
+                                        RowBox[{
+                                        SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], "+", 
+                                        RowBox[{
+                                        SuperscriptBox["y2", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], ")"}], "2"]}]}], ")"}]}]}], 
+                          ")"}], 
+                        "/", \((4\ m2\ \((\(-x1[t]\) + x2[t])\)\^2 + 
+                            4\ m2\ \((\(-y1[t]\) + y2[t])\)\^2)\)}]}], 
+                    ")"}]}], ")"}]}]}]}], ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["x1", "\[Prime]",
+              MultilineFunction->None], "[", "0", "]"}], "\[Equal]", "0"}], 
+        ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["y1", "\[Prime]",
+              MultilineFunction->None], "[", "0", "]"}], "\[Equal]", "0"}], 
+        ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["x2", "\[Prime]",
+              MultilineFunction->None], "[", "0", "]"}], "\[Equal]", "0"}], 
+        ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["y2", "\[Prime]",
+              MultilineFunction->None], "[", "0", "]"}], "\[Equal]", "0"}], 
+        ",", \(x1[0] \[Equal] 1\/\@2\), 
+        ",", \(y1[0] \[Equal] \(-\(1\/\@2\)\)\), 
+        ",", \(x2[0] \[Equal] 1\/\@2\), 
+        ",", \(y2[0] \[Equal] \(-\(1\/\@2\)\)\)}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(m1 = 1; g = 9.9; m2 = 1; r1 = 1; r2 = 1;\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(deSol = 
+      NDSolve[diffEqns, {x1[t], y1[t], x2[t], y2[t]}, {t, 0, 10}]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{\(Power::"infy"\), \(\(:\)\(\ \)\), "\<\"Infinite expression \
+\\!\\(1\\/0.`\\) encountered. \\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", \
+ButtonStyle->\\\"RefGuideLinkText\\\", ButtonFrame->None, \
+ButtonData:>\\\"Power::infy\\\"]\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    RowBox[{\(\[Infinity]::"indet"\), \(\(:\)\(\ \)\), "\<\"Indeterminate \
+expression \\!\\(0.`\\\\ ComplexInfinity\\) encountered. \
+\\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", ButtonStyle->\\\"RefGuideLinkText\
+\\\", ButtonFrame->None, ButtonData:>\\\"General::indet\\\"]\\)\"\>"}]], \
+"Message"],
+
+Cell[BoxData[
+    RowBox[{\(Power::"infy"\), \(\(:\)\(\ \)\), "\<\"Infinite expression \
+\\!\\(1\\/0.`\\) encountered. \\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", \
+ButtonStyle->\\\"RefGuideLinkText\\\", ButtonFrame->None, \
+ButtonData:>\\\"Power::infy\\\"]\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    RowBox[{\(\[Infinity]::"indet"\), \(\(:\)\(\ \)\), "\<\"Indeterminate \
+expression \\!\\(0.`\\\\ ComplexInfinity\\) encountered. \
+\\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", ButtonStyle->\\\"RefGuideLinkText\
+\\\", ButtonFrame->None, ButtonData:>\\\"General::indet\\\"]\\)\"\>"}]], \
+"Message"],
+
+Cell[BoxData[
+    RowBox[{\(Power::"infy"\), \(\(:\)\(\ \)\), "\<\"Infinite expression \
+\\!\\(1\\/0.`\\) encountered. \\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", \
+ButtonStyle->\\\"RefGuideLinkText\\\", ButtonFrame->None, \
+ButtonData:>\\\"Power::infy\\\"]\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    RowBox[{\(General::"stop"\), \(\(:\)\(\ \)\), "\<\"Further output of \
+\\!\\(Power :: \\\"infy\\\"\\) will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", ButtonStyle->\\\"RefGuideLinkText\
+\\\", ButtonFrame->None, ButtonData:>\\\"General::stop\\\"]\\)\"\>"}]], \
+"Message"],
+
+Cell[BoxData[
+    RowBox[{\(\[Infinity]::"indet"\), \(\(:\)\(\ \)\), "\<\"Indeterminate \
+expression \\!\\(0.`\\\\ ComplexInfinity\\) encountered. \
+\\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", ButtonStyle->\\\"RefGuideLinkText\
+\\\", ButtonFrame->None, ButtonData:>\\\"General::indet\\\"]\\)\"\>"}]], \
+"Message"],
+
+Cell[BoxData[
+    RowBox[{\(General::"stop"\), \(\(:\)\(\ \)\), "\<\"Further output of \
+\\!\\(\[Infinity] :: \\\"indet\\\"\\) will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", \
+ButtonStyle->\\\"RefGuideLinkText\\\", ButtonFrame->None, \
+ButtonData:>\\\"General::stop\\\"]\\)\"\>"}]], "Message"],
+
+Cell[BoxData[
+    RowBox[{\(NDSolve::"ndnum"\), \(\(:\)\(\ \)\), "\<\"Encountered \
+non-numerical value for a derivative at \\!\\(t\\) == \\!\\(0.`\\). \
+\\!\\(\\*ButtonBox[\\\"More\[Ellipsis]\\\", ButtonStyle->\\\"RefGuideLinkText\
+\\\", ButtonFrame->None, ButtonData:>\\\"NDSolve::ndnum\\\"]\\)\"\>"}]], \
+"Message"],
+
+Cell[BoxData[
+    RowBox[{"NDSolve", "[", 
+      RowBox[{
+        RowBox[{"{", 
+          RowBox[{
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["x1", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+              RowBox[{"-", 
+                RowBox[{
+                  RowBox[{"(", 
+                    RowBox[{\(\(-9.9`\)\ x1[t]\ y1[t]\), "+", 
+                      RowBox[{\(x1[t]\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["x1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}], "+", 
+                      RowBox[{\(x1[t]\), " ", 
+                        SuperscriptBox[
+                          RowBox[{
+                            SuperscriptBox["y1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], 
+                          "2"]}]}], ")"}], 
+                  "/", \((x1[t]\^2 + y1[t]\^2)\)}]}]}], ",", 
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["y1", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+              RowBox[{"-", 
+                FractionBox[
+                  RowBox[{\(9.9`\ x1[t]\^2\), "+", 
+                    RowBox[{\(y1[t]\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["x1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "+", 
+                    RowBox[{\(y1[t]\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["y1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], 
+                        "2"]}]}], \(x1[t]\^2 + y1[t]\^2\)]}]}], ",", 
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["x2", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+              RowBox[{
+                RowBox[{"(", 
+                  RowBox[{\((x1[t] - x2[t])\), " ", 
+                    RowBox[{"(", 
+                      
+                      RowBox[{\(9.9`\ x1[t]\^2\ y1[t]\), 
+                        "-", \(9.9`\ x1[t]\ x2[t]\ y1[t]\), 
+                        "+", \(9.9`\ y1[t]\^3\), 
+                        "-", \(9.9`\ y1[t]\^2\ y2[t]\), "+", 
+                        RowBox[{\(x1[t]\), " ", \(x2[t]\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["x1", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}], "+", 
+                        RowBox[{\(y1[t]\), " ", \(y2[t]\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["x1", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}], "-", 
+                        RowBox[{"2", " ", \(x1[t]\^2\), " ", 
+                          RowBox[{
+                            SuperscriptBox["x1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], " ", 
+                          
+                          RowBox[{
+                            SuperscriptBox["x2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}]}], 
+                        "-", 
+                        RowBox[{"2", " ", \(y1[t]\^2\), " ", 
+                          RowBox[{
+                            SuperscriptBox["x1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], " ", 
+                          
+                          RowBox[{
+                            SuperscriptBox["x2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}]}], 
+                        "+", 
+                        RowBox[{\(x1[t]\^2\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["x2", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}], "+", 
+                        RowBox[{\(y1[t]\^2\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["x2", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}], "+", 
+                        RowBox[{\(x1[t]\), " ", \(x2[t]\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["y1", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}], "+", 
+                        RowBox[{\(y1[t]\), " ", \(y2[t]\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["y1", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}], "-", 
+                        RowBox[{"2", " ", \(x1[t]\^2\), " ", 
+                          RowBox[{
+                            SuperscriptBox["y1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], " ", 
+                          
+                          RowBox[{
+                            SuperscriptBox["y2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}]}], 
+                        "-", 
+                        RowBox[{"2", " ", \(y1[t]\^2\), " ", 
+                          RowBox[{
+                            SuperscriptBox["y1", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}], " ", 
+                          
+                          RowBox[{
+                            SuperscriptBox["y2", "\[Prime]",
+                              MultilineFunction->None], "[", "t", "]"}]}], 
+                        "+", 
+                        RowBox[{\(x1[t]\^2\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["y2", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}], "+", 
+                        RowBox[{\(y1[t]\^2\), " ", 
+                          SuperscriptBox[
+                            RowBox[{
+                              SuperscriptBox["y2", "\[Prime]",
+                                MultilineFunction->None], "[", "t", "]"}], 
+                            "2"]}]}], ")"}]}], ")"}], 
+                "/", \((\((x1[t]\^2 + y1[t]\^2)\)\ \((x1[t]\^2 - 
+                        2\ x1[t]\ x2[t] + x2[t]\^2 + y1[t]\^2 - 
+                        2\ y1[t]\ y2[t] + y2[t]\^2)\))\)}]}], ",", 
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["y2", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+              RowBox[{\(-9.9`\), "-", 
+                RowBox[{"2", " ", \((\(-y1[t]\) + y2[t])\), " ", 
+                  RowBox[{"(", 
+                    RowBox[{
+                      RowBox[{
+                        RowBox[{"(", 
+                          RowBox[{"2", " ", \((\(-x1[t]\) + x2[t])\), " ", 
+                            RowBox[{"(", 
+                              RowBox[{\(\(-9.9`\)\ x1[t]\ y1[t]\), "+", 
+                                RowBox[{\(x1[t]\), " ", 
+                                  SuperscriptBox[
+                                    RowBox[{
+                                      SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}], "2"]}], "+", 
+                                RowBox[{\(x1[t]\), " ", 
+                                  SuperscriptBox[
+                                    RowBox[{
+                                      SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}], "2"]}]}], ")"}]}], ")"}], 
+                        "/", \((\((x1[t]\^2 + 
+                                y1[t]\^2)\)\ \((4\ \((\(-x1[t]\) + \
+x2[t])\)\^2 + 4\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}], "+", 
+                      RowBox[{
+                        RowBox[{"(", 
+                          RowBox[{"2", " ", \((\(-y1[t]\) + y2[t])\), " ", 
+                            RowBox[{"(", 
+                              RowBox[{\(9.9`\ x1[t]\^2\), "+", 
+                                RowBox[{\(y1[t]\), " ", 
+                                  SuperscriptBox[
+                                    RowBox[{
+                                      SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}], "2"]}], "+", 
+                                RowBox[{\(y1[t]\), " ", 
+                                  SuperscriptBox[
+                                    RowBox[{
+                                      SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}], "2"]}]}], ")"}]}], ")"}], 
+                        "/", \((\((x1[t]\^2 + 
+                                y1[t]\^2)\)\ \((4\ \((\(-x1[t]\) + \
+x2[t])\)\^2 + 4\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}], "+", 
+                      RowBox[{
+                        RowBox[{"(", 
+                          
+                          RowBox[{\(\(-19.8`\)\ \((\(-y1[t]\) + y2[t])\)\), 
+                            "+", 
+                            RowBox[{"2", " ", 
+                              SuperscriptBox[
+                                RowBox[{"(", 
+                                  RowBox[{
+                                    RowBox[{"-", 
+                                      RowBox[{
+                                        SuperscriptBox["x1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], "+", 
+                                    RowBox[{
+                                      SuperscriptBox["x2", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}]}], ")"}], "2"]}], "+", 
+                            RowBox[{"2", " ", 
+                              SuperscriptBox[
+                                RowBox[{"(", 
+                                  RowBox[{
+                                    RowBox[{"-", 
+                                      RowBox[{
+                                        SuperscriptBox["y1", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                        "]"}]}], "+", 
+                                    RowBox[{
+                                      SuperscriptBox["y2", "\[Prime]",
+                                        MultilineFunction->None], "[", "t", 
+                                      "]"}]}], ")"}], "2"]}]}], ")"}], 
+                        "/", \((4\ \((\(-x1[t]\) + x2[t])\)\^2 + 
+                            4\ \((\(-y1[t]\) + y2[t])\)\^2)\)}]}], 
+                    ")"}]}]}]}], ",", 
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["x1", "\[Prime]",
+                  MultilineFunction->None], "[", "0", "]"}], "\[Equal]", 
+              "0"}], ",", 
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["y1", "\[Prime]",
+                  MultilineFunction->None], "[", "0", "]"}], "\[Equal]", 
+              "0"}], ",", 
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["x2", "\[Prime]",
+                  MultilineFunction->None], "[", "0", "]"}], "\[Equal]", 
+              "0"}], ",", 
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["y2", "\[Prime]",
+                  MultilineFunction->None], "[", "0", "]"}], "\[Equal]", 
+              "0"}], ",", \(x1[0] \[Equal] 1\/\@2\), 
+            ",", \(y1[0] \[Equal] \(-\(1\/\@2\)\)\), 
+            ",", \(x2[0] \[Equal] 1\/\@2\), 
+            ",", \(y2[0] \[Equal] \(-\(1\/\@2\)\)\)}], "}"}], 
+        ",", \({x1[t], y1[t], x2[t], y2[t]}\), ",", \({t, 0, 10}\)}], 
+      "]"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(accEqns[\([1]\)]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["x1", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"-", 
+            FractionBox[
+              RowBox[{\(\(-9.9`\)\ x1[t]\ y1[t]\), "+", 
+                RowBox[{\(x1[t]\), " ", 
+                  SuperscriptBox[
+                    RowBox[{
+                      SuperscriptBox["x1", "\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                "+", 
+                RowBox[{\(x1[t]\), " ", 
+                  SuperscriptBox[
+                    RowBox[{
+                      SuperscriptBox["y1", "\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}], 
+                    "2"]}]}], \(x1[t]\^2 + y1[t]\^2\)]}]}], ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["y1", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"-", 
+            FractionBox[
+              RowBox[{\(9.9`\ x1[t]\^2\), "+", 
+                RowBox[{\(y1[t]\), " ", 
+                  SuperscriptBox[
+                    RowBox[{
+                      SuperscriptBox["x1", "\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}], "2"]}], 
+                "+", 
+                RowBox[{\(y1[t]\), " ", 
+                  SuperscriptBox[
+                    RowBox[{
+                      SuperscriptBox["y1", "\[Prime]",
+                        MultilineFunction->None], "[", "t", "]"}], 
+                    "2"]}]}], \(x1[t]\^2 + y1[t]\^2\)]}]}], ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["x2", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{
+            RowBox[{"(", 
+              RowBox[{\((x1[t] - x2[t])\), " ", 
+                RowBox[{"(", 
+                  
+                  RowBox[{\(9.9`\ x1[t]\^2\ y1[t]\), 
+                    "-", \(9.9`\ x1[t]\ x2[t]\ y1[t]\), 
+                    "+", \(9.9`\ y1[t]\^3\), "-", \(9.9`\ y1[t]\^2\ y2[t]\), 
+                    "+", 
+                    RowBox[{\(x1[t]\), " ", \(x2[t]\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["x1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "+", 
+                    RowBox[{\(y1[t]\), " ", \(y2[t]\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["x1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "-", 
+                    RowBox[{"2", " ", \(x1[t]\^2\), " ", 
+                      RowBox[{
+                        SuperscriptBox["x1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], " ", 
+                      RowBox[{
+                        SuperscriptBox["x2", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}]}], "-", 
+                    RowBox[{"2", " ", \(y1[t]\^2\), " ", 
+                      RowBox[{
+                        SuperscriptBox["x1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], " ", 
+                      RowBox[{
+                        SuperscriptBox["x2", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                    RowBox[{\(x1[t]\^2\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["x2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "+", 
+                    RowBox[{\(y1[t]\^2\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["x2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "+", 
+                    RowBox[{\(x1[t]\), " ", \(x2[t]\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["y1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "+", 
+                    RowBox[{\(y1[t]\), " ", \(y2[t]\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["y1", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "-", 
+                    RowBox[{"2", " ", \(x1[t]\^2\), " ", 
+                      RowBox[{
+                        SuperscriptBox["y1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], " ", 
+                      RowBox[{
+                        SuperscriptBox["y2", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}]}], "-", 
+                    RowBox[{"2", " ", \(y1[t]\^2\), " ", 
+                      RowBox[{
+                        SuperscriptBox["y1", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}], " ", 
+                      RowBox[{
+                        SuperscriptBox["y2", "\[Prime]",
+                          MultilineFunction->None], "[", "t", "]"}]}], "+", 
+                    RowBox[{\(x1[t]\^2\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["y2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], "2"]}],
+                     "+", 
+                    RowBox[{\(y1[t]\^2\), " ", 
+                      SuperscriptBox[
+                        RowBox[{
+                          SuperscriptBox["y2", "\[Prime]",
+                            MultilineFunction->None], "[", "t", "]"}], 
+                        "2"]}]}], ")"}]}], ")"}], 
+            "/", \((\((x1[t]\^2 + y1[t]\^2)\)\ \((x1[t]\^2 - 
+                    2\ x1[t]\ x2[t] + x2[t]\^2 + y1[t]\^2 - 2\ y1[t]\ y2[t] + 
+                    y2[t]\^2)\))\)}]}], ",", 
+        RowBox[{
+          RowBox[{
+            SuperscriptBox["y2", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{\(-9.9`\), "-", 
+            RowBox[{"2", " ", \((\(-y1[t]\) + y2[t])\), " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{
+                    RowBox[{"(", 
+                      RowBox[{"2", " ", \((\(-x1[t]\) + x2[t])\), " ", 
+                        RowBox[{"(", 
+                          RowBox[{\(\(-9.9`\)\ x1[t]\ y1[t]\), "+", 
+                            RowBox[{\(x1[t]\), " ", 
+                              SuperscriptBox[
+                                RowBox[{
+                                  SuperscriptBox["x1", "\[Prime]",
+                                    MultilineFunction->None], "[", "t", "]"}],
+                                 "2"]}], "+", 
+                            RowBox[{\(x1[t]\), " ", 
+                              SuperscriptBox[
+                                RowBox[{
+                                  SuperscriptBox["y1", "\[Prime]",
+                                    MultilineFunction->None], "[", "t", "]"}],
+                                 "2"]}]}], ")"}]}], ")"}], 
+                    "/", \((\((x1[t]\^2 + 
+                            y1[t]\^2)\)\ \((4\ \((\(-x1[t]\) + x2[t])\)\^2 + 
+                            4\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}], "+", 
+                  RowBox[{
+                    RowBox[{"(", 
+                      RowBox[{"2", " ", \((\(-y1[t]\) + y2[t])\), " ", 
+                        RowBox[{"(", 
+                          RowBox[{\(9.9`\ x1[t]\^2\), "+", 
+                            RowBox[{\(y1[t]\), " ", 
+                              SuperscriptBox[
+                                RowBox[{
+                                  SuperscriptBox["x1", "\[Prime]",
+                                    MultilineFunction->None], "[", "t", "]"}],
+                                 "2"]}], "+", 
+                            RowBox[{\(y1[t]\), " ", 
+                              SuperscriptBox[
+                                RowBox[{
+                                  SuperscriptBox["y1", "\[Prime]",
+                                    MultilineFunction->None], "[", "t", "]"}],
+                                 "2"]}]}], ")"}]}], ")"}], 
+                    "/", \((\((x1[t]\^2 + 
+                            y1[t]\^2)\)\ \((4\ \((\(-x1[t]\) + x2[t])\)\^2 + 
+                            4\ \((\(-y1[t]\) + y2[t])\)\^2)\))\)}], "+", 
+                  RowBox[{
+                    RowBox[{"(", 
+                      RowBox[{\(\(-19.8`\)\ \((\(-y1[t]\) + y2[t])\)\), "+", 
+                        RowBox[{"2", " ", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                RowBox[{"-", 
+                                  RowBox[{
+                                    SuperscriptBox["x1", "\[Prime]",
+                                      MultilineFunction->None], "[", "t", 
+                                    "]"}]}], "+", 
+                                RowBox[{
+                                  SuperscriptBox["x2", "\[Prime]",
+                                    MultilineFunction->None], "[", "t", 
+                                  "]"}]}], ")"}], "2"]}], "+", 
+                        RowBox[{"2", " ", 
+                          SuperscriptBox[
+                            RowBox[{"(", 
+                              RowBox[{
+                                RowBox[{"-", 
+                                  RowBox[{
+                                    SuperscriptBox["y1", "\[Prime]",
+                                      MultilineFunction->None], "[", "t", 
+                                    "]"}]}], "+", 
+                                RowBox[{
+                                  SuperscriptBox["y2", "\[Prime]",
+                                    MultilineFunction->None], "[", "t", 
+                                  "]"}]}], ")"}], "2"]}]}], ")"}], 
+                    "/", \((4\ \((\(-x1[t]\) + x2[t])\)\^2 + 
+                        4\ \((\(-y1[t]\) + y2[t])\)\^2)\)}]}], ")"}]}]}]}]}], 
+      "}"}]], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1280}, {0, 933}},
+WindowSize->{549, 826},
+WindowMargins->{{27, Automatic}, {Automatic, 34}},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 108, 2, 35, "Input"],
+Cell[1887, 57, 511, 13, 49, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2435, 75, 112, 2, 35, "Input"],
+Cell[2550, 79, 511, 13, 49, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3098, 97, 67, 1, 35, "Input"],
+Cell[3168, 100, 66, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3271, 106, 112, 2, 56, "Input"],
+Cell[3386, 110, 106, 2, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3529, 117, 179, 4, 98, "Input"],
+Cell[3711, 123, 267, 7, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4015, 135, 179, 4, 98, "Input"],
+Cell[4197, 141, 288, 7, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4522, 153, 179, 4, 98, "Input"],
+Cell[4704, 159, 286, 7, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5027, 171, 179, 4, 98, "Input"],
+Cell[5209, 177, 316, 8, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5562, 190, 123, 3, 56, "Input"],
+Cell[5688, 195, 822, 21, 56, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6547, 221, 123, 3, 56, "Input"],
+Cell[6673, 226, 1882, 47, 77, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8592, 278, 198, 4, 98, "Input"],
+Cell[8793, 284, 16632, 326, 1043, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[25462, 615, 364, 6, 140, "Input"],
+Cell[25829, 623, 364, 5, 89, "Message"],
+Cell[26196, 630, 364, 5, 89, "Message"],
+Cell[26563, 637, 11782, 228, 755, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[38382, 870, 283, 4, 98, "Input"],
+Cell[38668, 876, 921, 25, 129, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[39626, 906, 76, 1, 35, "Input"],
+Cell[39705, 909, 12104, 246, 1231, "Output"]
+}, Open  ]],
+Cell[51824, 1158, 73, 1, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[51922, 1163, 107, 2, 56, "Input"],
+Cell[52032, 1167, 280, 4, 64, "Message"],
+Cell[52315, 1173, 313, 5, 49, "Message"],
+Cell[52631, 1180, 280, 4, 64, "Message"],
+Cell[52914, 1186, 313, 5, 49, "Message"],
+Cell[53230, 1193, 280, 4, 64, "Message"],
+Cell[53513, 1199, 329, 5, 69, "Message"],
+Cell[53845, 1206, 313, 5, 49, "Message"],
+Cell[54161, 1213, 336, 5, 69, "Message"],
+Cell[54500, 1220, 318, 5, 69, "Message"],
+Cell[54821, 1227, 12756, 251, 1117, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[67614, 1483, 49, 1, 35, "Input"],
+Cell[67666, 1486, 10482, 212, 655, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

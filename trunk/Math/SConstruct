@@ -1,0 +1,5 @@
+source_files = ['ODE.cpp', 'EulerSolver.cpp', 'DEStateSource.cpp', 'RK4Solver.cpp', 'Intersection.cpp',
+				'MatrixSupport.cpp', 'LineSegment.cpp', 'Sphere.cpp', 'Ray.cpp', 'Triangle.cpp', 
+				'ExpDE.cpp']
+StaticLibrary('Math', source_files)
+

@@ -1,0 +1,23 @@
+\chapter{Conclusion}
+The physics system implemented only dealt with the dynamics of constrained and
+unconstrained particles. It could have benefitted from a more generic collision
+detection system as well as support for rotational dynamics and rigid body
+dynamics. The solution to the equation \ref{Eqn:LambdaStable} is found using a
+bi-conjugate gradient solver. The sparse matrix implementation used comes from
+Boost uBLAS
+\footnote{\url{http://www.boost.org/libs/numeric/ublas/doc/index.htm}}. Formula
+for various constraints were derived and implemented. A scene graph was
+implemented and a method for traversing the graph without using runtime
+polymorphism (i.e. virtual functions) to perform operations such as rendering
+was described and implemented.
+
+\section{Future Work}
+The implementation modelled a particle system only. A system that handles
+rotational dynamics with constraints would be nice. A solution for controlling
+the hexapod model using a genetic algorithm or neural network would be nice. A
+better model for friction perhaps using the complicated paper on friction
+proposed by Baraff in \cite{BaraffFriction}. A numerical differential equation
+solver with adaptive step sizes could be used and the benefits in accuracy and
+speed evaluated by comparing with Mathematica's output. The simulation would
+have benefitted from more robust collision detection using a broad phase
+analysis such as bounding volumes. 

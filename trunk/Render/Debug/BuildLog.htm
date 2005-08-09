@@ -1,0 +1,962 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=Windows-1252">
+</head>
+<body>
+<pre>
+<table width=100% bgcolor=#CFCFE5><tr> <td> <font face=arial size=+3>
+Build Log
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>
+<h3>------- Build started: Project: Render, Configuration: Debug|Win32 -------
+</h3>
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Command Lines
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>Creating temporary file "e:\Code\edge-1\Render\Debug\RSP000020.rsp" with contents
+[
+/Od /I "../../boost" /D "WIN32" /D "_DEBUG" /D "_LIB" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /GR /Fo"Debug/" /Fd"Debug/vc70.pdb" /W3 /c /Wp64 /ZI /TP
+".\Translate.cpp"
+".\TextureMap.cpp"
+".\Scale.cpp"
+".\Rotate.cpp"
+".\RGBColor.cpp"
+".\RenderVisitor.cpp"
+".\PreRenderVisitor.cpp"
+".\PointLight.cpp"
+".\NodeVisitor.cpp"
+".\Node.cpp"
+".\Mesh.cpp"
+".\Material.cpp"
+".\Light.cpp"
+".\DirectionLight.cpp"
+".\DiffSystemNode.cpp"
+".\ChangeApplyMode.cpp"
+".\Camera.cpp"
+".\BoundsCalculator.cpp"
+".\BoundNode.cpp"
+".\BoundingVolumes.cpp"
+".\BoundingBox.cpp"
+".\BoneNode.cpp"
+".\AmbientLight.cpp"
+]
+Creating command line "cl.exe @"e:\Code\edge-1\Render\Debug\RSP000020.rsp" /nologo"
+Creating temporary file "e:\Code\edge-1\Render\Debug\RSP000021.rsp" with contents
+[
+/OUT:"Debug/Render.lib" /NOLOGO
+".\Debug\AmbientLight.obj"
+".\Debug\BoneNode.obj"
+".\Debug\BoundingBox.obj"
+".\Debug\BoundingVolumes.obj"
+".\Debug\BoundNode.obj"
+".\Debug\BoundsCalculator.obj"
+".\Debug\Camera.obj"
+".\Debug\ChangeApplyMode.obj"
+".\Debug\DiffSystemNode.obj"
+".\Debug\DirectionLight.obj"
+".\Debug\Light.obj"
+".\Debug\Material.obj"
+".\Debug\Mesh.obj"
+".\Debug\Node.obj"
+".\Debug\NodeVisitor.obj"
+".\Debug\PointLight.obj"
+".\Debug\PreRenderVisitor.obj"
+".\Debug\RenderVisitor.obj"
+".\Debug\RGBColor.obj"
+".\Debug\Rotate.obj"
+".\Debug\Scale.obj"
+".\Debug\TextureMap.obj"
+".\Debug\Translate.obj"
+]
+Creating command line "lib.exe @"e:\Code\edge-1\Render\Debug\RSP000021.rsp""
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Output Window
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>Compiling...
+Translate.cpp
+TextureMap.cpp
+Scale.cpp
+Rotate.cpp
+RGBColor.cpp
+RenderVisitor.cpp
+e:\Code\edge-1\Render\RenderVisitor.cpp(227) : warning C4244: '=' : conversion from 'const double' to 'GLfloat', possible loss of data
+e:\Code\edge-1\Render\RenderVisitor.cpp(228) : warning C4244: '=' : conversion from 'const double' to 'GLfloat', possible loss of data
+e:\Code\edge-1\Render\RenderVisitor.cpp(229) : warning C4244: '=' : conversion from 'const double' to 'GLfloat', possible loss of data
+e:\Code\edge-1\Render\RenderVisitor.cpp(232) : warning C4244: '=' : conversion from 'const boost::numeric::ublas::type_traits<double>::value_type' to 'GLfloat', possible loss of data
+e:\Code\edge-1\Render\RenderVisitor.cpp(233) : warning C4244: '=' : conversion from 'const boost::numeric::ublas::type_traits<double>::value_type' to 'GLfloat', possible loss of data
+e:\Code\edge-1\Render\RenderVisitor.cpp(234) : warning C4244: '=' : conversion from 'const boost::numeric::ublas::type_traits<double>::value_type' to 'GLfloat', possible loss of data
+e:\Code\edge-1\Render\RenderVisitor.cpp(249) : warning C4244: 'argument' : conversion from 'const boost::numeric::ublas::type_traits<double>::value_type' to 'GLfloat', possible loss of data
+e:\Code\edge-1\Render\RenderVisitor.cpp(249) : warning C4244: 'argument' : conversion from 'const boost::numeric::ublas::type_traits<double>::value_type' to 'GLfloat', possible loss of data
+e:\Code\edge-1\Render\RenderVisitor.cpp(249) : warning C4244: 'argument' : conversion from 'const boost::numeric::ublas::type_traits<double>::value_type' to 'GLfloat', possible loss of data
+e:\Code\edge-1\Render\RenderVisitor.cpp(249) : warning C4244: 'argument' : conversion from 'const double' to 'GLfloat', possible loss of data
+PreRenderVisitor.cpp
+PointLight.cpp
+NodeVisitor.cpp
+Node.cpp
+Mesh.cpp
+Material.cpp
+Light.cpp
+DirectionLight.cpp
+DiffSystemNode.cpp
+ChangeApplyMode.cpp
+Camera.cpp
+e:\Code\boost\boost\numeric\ublas\traits.hpp(941) : warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data
+        e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(834) : see reference to class template instantiation 'boost::numeric::ublas::promote_traits<X,Y>' being compiled
+        with
+        [
+            X=boost::numeric::ublas::vector<double>::size_type,
+            Y=boost::numeric::ublas::vector<double>::size_type
+        ]
+        e:\Code\edge-1\Render\Camera.cpp(44) : see reference to class template instantiation 'boost::numeric::ublas::vector_binary<E1,E2,F>' being compiled
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_plus<double,double>
+        ]
+e:\Code\boost\boost\numeric\ublas\traits.hpp(941) : warning C4244: 'argument' : conversion from '__w64 int' to 'const int', possible loss of data
+        e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(835) : see reference to class template instantiation 'boost::numeric::ublas::promote_traits<X,Y>' being compiled
+        with
+        [
+            X=boost::numeric::ublas::vector<double>::difference_type,
+            Y=boost::numeric::ublas::vector<double>::difference_type
+        ]
+e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(863) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_plus<double,double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(862) : while compiling class-template member function 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type boost::numeric::ublas::vector_binary<E1,E2,F>::size(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_plus<double,double>
+        ]
+        e:\Code\edge-1\Render\Camera.cpp(44) : see reference to class template instantiation 'boost::numeric::ublas::vector_binary<E1,E2,F>' being compiled
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_plus<double,double>
+        ]
+e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(3685) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(3684) : while compiling class-template member function 'boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>::size_type boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>::size(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>
+        ]
+        e:\Code\edge-1\Render\Camera.cpp(80) : see reference to class template instantiation 'boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>' being compiled
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>
+        ]
+e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(863) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_plus<double,double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(862) : while compiling class-template member function 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type boost::numeric::ublas::vector_binary<E1,E2,F>::size(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_plus<double,double>
+        ]
+        e:\Code\edge-1\Render\Camera.cpp(86) : see reference to class template instantiation 'boost::numeric::ublas::vector_binary<E1,E2,F>' being compiled
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_plus<double,double>
+        ]
+e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(863) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(862) : while compiling class-template member function 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type boost::numeric::ublas::vector_binary<E1,E2,F>::size(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+        e:\Code\edge-1\Render\Camera.cpp(91) : see reference to class template instantiation 'boost::numeric::ublas::vector_binary<E1,E2,F>' being compiled
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(284) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_plus<double,double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(298) : see reference to function template instantiation 'void boost::numeric::ublas::indexing_vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,V,boost::numeric::ublas::vector_binary<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            V=boost::numeric::ublas::vector<double>,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_plus<double,double>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::scalar_plus<double,double>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(485) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,V,boost::numeric::ublas::vector_binary<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &,boost::numeric::ublas::dense_proxy_tag)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            V=boost::numeric::ublas::vector<double>,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_plus<double,double>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::scalar_plus<double,double>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector.hpp(83) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::vector<T>,boost::numeric::ublas::vector_binary<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            T=double,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_plus<double,double>,
+            V=boost::numeric::ublas::vector<double>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::scalar_plus<double,double>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector.hpp(152) : see reference to function template instantiation 'boost::numeric::ublas::vector<T>::vector<boost::numeric::ublas::vector_binary<E1,E2,F>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_plus<double,double>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::scalar_plus<double,double>>
+        ]
+        e:\Code\edge-1\Render\Camera.cpp(44) : see reference to function template instantiation 'boost::numeric::ublas::vector<T> &boost::numeric::ublas::vector<T>::operator =<boost::numeric::ublas::vector_binary<E1,E2,F>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_plus<double,double>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::scalar_plus<double,double>>
+        ]
+e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(284) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_plus<double,double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(298) : see reference to function template instantiation 'void boost::numeric::ublas::indexing_vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,V,boost::numeric::ublas::vector_binary<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            V=boost::numeric::ublas::vector<double>,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_plus<double,double>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,boost::numeric::ublas::scalar_plus<double,double>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(485) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,V,boost::numeric::ublas::vector_binary<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &,boost::numeric::ublas::dense_proxy_tag)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            V=boost::numeric::ublas::vector<double>,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_plus<double,double>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,boost::numeric::ublas::scalar_plus<double,double>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector.hpp(83) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::vector<T>,boost::numeric::ublas::vector_binary<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            T=double,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_plus<double,double>,
+            V=boost::numeric::ublas::vector<double>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,boost::numeric::ublas::scalar_plus<double,double>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector.hpp(165) : see reference to function template instantiation 'boost::numeric::ublas::vector<T>::vector<boost::numeric::ublas::vector_binary<E1,E2,F>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_plus<double,double>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,boost::numeric::ublas::scalar_plus<double,double>>
+        ]
+        e:\Code\edge-1\Render\Camera.cpp(68) : see reference to function template instantiation 'boost::numeric::ublas::vector<T> &boost::numeric::ublas::vector<T>::operator +=<boost::numeric::ublas::vector_binary_scalar1<E1,E2,F,C1>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E1=const double,
+            E2=boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,
+            F=boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,
+            C1=boost::numeric::ublas::scalar_reference<const double>,
+            E=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>
+        ]
+e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(284) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(298) : see reference to function template instantiation 'void boost::numeric::ublas::indexing_vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,V,boost::numeric::ublas::vector_binary<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            V=boost::numeric::ublas::vector<double>,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(485) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,V,boost::numeric::ublas::vector_binary<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &,boost::numeric::ublas::dense_proxy_tag)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            V=boost::numeric::ublas::vector<double>,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector.hpp(83) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::vector<T>,boost::numeric::ublas::vector_binary<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            T=double,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>,
+            V=boost::numeric::ublas::vector<double>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector.hpp(178) : see reference to function template instantiation 'boost::numeric::ublas::vector<T>::vector<boost::numeric::ublas::vector_binary<E1,E2,F>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>,boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>>
+        ]
+        e:\Code\edge-1\Render\Camera.cpp(73) : see reference to function template instantiation 'boost::numeric::ublas::vector<T> &boost::numeric::ublas::vector<T>::operator -=<boost::numeric::ublas::vector_binary_scalar1<E1,E2,F,C1>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E1=const double,
+            E2=boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,
+            F=boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,
+            C1=boost::numeric::ublas::scalar_reference<const double>,
+            E=boost::numeric::ublas::vector_binary_scalar1<const double,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>,boost::numeric::ublas::scalar_reference<const double>>
+        ]
+e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(284) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(298) : see reference to function template instantiation 'void boost::numeric::ublas::indexing_vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,V,boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            V=boost::numeric::ublas::vector<double>,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>,
+            E=boost::numeric::ublas::matrix_vector_binary1<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(485) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,V,boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &,boost::numeric::ublas::dense_proxy_tag)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            V=boost::numeric::ublas::vector<double>,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>,
+            E=boost::numeric::ublas::matrix_vector_binary1<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector.hpp(83) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::vector<T>,boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            T=double,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>,
+            V=boost::numeric::ublas::vector<double>,
+            E=boost::numeric::ublas::matrix_vector_binary1<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_proxy.hpp(144) : see reference to function template instantiation 'boost::numeric::ublas::vector<T>::vector<boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>,
+            E=boost::numeric::ublas::matrix_vector_binary1<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>>
+        ]
+        e:\Code\edge-1\Render\Camera.cpp(80) : see reference to function template instantiation 'boost::numeric::ublas::matrix_row<M> &boost::numeric::ublas::matrix_row<M>::operator =<boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            M=boost::numeric::ublas::matrix<double>,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>,
+            E=boost::numeric::ublas::matrix_vector_binary1<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>,boost::numeric::ublas::matrix_vector_prod1<double,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>::value_type,boost::numeric::ublas::matrix_row<boost::numeric::ublas::matrix<double>>>::promote_type>>
+        ]
+e:\Code\boost\boost\numeric\ublas\functional.hpp(1395) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(5202) : see reference to function template instantiation 'boost::numeric::ublas::matrix_norm_inf<T>::result_type boost::numeric::ublas::matrix_norm_inf<T>::apply<boost::numeric::ublas::matrix_binary<E1,E2,F>>(const boost::numeric::ublas::matrix_expression<E> &)' being compiled
+        with
+        [
+            T=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>::result_type,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>,
+            E=boost::numeric::ublas::matrix_binary<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(5201) : while compiling class-template member function 'boost::numeric::ublas::matrix_scalar_unary<E,F>::operator`boost::numeric::ublas::matrix_scalar_unary<E,F>::value_type'(void) const'
+        with
+        [
+            E=boost::numeric::ublas::matrix_binary<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>>,
+            F=boost::numeric::ublas::matrix_norm_inf<boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(33) : see reference to class template instantiation 'boost::numeric::ublas::matrix_scalar_unary<E,F>' being compiled
+        with
+        [
+            E=boost::numeric::ublas::matrix_binary<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>>,
+            F=boost::numeric::ublas::matrix_norm_inf<boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(797) : see reference to function template instantiation 'bool boost::numeric::ublas::equals<boost::numeric::ublas::matrix<T>,boost::numeric::ublas::matrix<T>>(const boost::numeric::ublas::matrix_expression<E> &,const boost::numeric::ublas::matrix_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E=boost::numeric::ublas::matrix<double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(1265) : see reference to function template instantiation 'void boost::numeric::ublas::matrix_assign<boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::full,M,boost::numeric::ublas::identity_matrix<T>>(F1,F2,M &,const boost::numeric::ublas::matrix_expression<E> &,boost::numeric::ublas::packed_proxy_tag,boost::numeric::ublas::row_major_tag)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            M=boost::numeric::ublas::matrix<double>,
+            T=double,
+            F1=boost::numeric::ublas::scalar_assign<boost::numeric::ublas::vector<double>::reference,boost::numeric::ublas::zero_vector<double>::value_type>,
+            F2=boost::numeric::ublas::full,
+            E=boost::numeric::ublas::identity_matrix<double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix.hpp(114) : see reference to function template instantiation 'void boost::numeric::ublas::matrix_assign<boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::matrix<T>,boost::numeric::ublas::identity_matrix<T>>(F,M &,const boost::numeric::ublas::matrix_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            T=double,
+            F=boost::numeric::ublas::scalar_assign<boost::numeric::ublas::vector<double>::reference,boost::numeric::ublas::zero_vector<double>::value_type>,
+            M=boost::numeric::ublas::matrix<double>,
+            E=boost::numeric::ublas::identity_matrix<double>
+        ]
+        e:\Code\edge-1\Render\Camera.cpp(13) : see reference to function template instantiation 'boost::numeric::ublas::matrix<T>::matrix<boost::numeric::ublas::identity_matrix<T>>(const boost::numeric::ublas::matrix_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E=boost::numeric::ublas::identity_matrix<double>
+        ]
+e:\Code\boost\boost\numeric\ublas\functional.hpp(1395) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(1991) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(1990) : while compiling class-template member function 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type boost::numeric::ublas::matrix_binary<E1,E2,F>::size1(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(33) : see reference to class template instantiation 'boost::numeric::ublas::matrix_binary<E1,E2,F>' being compiled
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(1995) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(1994) : while compiling class-template member function 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type boost::numeric::ublas::matrix_binary<E1,E2,F>::size2(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+e:\Code\boost\boost\numeric\ublas\functional.hpp(523) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(1792) : see reference to function template instantiation 'boost::numeric::ublas::vector_norm_inf<T>::result_type boost::numeric::ublas::vector_norm_inf<T>::apply<boost::numeric::ublas::vector_binary<E1,E2,F>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>::result_type,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>,
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(1790) : while compiling class-template member function 'boost::numeric::ublas::vector_scalar_unary<E,F>::value_type boost::numeric::ublas::vector_scalar_unary<E,F>::evaluate(boost::numeric::ublas::dense_random_access_iterator_tag) const'
+        with
+        [
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>>,
+            F=boost::numeric::ublas::vector_norm_inf<boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(1869) : see reference to class template instantiation 'boost::numeric::ublas::vector_scalar_unary<E,F>' being compiled
+        with
+        [
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>>,
+            F=boost::numeric::ublas::vector_norm_inf<boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(33) : see reference to function template instantiation 'boost::numeric::ublas::vector_scalar_unary_traits<E,F>::result_type boost::numeric::ublas::norm_inf<boost::numeric::ublas::vector_binary<E1,E2,boost::numeric::ublas::scalar_minus<T1,T2>>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            E=boost::numeric::ublas::vector_binary<boost::numeric::ublas::vector<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>>,
+            F=boost::numeric::ublas::vector_norm_inf<boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>::result_type>,
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            T1=double,
+            T2=boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(400) : see reference to function template instantiation 'bool boost::numeric::ublas::equals<boost::numeric::ublas::vector<T>,boost::numeric::ublas::vector<T>>(const boost::numeric::ublas::vector_expression<E> &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E=boost::numeric::ublas::vector<double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(485) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,V,boost::numeric::ublas::zero_vector<T>>(F,V &,const boost::numeric::ublas::vector_expression<E> &,boost::numeric::ublas::sparse_tag)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            V=boost::numeric::ublas::vector<double>,
+            T=double,
+            F=boost::numeric::ublas::scalar_assign<boost::numeric::ublas::vector<double>::reference,boost::numeric::ublas::zero_vector<double>::value_type>,
+            E=boost::numeric::ublas::zero_vector<double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector.hpp(83) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::vector<T>,boost::numeric::ublas::zero_vector<T>>(F,V &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::vector<double>::reference,
+            T2=boost::numeric::ublas::zero_vector<double>::value_type,
+            T=double,
+            F=boost::numeric::ublas::scalar_assign<boost::numeric::ublas::vector<double>::reference,boost::numeric::ublas::zero_vector<double>::value_type>,
+            V=boost::numeric::ublas::vector<double>,
+            E=boost::numeric::ublas::zero_vector<double>
+        ]
+        e:\Code\edge-1\Render\Camera.cpp(13) : see reference to function template instantiation 'boost::numeric::ublas::vector<T>::vector<boost::numeric::ublas::zero_vector<T>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E=boost::numeric::ublas::zero_vector<double>
+        ]
+e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(863) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_expression.hpp(862) : while compiling class-template member function 'boost::numeric::ublas::vector_binary<E1,E2,F>::size_type boost::numeric::ublas::vector_binary<E1,E2,F>::size(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(33) : see reference to class template instantiation 'boost::numeric::ublas::vector_binary<E1,E2,F>' being compiled
+        with
+        [
+            E1=boost::numeric::ublas::vector<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::scalar_minus<double,boost::numeric::ublas::scalar_multiplies<double,boost::numeric::ublas::matrix<double>::value_type>::result_type>
+        ]
+BoundsCalculator.cpp
+e:\Code\edge-1\Render\BoundsCalculator.cpp(50) : warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+e:\Code\boost\boost\numeric\ublas\traits.hpp(941) : warning C4267: 'argument' : conversion from 'size_t' to 'const unsigned int', possible loss of data
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(3656) : see reference to class template instantiation 'boost::numeric::ublas::promote_traits<X,Y>' being compiled
+        with
+        [
+            X=boost::numeric::ublas::matrix<double>::size_type,
+            Y=boost::numeric::ublas::vector<double>::size_type
+        ]
+        e:\Code\edge-1\Render\BoundsCalculator.cpp(89) : see reference to class template instantiation 'boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>' being compiled
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>
+        ]
+e:\Code\boost\boost\numeric\ublas\traits.hpp(941) : warning C4244: 'argument' : conversion from '__w64 int' to 'const int', possible loss of data
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(3657) : see reference to class template instantiation 'boost::numeric::ublas::promote_traits<X,Y>' being compiled
+        with
+        [
+            X=boost::numeric::ublas::matrix<double>::difference_type,
+            Y=boost::numeric::ublas::vector<double>::difference_type
+        ]
+e:\Code\edge-1\Render\BoundsCalculator.cpp(165) : warning C4101: 'y' : unreferenced local variable
+e:\Code\edge-1\Render\BoundsCalculator.cpp(165) : warning C4101: 'x' : unreferenced local variable
+e:\Code\edge-1\Render\BoundsCalculator.cpp(165) : warning C4101: 'z' : unreferenced local variable
+e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(3685) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(3684) : while compiling class-template member function 'boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>::size_type boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>::size(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>
+        ]
+        e:\Code\edge-1\Render\BoundsCalculator.cpp(89) : see reference to class template instantiation 'boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>' being compiled
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>
+        ]
+e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(4493) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(4492) : while compiling class-template member function 'boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>::size_type boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>::size1(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>
+        ]
+        e:\Code\edge-1\Render\BoundsCalculator.cpp(128) : see reference to class template instantiation 'boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>' being compiled
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>
+        ]
+e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(4497) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(4496) : while compiling class-template member function 'boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>::size_type boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>::size2(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>
+        ]
+e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(284) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(298) : see reference to function template instantiation 'void boost::numeric::ublas::indexing_vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,V,boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::matrix<double>::reference,
+            T2=boost::numeric::ublas::identity_matrix<double>::value_type,
+            V=boost::numeric::ublas::vector<double>,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>,
+            E=boost::numeric::ublas::matrix_vector_binary1<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector_assign.hpp(485) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,V,boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &,boost::numeric::ublas::dense_proxy_tag)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::matrix<double>::reference,
+            T2=boost::numeric::ublas::identity_matrix<double>::value_type,
+            V=boost::numeric::ublas::vector<double>,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>,
+            E=boost::numeric::ublas::matrix_vector_binary1<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector.hpp(83) : see reference to function template instantiation 'void boost::numeric::ublas::vector_assign<boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::vector<T>,boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,V &,const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::matrix<double>::reference,
+            T2=boost::numeric::ublas::identity_matrix<double>::value_type,
+            T=double,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>,
+            V=boost::numeric::ublas::vector<double>,
+            E=boost::numeric::ublas::matrix_vector_binary1<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\vector.hpp(152) : see reference to function template instantiation 'boost::numeric::ublas::vector<T>::vector<boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>,
+            E=boost::numeric::ublas::matrix_vector_binary1<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>>
+        ]
+        e:\Code\edge-1\Render\BoundsCalculator.cpp(89) : see reference to function template instantiation 'boost::numeric::ublas::vector<T> &boost::numeric::ublas::vector<T>::operator =<boost::numeric::ublas::matrix_vector_binary1<E1,E2,F>>(const boost::numeric::ublas::vector_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::vector<double>,
+            F=boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>,
+            E=boost::numeric::ublas::matrix_vector_binary1<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::vector<double>,boost::numeric::ublas::matrix_vector_prod1<double,double,boost::numeric::ublas::matrix_vector_binary1_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::vector<double>>::promote_type>>
+        ]
+e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(616) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(651) : see reference to function template instantiation 'void boost::numeric::ublas::indexing_matrix_assign<boost::numeric::ublas::scalar_assign<T1,T2>,M,boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,M &,const boost::numeric::ublas::matrix_expression<E> &,boost::numeric::ublas::row_major_tag)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::matrix<double>::reference,
+            T2=boost::numeric::ublas::identity_matrix<double>::value_type,
+            M=boost::numeric::ublas::matrix<double>,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>,
+            E=boost::numeric::ublas::matrix_matrix_binary<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(1265) : see reference to function template instantiation 'void boost::numeric::ublas::matrix_assign<boost::numeric::ublas::scalar_assign<T1,T2>,M,boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>,boost::numeric::ublas::row_major_tag>(boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::full,M &,const boost::numeric::ublas::matrix_expression<E> &,boost::numeric::ublas::dense_proxy_tag,C)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::matrix<double>::reference,
+            T2=boost::numeric::ublas::identity_matrix<double>::value_type,
+            M=boost::numeric::ublas::matrix<double>,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>,
+            E=boost::numeric::ublas::matrix_matrix_binary<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>>,
+            C=boost::numeric::ublas::row_major_tag
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix.hpp(114) : see reference to function template instantiation 'void boost::numeric::ublas::matrix_assign<boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::matrix<T>,boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>>(boost::numeric::ublas::scalar_assign<T1,T2>,M &,const boost::numeric::ublas::matrix_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::matrix<double>::reference,
+            T2=boost::numeric::ublas::identity_matrix<double>::value_type,
+            T=double,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>,
+            M=boost::numeric::ublas::matrix<double>,
+            E=boost::numeric::ublas::matrix_matrix_binary<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix.hpp(199) : see reference to function template instantiation 'boost::numeric::ublas::matrix<T>::matrix<boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>>(const boost::numeric::ublas::matrix_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>,
+            E=boost::numeric::ublas::matrix_matrix_binary<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>>
+        ]
+        e:\Code\edge-1\Render\BoundsCalculator.cpp(128) : see reference to function template instantiation 'boost::numeric::ublas::matrix<T> &boost::numeric::ublas::matrix<T>::operator =<boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>>(const boost::numeric::ublas::matrix_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>,
+            E=boost::numeric::ublas::matrix_matrix_binary<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>>
+        ]
+e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(616) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::matrix_matrix_prod<double,double,boost::numeric::ublas::matrix_matrix_binary_traits<double,boost::numeric::ublas::matrix<double>,double,boost::numeric::ublas::matrix<double>>::promote_type>
+        ]
+e:\Code\boost\boost\numeric\ublas\functional.hpp(1395) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(5202) : see reference to function template instantiation 'boost::numeric::ublas::matrix_norm_inf<T>::result_type boost::numeric::ublas::matrix_norm_inf<T>::apply<boost::numeric::ublas::matrix_binary<E1,E2,F>>(const boost::numeric::ublas::matrix_expression<E> &)' being compiled
+        with
+        [
+            T=boost::numeric::ublas::scalar_minus<double,double>::result_type,
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,double>,
+            E=boost::numeric::ublas::matrix_binary<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::scalar_minus<double,double>>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(5201) : while compiling class-template member function 'boost::numeric::ublas::matrix_scalar_unary<E,F>::operator`boost::numeric::ublas::matrix_scalar_unary<E,F>::value_type'(void) const'
+        with
+        [
+            E=boost::numeric::ublas::matrix_binary<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::scalar_minus<double,double>>,
+            F=boost::numeric::ublas::matrix_norm_inf<boost::numeric::ublas::scalar_minus<double,double>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(33) : see reference to class template instantiation 'boost::numeric::ublas::matrix_scalar_unary<E,F>' being compiled
+        with
+        [
+            E=boost::numeric::ublas::matrix_binary<boost::numeric::ublas::matrix<double>,boost::numeric::ublas::matrix<double>,boost::numeric::ublas::scalar_minus<double,double>>,
+            F=boost::numeric::ublas::matrix_norm_inf<boost::numeric::ublas::scalar_minus<double,double>::result_type>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(797) : see reference to function template instantiation 'bool boost::numeric::ublas::equals<boost::numeric::ublas::matrix<T>,boost::numeric::ublas::matrix<T>>(const boost::numeric::ublas::matrix_expression<E> &,const boost::numeric::ublas::matrix_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E=boost::numeric::ublas::matrix<double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(1265) : see reference to function template instantiation 'void boost::numeric::ublas::matrix_assign<boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::full,M,boost::numeric::ublas::identity_matrix<T>>(F1,F2,M &,const boost::numeric::ublas::matrix_expression<E> &,boost::numeric::ublas::packed_proxy_tag,boost::numeric::ublas::row_major_tag)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::matrix<double>::reference,
+            T2=boost::numeric::ublas::identity_matrix<double>::value_type,
+            M=boost::numeric::ublas::matrix<double>,
+            T=double,
+            F1=boost::numeric::ublas::scalar_assign<boost::numeric::ublas::matrix<double>::reference,boost::numeric::ublas::identity_matrix<double>::value_type>,
+            F2=boost::numeric::ublas::full,
+            E=boost::numeric::ublas::identity_matrix<double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix.hpp(114) : see reference to function template instantiation 'void boost::numeric::ublas::matrix_assign<boost::numeric::ublas::scalar_assign<T1,T2>,boost::numeric::ublas::matrix<T>,boost::numeric::ublas::identity_matrix<T>>(F,M &,const boost::numeric::ublas::matrix_expression<E> &)' being compiled
+        with
+        [
+            T1=boost::numeric::ublas::matrix<double>::reference,
+            T2=boost::numeric::ublas::identity_matrix<double>::value_type,
+            T=double,
+            F=boost::numeric::ublas::scalar_assign<boost::numeric::ublas::matrix<double>::reference,boost::numeric::ublas::identity_matrix<double>::value_type>,
+            M=boost::numeric::ublas::matrix<double>,
+            E=boost::numeric::ublas::identity_matrix<double>
+        ]
+        e:\Code\edge-1\Render\BoundsCalculator.cpp(9) : see reference to function template instantiation 'boost::numeric::ublas::matrix<T>::matrix<boost::numeric::ublas::identity_matrix<T>>(const boost::numeric::ublas::matrix_expression<E> &)' being compiled
+        with
+        [
+            T=double,
+            E=boost::numeric::ublas::identity_matrix<double>
+        ]
+e:\Code\boost\boost\numeric\ublas\functional.hpp(1395) : warning C4267: 'argument' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,double>
+        ]
+e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(1991) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(1990) : while compiling class-template member function 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type boost::numeric::ublas::matrix_binary<E1,E2,F>::size1(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_assign.hpp(33) : see reference to class template instantiation 'boost::numeric::ublas::matrix_binary<E1,E2,F>' being compiled
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,double>
+        ]
+e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(1995) : warning C4267: 'return' : conversion from 'size_t' to 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type', possible loss of data
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,double>
+        ]
+        e:\Code\boost\boost\numeric\ublas\matrix_expression.hpp(1994) : while compiling class-template member function 'boost::numeric::ublas::matrix_binary<E1,E2,F>::size_type boost::numeric::ublas::matrix_binary<E1,E2,F>::size2(void) const'
+        with
+        [
+            E1=boost::numeric::ublas::matrix<double>,
+            E2=boost::numeric::ublas::matrix<double>,
+            F=boost::numeric::ublas::scalar_minus<double,double>
+        ]
+BoundNode.cpp
+BoundingVolumes.cpp
+Generating Code...
+Compiling...
+BoundingBox.cpp
+BoneNode.cpp
+AmbientLight.cpp
+Generating Code...
+Creating library...
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Results
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>
+Build log was saved at "file://e:\Code\edge-1\Render\Debug\BuildLog.htm"
+Render - 0 error(s), 42 warning(s)</pre></table><table   width=100% height=20 bgcolor=#CFCFE5><tr><td><font face=arial size=+2>
+</font></table></body></html>

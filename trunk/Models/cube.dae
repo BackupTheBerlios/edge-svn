@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/COLLADASchema" version="1.2.0">
+  <asset>
+    <revision>1.0</revision>
+    <authoring_tool>EQUINOX-3D  Collada exporter v0.8.68</authoring_tool>
+    <modified>2005-07-17T04:45:06Z</modified>
+  </asset>
+  <library type="PROGRAM"/>
+  <library type="LIGHT">
+    <light id="light" name="light">
+      <param name="COLOR" type="float3"> 1  1  1</param>
+    </light>
+  </library>
+  <library type="CONTROLLER"/>
+  <library type="GEOMETRY">
+    <geometry id="box" name="box">
+      <mesh>
+        <source id="box-Pos">
+          <array id="box-Pos-array" type="float" count="24">
+-0.5  0.5  0.5
+ 0.5  0.5  0.5
+-0.5 -0.5  0.5
+ 0.5 -0.5  0.5
+-0.5  0.5 -0.5
+ 0.5  0.5 -0.5
+-0.5 -0.5 -0.5
+ 0.5 -0.5 -0.5</array>
+          <technique profile="COMMON">
+            <accessor source="#box-Pos-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique>
+        </source>
+        <vertices id="box-Vtx">
+          <input semantic="POSITION" source="#box-Pos"/>
+        </vertices>
+        <polygons count="12">
+          <extra type="E3dPolyGroup">
+            <technique profile="EQUINOX-3D">
+              <param name="Selected" type="boolean">FALSE</param>
+              <param name="Visible" type="boolean">TRUE</param>
+              <param name="VectorDrawScale" type="float"> 1</param>
+            </technique>
+          </extra>
+          <input semantic="VERTEX" source="#box-Vtx" idx="0"/>
+          <p>0 3 1</p>
+          <p>0 2 3</p>
+          <p>0 5 4</p>
+          <p>0 1 5</p>
+          <p>6 3 2</p>
+          <p>6 7 3</p>
+          <p>0 6 2</p>
+          <p>0 4 6</p>
+          <p>3 5 1</p>
+          <p>3 7 5</p>
+          <p>5 6 4</p>
+          <p>5 7 6</p>
+        </polygons>
+      </mesh>
+      <extra type="E3dGeometry">
+        <technique profile="EQUINOX-3D">
+          <param name="Selection" type="int">0</param>
+          <param name="Visible" type="boolean">TRUE</param>
+          <param name="CastsShadows" type="boolean">TRUE</param>
+          <param name="ReceivesShadows" type="boolean">TRUE</param>
+        </technique>
+      </extra>
+      <extra type="Box">
+        <technique profile="EQUINOX-3D">
+          <param name="XEdgeLength" type="float"> 1</param>
+          <param name="YEdgeLength" type="float"> 1</param>
+          <param name="ZEdgeLength" type="float"> 1</param>
+          <param name="XSubdivisions" type="int">1</param>
+          <param name="YSubdivisions" type="int">1</param>
+          <param name="ZSubdivisions" type="int">1</param>
+          <param name="CenterAtBottom" type="boolean">FALSE</param>
+          <param name="Triangles" type="boolean">FALSE</param>
+        </technique>
+      </extra>
+    </geometry>
+  </library>
+  <scene name="default">
+    <node name="Box" id="Box">
+      <extra type="E3dNode">
+        <technique profile="EQUINOX-3D">
+          <param name="Selection" type="int">2</param>
+          <param name="Visible" type="boolean">TRUE</param>
+        </technique>
+      </extra>
+      <instance url="#box"/>
+      <translate> 0  0  0</translate>
+      <rotate> 0  0  1  0</rotate>
+      <rotate> 0  1  0  0</rotate>
+      <rotate> 1  0  0  0</rotate>
+      <scale> 1  1  1</scale>
+    </node>
+  </scene>
+</COLLADA>

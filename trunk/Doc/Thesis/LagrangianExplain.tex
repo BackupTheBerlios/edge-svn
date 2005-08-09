@@ -1,0 +1,172 @@
+\chapter{Introduction to Lagrangian Dynamics}
+\textit{Where the Lagrangian comes from, derives the function (a straight line)
+for the path between two points on a plane using variational calculus, discusses
+a simple spring mass system and derives the equations of motion using Lagrangian
+and Newtonian methods.}
+\section{Variational Calculus}
+The calculus of variations is concerned with finding a value for the function,
+y(x), that will minimize or maximize (extremize) another function, F. In a
+sense, variational calculus is a generalization of calculus itself since in
+ordinary calculus one of the problems is to find a value for x that will
+extremize y(x). The explanation that follows is based on \cite{DurrantFraser}.
+\subsection{Path Between Two Points on a Plane}
+\label{sec:PathBetweenTwoPointsOnAPlane}
+Imagine that we have two points on a plane and we want to find the function that
+describes the path that minimizes the distance between them. Naturally the
+shortest path between them is given by a straight line equation, however it will
+be shown how that equation can be derived using techniques from the calculus of
+variations. Let $\Delta s$ = a small displacement along the path. Then, from
+Pythagoras, $\Delta s^2 = \Delta x^2 + \Delta y^2$.
+\begin{eqnarray*}
+	\frac{\Delta s^2}{\Delta x^2} = 1 + \frac{\Delta y^2}{\Delta x^2}\\
+	\frac{\Delta s}{\Delta x} = \sqrt{1 + \frac{\Delta y^2}{\Delta x^2}}
+\end{eqnarray*}
+Taking the limit as $\Delta x$ tends to $0$ we get
+\begin{equation}
+	\frac{ds}{dx} = \sqrt{1 + \dot{y}^2}
+\end{equation}
+If we sum all the infinitesimal changes in the displacement we'll get the
+distance, D, between the points on the plane.
+\begin{equation}
+	\label{f_to_minimize}
+	D = \int_{0}^{D} ds = \int_{x_0}^{x_1} \sqrt{1 + \dot{y}^2} dx
+\end{equation}
+Now our task is to find the function y, that will minimize D. Fortunately it has
+been proved \cite[pg 37 - 39]{Goldstein} that a necessary condition for a function, $y(x)$, to extremize the
+above integral is:
+\begin{equation}
+	\label{Eqn:EulerLagrange}
+	\frac{\partial F}{\partial y} - \frac{d}{dx}\left(\frac{\partial F}{\partial \dot{y}}\right) = 0
+\end{equation}
+where in general $F = F(x,y(x),\dot{y}(x))$
+\ref{Eqn:EulerLagrange} is called the Euler-Lagrange equation.
+In the case above the function to extremize is:
+\begin{equation}
+F = F(\dot{y}) = \sqrt{1 + \dot{y}^2}
+\end{equation}
+and by using \ref{euler_lagrange} an expression for $y(x)$ can be obtained as
+follows:
+\begin{eqnarray*}
+	\frac{\partial F}{\partial y} - \frac{d}{dx}\left(\frac{\partial F}{\partial \dot{y}}\right)
+	&=& 0 - \frac{d}{dx}\left(\frac{1}{2}\left(1+\dot{y}^2\right)^{-\frac{1}{2}}2\dot{y}\right)\\
+	&=& - \frac{d}{dx}\left(\dot{y}\left(1+\dot{y}^2\right)^{-\frac{1}{2}}\right)\\
+	&=& 0
+\end{eqnarray*}
+Integrating with respect to $dx$
+\[C = \dot{y}\left(1+\dot{y}^2\right)^{-\frac{1}{2}}\]
+Squaring
+\[C^2 = \dot{y}^2\left(1+\dot{y}^2\right)^{-1}\]
+Collecting like terms and rearranging
+\[\dot{y}^2 = \frac{C^2}{1-C^2}\]
+\[\dot{y} = \pm\frac{C}{\sqrt{1-C^2}}\]
+Therefore
+\[\int dy = \int \pm\frac{C}{\sqrt{1-C^2}} dx\]
+Which results in the following expression for $y$ where
+$A=\pm\frac{C}{\sqrt{1-C^2}}$
+\begin{equation}
+	y = Ax + B
+\end{equation}
+Which is the equation for a straight line as expected.
+
+\section{Deriving the Equations of Motion}
+\label{sec:DerivingTheEquationsOfMotion}
+\subsection{Newtonian Technique}
+\label{sec:NewtonianTechnique}
+Equations of motion for a single particle mass connected by two springs. The
+springs connect the mass to two fixed points. We know the following.
+\begin{itemize}
+\item $k_{0}$ = the spring constant of spring 0.
+\item $k_{1}$ = the spring constant of spring 1.
+\item $m$ = the mass of the particle.
+\item $x(0) = x_0$ = the position of the particle at the starting time.
+\item $\dot{x}(0) = 0$ = the velocity of the particle at the starting time.
+\end{itemize}
+The last two items are known as the initial conditions of the system since they
+describe the state of the system at a starting time. With the information above
+a solution to the following
+\begin{itemize}
+\item $x(t)$ = the displacement of the particle from its resting position.
+\end{itemize}
+can be derived using Newtonian methods.
+Let $F_{0}$ be the force on the particle due to spring 0.
+\begin{equation}
+	F_{0} = -k_{0}x
+\end{equation}
+Let $F_{1}$ be the force on the particle due to spring 1.
+\begin{equation}
+	F_{1} = -k_{1}x
+\end{equation}
+Then the total force on the particle is
+\begin{equation}
+	F = F_{0} + F_{1}
+\end{equation}
+and using Newton's law $F = ma$
+\[F = (-k_{0} - k_{1})x = m\ddot{x}	\]
+\[\ddot{x} + \frac{(k_{0} + k_{1})}{m}x = 0\]
+Letting $K = \frac{(k_{0} + k_{1})}{m}$
+\begin{equation}
+	\label{eqn_motion}
+	\ddot{x} + Kx = 0
+\end{equation}
+This is a standard 2nd order ODE that we can solve by letting $x = e^{rt}$.
+Then $\ddot{x} = r^{2}e^{rt} = r^{2}x$ Therefore:
+\[
+	r^{2}x + Kx = 0
+\]
+and solving for r gives:
+\[r = \pm\sqrt{-K} = \pm i \sqrt{K}\]
+Therefore a general solution is:
+\[
+	x(t) = Ae^{i\sqrt{K}t} + Be^{-i\sqrt{K}t}	
+\]
+and by using $e^{i\theta} = cos(\theta) + isin(\theta)$ can also be written as
+\[
+	x(t) = Ccos(\sqrt{K}t) + Dsin(\sqrt{K}t)\\	
+\]
+and the derivative is
+\[
+	\dot{x}(t) = -\sqrt{K}Csin(\sqrt{K}t) + \sqrt{K}Dcos(\sqrt{K}t)
+\]
+Then using the initial conditions $x(0)=x_0$ and $\dot{x}(0) = 0$ implies that
+$D=0$ and $C=x_0$ hence
+\begin{equation}
+	x(t) = x_0cos(\sqrt{K}t)
+\end{equation}
+
+\subsection{Lagrangian Technique}
+Consider the same system described above. This time the equation of motion is
+derived using Lagrangian methods. In order to do this using the Lagrangian we
+need to know the kinetic and potential energy of the system in terms of $x(t)$.
+\begin{equation}
+	KE = \frac{1}{2}m\dot{x}^2
+\end{equation}
+\[
+	PE = \frac{1}{2}k_0x^2 + \frac{1}{2}k_1x^2
+\]
+then 
+\begin{eqnarray*}
+L&=&KE - PE\\
+	&=&\frac{1}{2}m\dot{x}^2 - \frac{1}{2}k_0x^2 - \frac{1}{2}k_1x^2
+\end{eqnarray*}
+by applying \ref{euler_lagrange}
+\begin{equation}
+	\frac{\partial L}{\partial x} = -k_0x - k_1x
+\end{equation}
+\begin{equation}
+	\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{x}}\right) = \frac{d}{dt}\left(m\dot{x}\right) = m\ddot{x}
+\end{equation}
+therefore
+\begin{equation}
+	\frac{\partial L}{\partial x} - \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{x}}\right)\\
+	= -k_0x - k_1x - m\ddot{x}\\
+	= \ddot{x} + \frac{(k_{0} + k_{1})}{m}x 
+	= 0
+\end{equation}
+Letting $K = \frac{(k_{0} + k_{1})}{m}$ we get
+\begin{equation}
+	\ddot{x} + Kx = 0
+\end{equation}
+This is the same as \ref{eqn_motion} and can be solved similarly. We have
+derived the equation of motion for the spring mass system using Lagrangian
+techniques.
+

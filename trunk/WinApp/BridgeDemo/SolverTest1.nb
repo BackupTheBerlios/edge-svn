@@ -1,0 +1,261 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5196,        175]*)
+(*NotebookOutlinePosition[      5862,        198]*)
+(*  CellTagsIndexPosition[      5818,        194]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \(dataJacobian = 
+      Import["\<E:\Code\Edge\WinApp\BridgeDemo\Jacobian.txt\>", \ \
+"\<Table\>"]\)], "Input"],
+
+Cell[BoxData[
+    \({{1, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 1, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 1, 0, 
+        0, 0, 0, 0, 0}, {\(-1\), 0, 0, 1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 
+        1, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 1, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 
+        1}, {0, 0, 0, \(-1\), 0, 0, 1, 0, 0}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(dataMassInv\  = \ 
+      Import["\<E:\Code\Edge\WinApp\BridgeDemo\InvMass.txt\>", \ "\<Table\>"]\
+\)], "Input"],
+
+Cell[BoxData[
+    \({{1, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 1, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 1, 0, 
+        0, 0, 0, 0, 0}, {0, 0, 0, 1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 1, 0, 0, 0, 
+        0}, {0, 0, 0, 0, 0, 1, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 1, 0, 0}, {0, 0, 
+        0, 0, 0, 0, 0, 1, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 1}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(dataDJacobian\  = \ 
+      Import["\<E:\Code\Edge\WinApp\BridgeDemo\DJacobian.txt\>", \ \
+"\<Table\>"]\)], "Input"],
+
+Cell[BoxData[
+    \({{0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 
+        0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 
+        0}, {0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 
+        0, 0, 0, 0, 0, 0, 0}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(dataVelocities\  = \ 
+      Import["\<E:\Code\Edge\WinApp\BridgeDemo\Velocities.txt\>", \ \
+"\<Table\>"]\)], "Input"],
+
+Cell[BoxData[
+    \({{0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(dataForces\  = \ 
+      Import["\<E:\Code\Edge\WinApp\BridgeDemo\Forces.txt\>", \ \
+"\<Table\>"]\)], "Input"],
+
+Cell[BoxData[
+    \({{0}, {\(-9.8`\)}, {0}, {0}, {\(-9.8`\)}, {0}, {0}, {\(-9.8`\)}, \
+{0}}\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[{
+    \(\(j\  = \ dataJacobian;\)\), "\[IndentingNewLine]", 
+    \(\(dj = dataDJacobian;\)\)}], "Input"],
+
+Cell[BoxData[
+    \(\(\(minv\  = \ dataMassInv;\)\(\[IndentingNewLine]\)
+    \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(forces\  = \ Flatten[dataForces]\)], "Input"],
+
+Cell[BoxData[
+    \({0, \(-9.8`\), 0, 0, \(-9.8`\), 0, 0, \(-9.8`\), 0}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(vel\  = \ Flatten[dataVelocities]\)], "Input"],
+
+Cell[BoxData[
+    \({0, 0, 0, 0, 0, 0, 0, 0, 0}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(A\  = \ j . minv . Transpose[j]\)], "Input"],
+
+Cell[BoxData[
+    \({{1, 0, 0, \(-1\), 0, 0, 0, 0}, {0, 1, 0, 0, 0, 0, 0, 0}, {0, 0, 1, 0, 
+        0, 0, 0, 0}, {\(-1\), 0, 0, 2, 0, 0, 0, \(-1\)}, {0, 0, 0, 0, 1, 0, 
+        0, 1}, {0, 0, 0, 0, 0, 1, 0, 0}, {0, 0, 0, 0, 0, 0, 1, 0}, {0, 0, 
+        0, \(-1\), 1, 0, 0, 2}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(b\  = \ \(-dj . vel\)\  - \ j . minv . forces\)], "Input"],
+
+Cell[BoxData[
+    \({0.`, 9.8`, 0.`, 0.`, 0.`, 9.8`, 0.`, 0.`}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(LinearSolve[A, b]\)], "Input"],
+
+Cell[BoxData[
+    \({\(-4.2603219075891435`*^-15\), 
+      9.800000000000002`, \(-1.8210259689066513`*^-15\), \
+\(-2.567391625301214`*^-15\), \(-6.641212506411193`*^-15\), 9.8`, 0.`, 
+      2.2632164211283026`*^-15}\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1280}, {0, 933}},
+WindowSize->{493, 740},
+WindowMargins->{{0, Automatic}, {Automatic, -20}},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 129, 3, 98, "Input"],
+Cell[1908, 58, 303, 4, 182, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2248, 67, 131, 3, 98, "Input"],
+Cell[2382, 72, 322, 4, 203, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2741, 81, 135, 3, 98, "Input"],
+Cell[2879, 86, 293, 4, 182, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3209, 95, 137, 3, 98, "Input"],
+Cell[3349, 100, 79, 1, 56, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3465, 106, 129, 3, 98, "Input"],
+Cell[3597, 111, 105, 2, 56, "Output"]
+}, Open  ]],
+Cell[3717, 116, 117, 2, 56, "Input"],
+Cell[3837, 120, 92, 2, 56, "Input"],
+
+Cell[CellGroupData[{
+Cell[3954, 126, 65, 1, 35, "Input"],
+Cell[4022, 129, 85, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4144, 135, 66, 1, 35, "Input"],
+Cell[4213, 138, 61, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4311, 144, 64, 1, 35, "Input"],
+Cell[4378, 147, 289, 4, 182, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4704, 156, 78, 1, 35, "Input"],
+Cell[4785, 159, 76, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4898, 165, 50, 1, 35, "Input"],
+Cell[4951, 168, 229, 4, 77, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

@@ -1,0 +1,318 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5929,        222]*)
+(*NotebookOutlinePosition[      6594,        245]*)
+(*  CellTagsIndexPosition[      6550,        241]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\(q0 = {0, 0, 0};\)\[IndentingNewLine]
+    \(q1\  = \ {0, \(-1\), 0};\)\[IndentingNewLine]
+    \(d = \ \ 1;\)\[IndentingNewLine]
+    q = Flatten[{q0, q1}]; MatrixForm[q]\[IndentingNewLine]
+    \(dq0 = {0, 0, 0};\)\[IndentingNewLine]
+    \(dq1 = {0, 0, 0};\)\[IndentingNewLine]
+    dq = Flatten[{dq0, dq1}]; MatrixForm[dq]\[IndentingNewLine]
+    \(m0\  = \ 1;\)\[IndentingNewLine]
+    \(m1\  = \ 1;\)\[IndentingNewLine]
+    \(f0\  = \ {0, \(-1\), 0};\)\[IndentingNewLine]
+    \(f1 = {0, \(-1\), 0};\)\[IndentingNewLine]
+    F\  = \ Flatten[{f0, f1}]; \ MatrixForm[f]\[IndentingNewLine]
+    \(M\  = \ DiagonalMatrix[{m0, m0, m0, m1, m1, m1}];\)\[IndentingNewLine]
+    \(MInv\  = \ Inverse[M];\)\[IndentingNewLine]
+    \)\)\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {"0"},
+            {"0"},
+            {"0"},
+            {"0"},
+            {\(-1\)},
+            {"0"}
+            }], "\[NoBreak]", ")"}],
+      MatrixForm[ {0, 0, 0, 0, -1, 0}]]], "Output"],
+
+Cell[BoxData[
+    InterpretationBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {"0"},
+            {"0"},
+            {"0"},
+            {"0"},
+            {"0"},
+            {"0"}
+            }], "\[NoBreak]", ")"}],
+      MatrixForm[ {0, 0, 0, 0, 0, 0}]]], "Output"],
+
+Cell[BoxData[
+    TagBox["f",
+      Function[ BoxForm`e$, 
+        MatrixForm[ BoxForm`e$]]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(J = {Flatten[{q0 - 
+              q1, \(-\((q0 - q1)\)\)}], {1, 0, 0, 0, 0, 0}, {0, 1, 0, 0, 0, 
+          0}, {0, 0, 1, 0, 0, 0}}; MatrixForm[J]\)\)\)], "Input"],
+
+Cell[BoxData[
+    TagBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {"0", "1", "0", "0", \(-1\), "0"},
+            {"1", "0", "0", "0", "0", "0"},
+            {"0", "1", "0", "0", "0", "0"},
+            {"0", "0", "1", "0", "0", "0"}
+            }], "\[NoBreak]", ")"}],
+      Function[ BoxForm`e$, 
+        MatrixForm[ BoxForm`e$]]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(dJ = {Flatten[{dq0 - dq1, \(-\((dq0 - dq1)\)\)}], {0, 0, 0, 0, 0, 
+          0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}}; 
+    MatrixForm[dJ]\)], "Input"],
+
+Cell[BoxData[
+    TagBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {"0", "0", "0", "0", "0", "0"},
+            {"0", "0", "0", "0", "0", "0"},
+            {"0", "0", "0", "0", "0", "0"},
+            {"0", "0", "0", "0", "0", "0"}
+            }], "\[NoBreak]", ")"}],
+      Function[ BoxForm`e$, 
+        MatrixForm[ BoxForm`e$]]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(A\  = \((J . MInv)\) . 
+        Transpose[J]\)\)\)], "Input"],
+
+Cell[BoxData[
+    \({{2, 0, 1, 0}, {0, 1, 0, 0}, {1, 0, 1, 0}, {0, 0, 0, 1}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(u = \(-dJ . dq\) - \((J . MInv)\) . F\)], "Input"],
+
+Cell[BoxData[
+    \({0, 0, 1, 0}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(lambda = LinearSolve[A, u]\)], "Input"],
+
+Cell[BoxData[
+    \({\(-1\), 0, 2, 0}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(lambda = 
+      LinearSolve[
+        J . MInv . Transpose[J], \(-dJ . dq\) - J . MInv . F]\)], "Input"],
+
+Cell[BoxData[
+    \({\(-1\), 0, 2, 0}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FHat = Transpose[J] . lambda\)], "Input"],
+
+Cell[BoxData[
+    \({0, 1, 0, 0, 1, 0}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FTotal\  = \ F + FHat\)], "Input"],
+
+Cell[BoxData[
+    \({0, 0, 0, 0, 0, 0}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(M = {{1, 1, 0}, {4, 5, 0}, {7, 8, 9}}\)], "Input"],
+
+Cell[BoxData[
+    \({{1, 1, 0}, {4, 5, 0}, {7, 8, 9}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(u = {0, 1, 2}\)], "Input"],
+
+Cell[BoxData[
+    \({0, 1, 2}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(LinearSolve[M, u]\)], "Input"],
+
+Cell[BoxData[
+    \({\(-1\), 1, 1\/9}\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1280}, {0, 933}},
+WindowSize->{636, 897},
+WindowMargins->{{-8, Automatic}, {2, Automatic}},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 780, 15, 350, "Input"],
+Cell[2559, 70, 284, 10, 138, "Output"],
+Cell[2846, 82, 280, 10, 138, "Output"],
+Cell[3129, 94, 104, 3, 52, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3270, 102, 209, 3, 98, "Input"],
+Cell[3482, 107, 358, 9, 102, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3877, 121, 174, 3, 77, "Input"],
+Cell[4054, 126, 355, 9, 102, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4446, 140, 108, 2, 56, "Input"],
+Cell[4557, 144, 90, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4684, 150, 70, 1, 35, "Input"],
+Cell[4757, 153, 46, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4840, 159, 59, 1, 35, "Input"],
+Cell[4902, 162, 51, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4990, 168, 123, 3, 56, "Input"],
+Cell[5116, 173, 51, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5204, 179, 61, 1, 35, "Input"],
+Cell[5268, 182, 52, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5357, 188, 54, 1, 35, "Input"],
+Cell[5414, 191, 52, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5503, 197, 70, 1, 35, "Input"],
+Cell[5576, 200, 67, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5680, 206, 46, 1, 35, "Input"],
+Cell[5729, 209, 43, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5809, 215, 50, 1, 35, "Input"],
+Cell[5862, 218, 51, 1, 49, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
