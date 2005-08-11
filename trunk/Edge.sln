@@ -15,27 +15,20 @@ Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
 		Release = Release
-		Release_HighOpt = Release_HighOpt
 	EndGlobalSection
 	GlobalSection(ProjectConfiguration) = postSolution
 		{9060305C-5267-477E-B014-1DB9F287434A}.Debug.ActiveCfg = Debug|Win32
 		{9060305C-5267-477E-B014-1DB9F287434A}.Debug.Build.0 = Debug|Win32
 		{9060305C-5267-477E-B014-1DB9F287434A}.Release.ActiveCfg = Release|Win32
 		{9060305C-5267-477E-B014-1DB9F287434A}.Release.Build.0 = Release|Win32
-		{9060305C-5267-477E-B014-1DB9F287434A}.Release_HighOpt.ActiveCfg = Release_HighOpt|Win32
-		{9060305C-5267-477E-B014-1DB9F287434A}.Release_HighOpt.Build.0 = Release_HighOpt|Win32
 		{061238EE-1ED1-479B-BBBA-209FC23E6A95}.Debug.ActiveCfg = Debug|Win32
 		{061238EE-1ED1-479B-BBBA-209FC23E6A95}.Debug.Build.0 = Debug|Win32
 		{061238EE-1ED1-479B-BBBA-209FC23E6A95}.Release.ActiveCfg = Release|Win32
 		{061238EE-1ED1-479B-BBBA-209FC23E6A95}.Release.Build.0 = Release|Win32
-		{061238EE-1ED1-479B-BBBA-209FC23E6A95}.Release_HighOpt.ActiveCfg = Release_HighOpt|Win32
-		{061238EE-1ED1-479B-BBBA-209FC23E6A95}.Release_HighOpt.Build.0 = Release_HighOpt|Win32
 		{8DCE62EA-232F-4B3C-984B-49897A5B5E62}.Debug.ActiveCfg = Debug|Win32
 		{8DCE62EA-232F-4B3C-984B-49897A5B5E62}.Debug.Build.0 = Debug|Win32
 		{8DCE62EA-232F-4B3C-984B-49897A5B5E62}.Release.ActiveCfg = Release|Win32
 		{8DCE62EA-232F-4B3C-984B-49897A5B5E62}.Release.Build.0 = Release|Win32
-		{8DCE62EA-232F-4B3C-984B-49897A5B5E62}.Release_HighOpt.ActiveCfg = Release_HighOpt|Win32
-		{8DCE62EA-232F-4B3C-984B-49897A5B5E62}.Release_HighOpt.Build.0 = Release_HighOpt|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

@@ -4,6 +4,7 @@
 	Version="7.10"
 	Name="Math"
 	ProjectGUID="{8DCE62EA-232F-4B3C-984B-49897A5B5E62}"
+	RootNamespace="Math"
 	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
@@ -19,7 +20,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../boost"
+				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -62,7 +63,7 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="../../boost"
+				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="TRUE"
