@@ -1,10 +1,7 @@
-//#include "StdAfx.h"
 #include "./FixedAngle.hpp"
+#include <boost/numeric/ublas/matrix_proxy.hpp>
 
 using namespace Edge;
-//using MassSpringSystem::TDParticleToForce;
-//using MassSpringSystem::TDPSPTuple;
-//using MassSpringSystem::TDPSPTupleContainer;
 
 FixedAngle::FixedAngle(Edge::ParticlePtr pP0, Edge::ParticlePtr pP1, Edge::ParticlePtr pP2,
 					   int MatrixCol0, int MatrixCol1, int MatrixCol2, 
@@ -41,14 +38,16 @@ void FixedAngle::ResizeConPos()
 
 void FixedAngle::ResizeJacobian(int NumParticles)
 {
-	//m_Jacobian.resize(1, NumParticles*3);	
-	m_Jacobian = bnu::zero_matrix<double>(1, NumParticles*3);	
+//	m_Jacobian = bnu::zero_matrix<double>(1, NumParticles*3);	
+	m_Jacobian.resize(1, NumParticles * 3);
+	m_Jacobian.clear();
 }
 
 void FixedAngle::ResizeDJacobian(int NumParticles)
 {
-//	m_DJacobian.resize(1, NumParticles*3);
-	m_DJacobian = bnu::zero_matrix<double>(1, NumParticles*3);
+//	m_DJacobian = bnu::zero_matrix<double>(1, NumParticles*3);
+	m_DJacobian.resize(1, NumParticles * 3);
+	m_DJacobian.clear();
 }
 
 void FixedAngle::CalculateJacobian()
@@ -59,21 +58,21 @@ void FixedAngle::CalculateJacobian()
 	Pos0 = m_pP0->GetPosition();
 	Pos1 = m_pP1->GetPosition();
 	Pos2 = m_pP2->GetPosition();
-	bnu::matrix_range < bnu::sparse_matrix<double> > mr0(m_Jacobian, 
+	bnu::matrix_range < bnu::matrix<double> > mr0(m_Jacobian, 
 		bnu::range(0, 1), 
 		bnu::range(m_MatrixCol0*3, m_MatrixCol0*3+3));
 	mr0(0,0) = Pos2[0] - Pos1[0];
 	mr0(0,1) = Pos2[1] - Pos1[1];
 	mr0(0,2) = Pos2[2] - Pos1[2];
 
-	bnu::matrix_range < bnu::sparse_matrix<double> > mr1(m_Jacobian, 
+	bnu::matrix_range < bnu::matrix<double> > mr1(m_Jacobian, 
 		bnu::range(0, 1), 
 		bnu::range(m_MatrixCol1*3, m_MatrixCol1*3+3));
 	mr1(0,0) = -(Pos0[0] - Pos1[0]) - (Pos2[0] - Pos1[0]);
 	mr1(0,1) = -(Pos0[1] - Pos1[1]) - (Pos2[1] - Pos1[1]);
 	mr1(0,2) = -(Pos0[2] - Pos1[2]) - (Pos2[2] - Pos1[2]);
 
-	bnu::matrix_range < bnu::sparse_matrix<double> > mr2(m_Jacobian, 
+	bnu::matrix_range < bnu::matrix<double> > mr2(m_Jacobian, 
 		bnu::range(0, 1), 
 		bnu::range(m_MatrixCol2*3, m_MatrixCol2*3+3));
 	mr2(0,0) = Pos0[0] - Pos1[0];
@@ -89,21 +88,21 @@ void FixedAngle::CalculateDJacobian()
 	Vel0 = m_pP0->GetVelocity();
 	Vel1 = m_pP1->GetVelocity();
 	Vel2 = m_pP2->GetVelocity();
-	bnu::matrix_range < bnu::sparse_matrix<double> > mr0(m_DJacobian, 
+	bnu::matrix_range < bnu::matrix<double> > mr0(m_DJacobian, 
 		bnu::range(0, 1), 
 		bnu::range(m_MatrixCol0*3, m_MatrixCol0*3+3));
 	mr0(0,0) = Vel2[0] - Vel1[0];
 	mr0(0,1) = Vel2[1] - Vel1[1];
 	mr0(0,2) = Vel2[2] - Vel1[2];
 
-	bnu::matrix_range < bnu::sparse_matrix<double> > mr1(m_DJacobian, 
+	bnu::matrix_range < bnu::matrix<double> > mr1(m_DJacobian, 
 		bnu::range(0, 1), 
 		bnu::range(m_MatrixCol1*3, m_MatrixCol1*3+3));
 	mr1(0,0) = -(Vel0[0] - Vel1[0]) - (Vel2[0] - Vel1[0]);
 	mr1(0,1) = -(Vel0[1] - Vel1[1]) - (Vel2[1] - Vel1[1]);
 	mr1(0,2) = -(Vel0[2] - Vel1[2]) - (Vel2[2] - Vel1[2]);
 
-	bnu::matrix_range < bnu::sparse_matrix<double> > mr2(m_DJacobian, 
+	bnu::matrix_range < bnu::matrix<double> > mr2(m_DJacobian, 
 		bnu::range(0, 1), 
 		bnu::range(m_MatrixCol2*3, m_MatrixCol2*3+3));
 	mr2(0,0) = Vel0[0] - Vel1[0];

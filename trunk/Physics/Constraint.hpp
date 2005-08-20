@@ -27,7 +27,7 @@ namespace Edge
 		return the matrix.
 		@return A matrix representing the Jacobian of the system
 		*/
-		const bnu::sparse_matrix<double>& GetJacobian() const;
+		const bnu::matrix<double>& GetJacobian() const;
 
 		/**
 		Return the derivative of the Jacobian with respect to time.
@@ -35,7 +35,7 @@ namespace Edge
 		return the matrix.
 		@return A matrix representing the derivative of the Jacobian.
 		*/
-		const bnu::sparse_matrix<double>& GetDJacobian() const;
+		const bnu::matrix<double>& GetDJacobian() const;
 
 		/**
 		Return the constraint position. The legal position of the particle.
@@ -99,8 +99,8 @@ namespace Edge
 		virtual void CalculateConPos()=0;
 
 	protected:		
-		bnu::sparse_matrix<double> m_Jacobian; //dC/dq
-		bnu::sparse_matrix<double> m_DJacobian; //D[dC/dq]/dt
+		bnu::matrix<double> m_Jacobian; //dC/dq
+		bnu::matrix<double> m_DJacobian; //D[dC/dq]/dt
 		bnu::vector<double> m_ConPos;
 		bnu::vector<double> m_ConVel;
 	};

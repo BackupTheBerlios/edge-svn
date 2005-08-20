@@ -13,13 +13,13 @@ Constraint::~Constraint(void)
 {
 }
 
-const bnu::sparse_matrix<double>& Constraint::GetDJacobian() const 
+const bnu::matrix<double>& Constraint::GetDJacobian() const 
 {
 	return m_DJacobian;
 }
 
 
-const bnu::sparse_matrix<double>& Constraint::GetJacobian() const 
+const bnu::matrix<double>& Constraint::GetJacobian() const 
 {
 	return m_Jacobian;
 }

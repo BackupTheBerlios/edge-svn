@@ -1,10 +1,7 @@
-//#include "StdAfx.h"
 #include "./FixedPosition.hpp"
+#include <boost/numeric/ublas/matrix_proxy.hpp>
 
 using namespace Edge;
-//using MassSpringSystem::TDParticleToForce;
-//using MassSpringSystem::TDPSPTuple;
-//using MassSpringSystem::TDPSPTupleContainer;
 
 FixedPosition::FixedPosition(Edge::ParticlePtr pP0, int MatrixCol, 
 							 int NumParticles, double SpringConst) :
@@ -35,13 +32,17 @@ void FixedPosition::ResizeConVel()
 void FixedPosition::ResizeJacobian(int NumParticles)
 {
 	//m_Jacobian.resize(1, NumParticles*3);	
-	m_Jacobian = bnu::zero_matrix<double>(3, NumParticles*3);	
+	//m_Jacobian = bnu::zero_matrix<double>(3, NumParticles*3);	
+	m_Jacobian.resize(3, NumParticles * 3);
+	m_Jacobian.clear();
 }
 
 void FixedPosition::ResizeDJacobian(int NumParticles)
 {
 //	m_DJacobian.resize(1, NumParticles*3);
-	m_DJacobian = bnu::zero_matrix<double>(3, NumParticles*3);
+	//m_DJacobian = bnu::zero_matrix<double>(3, NumParticles*3);
+	m_DJacobian.resize(3, NumParticles * 3);
+	m_DJacobian.clear();
 }
 
 void FixedPosition::CalculateJacobian()
@@ -49,7 +50,7 @@ void FixedPosition::CalculateJacobian()
 	//for a fixed position contraint the result of dC/dq is I where the particle
 	//is and 0 every else
 	//create a reference to a range/sub-matrix of our main matrix
-	bnu::matrix_range < bnu::sparse_matrix<double> > mr(m_Jacobian, 
+	bnu::matrix_range < bnu::matrix<double> > mr(m_Jacobian, 
 		bnu::range(0, 3), //row range
 			bnu::range(m_MatrixCol*3, m_MatrixCol*3+3)); //column range
 	mr = bnu::identity_matrix<double>(3,3);

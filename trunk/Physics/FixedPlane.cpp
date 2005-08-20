@@ -1,5 +1,5 @@
-//#include "StdAfx.h"
 #include "./FixedPlane.hpp"
+#include <boost/numeric/ublas/matrix_proxy.hpp>
 
 using namespace Edge;
 using Edge::ParticlePtr;
@@ -23,12 +23,16 @@ FixedPlane::~FixedPlane(void)
 
 void FixedPlane::ResizeJacobian(int NumParticles)
 {
-	m_Jacobian = bnu::zero_matrix<double>(1, NumParticles*3);	
+	//m_Jacobian = bnu::zero_matrix<double>(1, NumParticles*3);	
+	m_Jacobian.resize(1, NumParticles * 3);
+	m_Jacobian.clear();
 }
 
 void FixedPlane::ResizeDJacobian(int NumParticles)
 {
-	m_DJacobian = bnu::zero_matrix<double>(1, NumParticles*3);
+	//m_DJacobian = bnu::zero_matrix<double>(1, NumParticles*3);
+	m_DJacobian.resize(1, NumParticles * 3);
+	m_DJacobian.clear();
 }
 
 void FixedPlane::ResizeConPos()
@@ -44,7 +48,7 @@ void FixedPlane::ResizeConVel()
 void FixedPlane::CalculateJacobian()
 {
 	//for a fixed plane contraint the result of dC/dq the transpose of the plane normal	
-	bnu::matrix_range < bnu::sparse_matrix<double> > mr(m_Jacobian, 
+	bnu::matrix_range < bnu::matrix<double> > mr(m_Jacobian, 
 		bnu::range(0, 1), //row range
 			bnu::range(m_MatrixCol*3, m_MatrixCol*3+3)); //column range
 	mr(0,0) = m_Normal[0];
@@ -61,7 +65,7 @@ int FixedPlane::GetRowSize() const
 	return 1;
 }
 
-void FixedPlane::SetNormal(const bnu::vector<int>& Normal)
+void FixedPlane::SetNormal(const bnu::vector<double>& Normal)
 {
 	m_Normal = Normal;
 }

@@ -1,9 +1,9 @@
-//#include "StdAfx.h"
 #include "./ConstraintSystem.hpp"
 #include "./FixedDist.hpp"
 #include "./FixedPosition.hpp"
 #include "../Math/MatrixSupport.hpp"
-//#include <fstream>
+#include <boost/numeric/ublas/vector_proxy.hpp>
+#include <boost/numeric/ublas/matrix_proxy.hpp>
 
 using namespace std;
 using namespace Edge;
@@ -33,14 +33,14 @@ void ConstraintSystem::AddParticle(ParticlePtr pP)
 
 void ConstraintSystem::SetConstraint(int Idx, ConstraintPtr pCons)
 {
-	assert(Idx < m_Constraints.size());
+	assert(Idx < (int)m_Constraints.size());
 	assert(Idx > -1);
 	m_Constraints[Idx] = pCons;
 }
 
 void ConstraintSystem::SetParticle(int Idx, Edge::ParticlePtr pPart)
 {
-	assert(Idx < m_Particles.size());
+	assert(Idx < (int)m_Particles.size());
 	assert(Idx > -1);
 	m_Particles[Idx] = pPart;
 }
@@ -78,7 +78,8 @@ void ConstraintSystem::CalculateMassMatrix()
 	if (m_MassCalculated)
 	{
 		TDParticleVector::size_type n = m_Particles.size();		
-		m_Mass = bnu::zero_matrix<double>(m_Mass.size1(), m_Mass.size2());
+		//m_Mass = bnu::zero_matrix<double>(m_Mass.size1(), m_Mass.size2());
+		m_Mass.clear();
 		for (TDParticleVector::size_type i = 0; i < n; ++i)
 		{
 			m_Mass(i*3,i*3) = m_Particles[i]->GetMass();
@@ -94,11 +95,12 @@ void ConstraintSystem::CalculateLambda()
 	//solve the folowing linear system for lambda
 	//J*MInv*J^t*lambda = -DJ*Velocities - J*MInv*Q
 
-	bnu::sparse_matrix<double> A;
-	bnu::sparse_matrix<double> Temp;
+	bnu::matrix<double> A;
+	bnu::matrix<double> Temp;
 	bnu::vector<double> u;	
 	bnu::vector<double> OldLambda(m_Lambda);	
-	m_Lambda = bnu::zero_vector<double>(m_Lambda.size());
+//	m_Lambda = bnu::zero_vector<double>(m_Lambda.size());
+	m_Lambda.clear();
 	/*fstream FileJacobian("Jacobian.txt", ios_base::out | ios_base::trunc);
 	fstream FileDJacobian("DJacobian.txt", ios_base::out | ios_base::trunc);
 	fstream FileInvMass("InvMass.txt", ios_base::out | ios_base::trunc);
@@ -116,9 +118,9 @@ void ConstraintSystem::CalculateLambda()
 	CalculateVelocities();
 	CalculateConVel();
 	CalculateConPos();
-	/*sparse_matrixWrite(FileJacobian, m_Jacobian);
-	sparse_matrixWrite(FileDJacobian, m_DJacobian);
-	sparse_matrixWrite(FileInvMass, m_MassInv);
+	/*matrixWrite(FileJacobian, m_Jacobian);
+	matrixWrite(FileDJacobian, m_DJacobian);
+	matrixWrite(FileInvMass, m_MassInv);
 	VectorWrite(FileVelocities, m_Velocities);
 	VectorWrite(FileForces, m_Forces);*/
 	assert(m_Velocities.size() == n * 3);
@@ -131,7 +133,7 @@ void ConstraintSystem::CalculateLambda()
 	u = bnu::prod(-m_DJacobian, m_Velocities) - 
 		bnu::prod(bnu::prod(m_Jacobian, m_MassInv), m_Forces)
 		-m_ks*m_ConPos - m_kd*m_ConVel;
-	/*sparse_matrixWrite(FileA, A);
+	/*matrixWrite(FileA, A);
 	VectorWrite(Fileu, u);	*/
 	bool Breakdown = false;
 	BiCGSolve(A, m_Lambda, u, Breakdown);
@@ -158,7 +160,8 @@ void ConstraintSystem::CalculateMassInvMatrix()
 	if (!m_MassInvCalculated)
 	{
 		TDParticleVector::size_type n = m_Particles.size();		
-		m_MassInv = bnu::zero_matrix<double>(m_MassInv.size1(), m_MassInv.size2());
+		//m_MassInv = bnu::zero_matrix<double>(m_MassInv.size1(), m_MassInv.size2());
+		m_MassInv.clear();
 		for (TDParticleVector::size_type i = 0; i < n; ++i)
 		{
 			m_MassInv(i*3,i*3) = 1.0/m_Particles[i]->GetMass();
@@ -220,9 +223,9 @@ void ConstraintSystem::RemoveConstraint(TDConstraintVector::size_type Idx)
 	m_Constraints.erase(m_Constraints.begin() + Idx);	
 }
 
-bnu::sparse_matrix<double>::size_type ConstraintSystem::CalculateRowSize()
+bnu::matrix<double>::size_type ConstraintSystem::CalculateRowSize()
 {
-	bnu::sparse_matrix<double>::size_type Rows=0;
+	bnu::matrix<double>::size_type Rows=0;
 	TDConstraintVector::const_iterator it;
 	for (it = m_Constraints.begin(); it != m_Constraints.end(); ++it)
 	{
@@ -280,7 +283,7 @@ void ConstraintSystem::CalculateJacobian()
 	{
 		RowSize = (*it)->GetRowSize();	
 		int size = m_Particles.size();
-		bnu::matrix_range < bnu::sparse_matrix<double> > mr(m_Jacobian, 
+		bnu::matrix_range < bnu::matrix<double> > mr(m_Jacobian, 
 			bnu::range(RowOffset, RowOffset+ RowSize), 
 			bnu::range(0,m_Particles.size()*3));
 		(*it)->CalculateJacobian();
@@ -300,7 +303,7 @@ void ConstraintSystem::CalculateDJacobian()
 		++it)
 	{
 		RowSize = (*it)->GetRowSize();
-		bnu::matrix_range < bnu::sparse_matrix<double> > mr(m_DJacobian, 
+		bnu::matrix_range < bnu::matrix<double> > mr(m_DJacobian, 
 			bnu::range(RowOffset, RowOffset+RowSize), 
 			bnu::range(0,m_Particles.size()*3));
 		(*it)->CalculateDJacobian();

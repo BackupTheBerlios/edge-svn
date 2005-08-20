@@ -18,7 +18,7 @@ namespace Edge
 		typedef boost::shared_ptr<FixedDist> FixedDistPtr;
 
 		FixedDist(Edge::ParticlePtr pP0, Edge::ParticlePtr pP1, 
-			int sparse_matrixCol0, int sparse_matrixCol1, int NumParticles);
+			int matrixCol0, int matrixCol1, int NumParticles);
 		virtual ~FixedDist(void);
 
 		double GetDistance() const;

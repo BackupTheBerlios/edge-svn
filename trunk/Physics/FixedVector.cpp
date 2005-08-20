@@ -1,10 +1,8 @@
-//#include "StdAfx.h"
 #include "./FixedVector.hpp"
+#include <boost/numeric/ublas/matrix_proxy.hpp>
 
 using namespace Edge;
 using Edge::ParticlePtr;
-//using MassSpringSystem::TDPSPTuple;
-//using MassSpringSystem::TDPSPTupleContainer;
 
 FixedVector::FixedVector(ParticlePtr pP0, ParticlePtr pP1, 
 					 int MatrixCol0, int MatrixCol1, int NumParticles) :
@@ -31,12 +29,12 @@ int FixedVector::GetRowSize() const
 
 void FixedVector::CalculateJacobian()
 {
-	bnu::matrix_range < bnu::sparse_matrix<double> > mr0(m_Jacobian, 
+	bnu::matrix_range < bnu::matrix<double> > mr0(m_Jacobian, 
 		bnu::range(0, 3), //row range
 		bnu::range(m_MatrixCol0*3, m_MatrixCol0*3+3)); //column range
 	mr0 = bnu::identity_matrix<double>(3,3);	
 
-	bnu::matrix_range < bnu::sparse_matrix<double> > mr1(m_Jacobian, 
+	bnu::matrix_range < bnu::matrix<double> > mr1(m_Jacobian, 
 		bnu::range(0, 3), //row range
 		bnu::range(m_MatrixCol1*3, m_MatrixCol1*3+3)); //column range
 	mr1 = -bnu::identity_matrix<double>(3,3);	
@@ -49,12 +47,18 @@ void FixedVector::CalculateDJacobian()
 
 void FixedVector::ResizeJacobian(int NumParticles)
 {
-	m_Jacobian = bnu::zero_matrix<double>(3, NumParticles*3);	
+	//m_Jacobian = bnu::zero_matrix<double>(3, NumParticles*3);	
+	m_Jacobian.resize(3, NumParticles*3);
+	//zero the matrix
+	m_Jacobian.clear();
 }
 
 void FixedVector::ResizeDJacobian(int NumParticles)
 {
-	m_DJacobian = bnu::zero_matrix<double>(3, NumParticles*3);
+	//m_DJacobian = bnu::zero_matrix<double>(3, NumParticles*3);
+	m_DJacobian.resize(3, NumParticles*3);
+	//zero the matrix
+	m_DJacobian.clear();	
 }
 
 void FixedVector::CalculateDriftForce()

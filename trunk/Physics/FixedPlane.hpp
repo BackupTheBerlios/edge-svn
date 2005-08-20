@@ -22,7 +22,7 @@ namespace Edge
 		virtual void CalculateDJacobian();
 		virtual int GetRowSize() const;
 		void SetMatrixCol(int Col) {m_MatrixCol = Col;}
-		void SetNormal(const bnu::vector<int>& Normal);
+		void SetNormal(const bnu::vector<double>& Normal);
 		const bnu::vector<double>& GetNormal();
 		virtual void ResizeJacobian(int NumParticles);
 		virtual void ResizeDJacobian(int NumParticles);

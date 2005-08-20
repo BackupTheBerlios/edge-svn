@@ -26,10 +26,10 @@ namespace Edge
 		void SetForceAllParticles(const bnu::vector<double>& Force);		
 		void SetForce(const bnu::vector<double>& Forces);
 		void SetForce(int Idx, const bnu::vector<double>& Forces);
-		const bnu::sparse_matrix<double>& GetJacobian() const {return m_Jacobian;}
-		const bnu::sparse_matrix<double>& GetDJacobian() const {return m_DJacobian;}
-		const bnu::sparse_matrix<double>& GetMassMatrix() const {return m_Mass;}
-		const bnu::sparse_matrix<double>& GetMassInvMatrix() const {return m_MassInv;}
+		const bnu::matrix<double>& GetJacobian() const {return m_Jacobian;}
+		const bnu::matrix<double>& GetDJacobian() const {return m_DJacobian;}
+		const bnu::matrix<double>& GetMassMatrix() const {return m_Mass;}
+		const bnu::matrix<double>& GetMassInvMatrix() const {return m_MassInv;}
 		const bnu::vector<double>& GetLambda() const {return m_Lambda;}		
 		const bnu::vector<double>& GetVelocities() const {return m_Velocities;}
 		const bnu::vector<double>& GetConstraintForce() const {return m_CForce;}
@@ -40,7 +40,7 @@ namespace Edge
 		void ClearConstraints();
 		void ClearParticles();		
 		void RemoveConstraint(TDConstraintVector::size_type Idx);
-		bnu::sparse_matrix<double>::size_type ConstraintSystem::CalculateRowSize();		
+		bnu::matrix<double>::size_type ConstraintSystem::CalculateRowSize();		
 		void CalculateJacobian();
 		void CalculateDJacobian();
 		void CalculateConstraintForce();
@@ -71,13 +71,13 @@ namespace Edge
 		void ResizeForce();
 		void ResizeConstraintForce();
 		
-		bnu::sparse_matrix<double> m_Jacobian;
-		bnu::sparse_matrix<double> m_DJacobian;
+		bnu::matrix<double> m_Jacobian;
+		bnu::matrix<double> m_DJacobian;
 		bnu::vector<double> m_Lambda;
 		bnu::vector<double> m_Velocities;
 		bnu::vector<double> m_CForce;
-		bnu::sparse_matrix<double> m_MassInv;
-		bnu::sparse_matrix<double> m_Mass;
+		bnu::matrix<double> m_MassInv;
+		bnu::matrix<double> m_Mass;
 		bnu::vector<double> m_ConVel;
 		bnu::vector<double> m_ConPos;
 		bool m_MassInvCalculated;
