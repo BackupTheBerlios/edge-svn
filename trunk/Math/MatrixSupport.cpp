@@ -1,21 +1,28 @@
 //#include "StdAfx.h"
 #include "./MatrixSupport.hpp"
 #include <sstream>
+#include <boost/numeric/ublas/matrix_proxy.hpp>
 
 using namespace std;
 using namespace Edge;
 const double Pi = 3.14159265;
-bnu::sparse_matrix<double> Edge::AxisAngle(const bnu::vector<double>& Axis, double Theta)
+
+bnu::matrix<double> Edge::AxisAngle(const bnu::vector<double>& Axis, double Theta)
 {
-	//see pg 15 3d game engine design for formula to generate a rotation sparse_matrix 
+	//see pg 15 3d game engine design for formula to generate a rotation matrix 
 	//from axis angle pair
 //	assert(Theta >= 0.0);
-	bnu::sparse_matrix<double> S(3,3);
+	bnu::matrix<double> S(3,3);
 	bnu::vector<double> NormAxis(Axis/bnu::norm_2(Axis));
 	bnu::identity_matrix<double> I(3,3);
-	S[0][0] = 0;			S[0][1] = -NormAxis[2]; S[0][2] = NormAxis[1];
-	S[1][0] = NormAxis[2];	S[1][1] = 0;			S[1][2] = -NormAxis[0];
-	S[2][0] = -NormAxis[1];	S[2][1] = NormAxis[0];	S[2][2] = 0;
+	//S[0][0] = 0;			S[0][1] = -NormAxis[2]; S[0][2] = NormAxis[1];
+	//S[1][0] = NormAxis[2];	S[1][1] = 0;			S[1][2] = -NormAxis[0];
+	//S[2][0] = -NormAxis[1];	S[2][1] = NormAxis[0];	S[2][2] = 0;
+
+	S(0,0) = 0;			S(0,1) = -NormAxis[2]; S(0,2) = NormAxis[1];
+	S(1,0) = NormAxis[2];	S(1,1) = 0;			S(1,2) = -NormAxis[0];
+	S(2,0) = -NormAxis[1];	S(2,1) = NormAxis[0];	S(2,2) = 0;
+
 	return I + (sin(Theta)*S) + ((1 - cos(Theta))*prod(S,S));
 }
 
@@ -37,7 +44,7 @@ bool Edge::EqualTest(bnu::vector<double> x, bnu::vector<double> y, double Tolera
 	return true;
 }
 
-bool Edge::EqualTest(bnu::sparse_matrix<double> x, bnu::sparse_matrix<double> y, double Tolerance)
+bool Edge::EqualTest(bnu::matrix<double> x, bnu::matrix<double> y, double Tolerance)
 {
 	if (x.size1() != y.size1())
 		return false;
@@ -46,13 +53,15 @@ bool Edge::EqualTest(bnu::sparse_matrix<double> x, bnu::sparse_matrix<double> y,
 	int n = x.size1();	
 	for (int i = 0; i < n; ++i)
 	{
-		if (!EqualTest(x[i], y[i], Tolerance))
+		bnu::matrix_row < bnu::matrix < double> > mc_x(x, i);
+		bnu::matrix_row < bnu::matrix < double> > mc_y(y, i);
+		if (!EqualTest(mc_x, mc_y, Tolerance))
 			return false;
 	}
 	return true;
 }
 
-void Edge::BiCGSolve(const bnu::sparse_matrix<double> A, bnu::vector<double>& x, 
+void Edge::BiCGSolve(const bnu::matrix<double> A, bnu::vector<double>& x, 
 				   const bnu::vector<double>& b, bool& Breakdown)
 {
 	//Biconjugate Gradient solver
@@ -124,7 +133,7 @@ void Edge::VectorWrite(fstream& File, const bnu::vector<double>& v)
 	File << "\n\n";
 }
 
-void Edge::MatrixWrite(fstream& File, const bnu::sparse_matrix<double>& M)
+void Edge::MatrixWrite(fstream& File, const bnu::matrix<double>& M)
 {
 	int m = M.size1();
 	int n = M.size2();
@@ -132,10 +141,7 @@ void Edge::MatrixWrite(fstream& File, const bnu::sparse_matrix<double>& M)
 	{
 		for (int j = 0; j < n; ++j)
 		{
-			/*strstream str;
-			str << M[i][j] << ' ';
-			File << str.str();*/
-			File << M[i][j] << ' ';
+			File << M(i,j) << ' ';
 		}
 		File << "\n";
 	}
