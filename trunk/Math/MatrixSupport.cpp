@@ -53,9 +53,7 @@ bool Edge::EqualTest(bnu::matrix<double> x, bnu::matrix<double> y, double Tolera
 	int n = x.size1();	
 	for (int i = 0; i < n; ++i)
 	{
-		bnu::matrix_row < bnu::matrix < double> > mc_x(x, i);
-		bnu::matrix_row < bnu::matrix < double> > mc_y(y, i);
-		if (!EqualTest(mc_x, mc_y, Tolerance))
+		if (!EqualTest(bnu::row(x, i), bnu::row(y, i), Tolerance))
 			return false;
 	}
 	return true;
