@@ -189,6 +189,9 @@
 				RelativePath=".\Particle.cpp">
 			</File>
 			<File
+				RelativePath=".\RigidBody.cpp">
+			</File>
+			<File
 				RelativePath=".\Spring.cpp">
 			</File>
 		</Filter>
@@ -237,6 +240,9 @@
 			</File>
 			<File
 				RelativePath=".\Particle.hpp">
+			</File>
+			<File
+				RelativePath=".\RigidBody.hpp">
 			</File>
 			<File
 				RelativePath=".\Spring.hpp">
