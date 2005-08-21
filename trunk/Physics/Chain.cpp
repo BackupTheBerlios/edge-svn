@@ -55,7 +55,7 @@ void Chain::BuildSystem()
 	}
 	bnu::vector<double> Forces(m_Forces.size() * 3);
 	TDForceVector::size_type n = m_Forces.size();
-	for (int i = 0; i < n; ++i)
+	for (TDForceVector::size_type i = 0; i < n; ++i)
 	{
 		Forces[i*3] = m_Forces[i][0];
 		Forces[i*3+1] = m_Forces[i][1];
