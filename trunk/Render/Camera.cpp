@@ -1,6 +1,7 @@
 //#include "StdAfx.h"
 #include "./Camera.hpp"
 #include "../Math/MatrixSupport.hpp"
+#include <boost/numeric/ublas/matrix_proxy.hpp>
 
 using namespace Edge;
 using namespace boost::numeric;
@@ -27,9 +28,9 @@ void Camera::SetAxes(const ublas::vector<double>& Left,
 					 const ublas::vector<double>& Up, 
 					 const ublas::vector<double>& Dir)
 {
-	m_Axes[0] = Left;
-	m_Axes[1] = Up;
-	m_Axes[2] = Dir;
+	bnu::row(m_Axes, 0) = Left;
+	bnu::row(m_Axes, 1) = Up;
+	bnu::row(m_Axes, 2) = Dir;
 }
 
 void Camera::Translate(double dx, double dy, double dz)
@@ -46,17 +47,17 @@ void Camera::Translate(const ublas::vector<double>& T)
 
 ublas::vector<double> Camera::GetDir()
 {
-	return m_Axes[2];
+	return bnu::row(m_Axes, 2);
 }
 
 ublas::vector<double> Camera::GetUp()
 {
-	return m_Axes[1];
+	return bnu::row(m_Axes, 1);
 }
 
 ublas::vector<double> Camera::GetLeft()
 {
-	return m_Axes[0];
+	return bnu::row(m_Axes, 0);
 }
 
 ublas::vector<double> Camera::GetPostion()
@@ -65,53 +66,53 @@ ublas::vector<double> Camera::GetPostion()
 }
 void Camera::MoveForward()
 {
-	m_Position += m_FwdSpeed*m_Axes[2];	
+	m_Position += m_FwdSpeed*bnu::row(m_Axes, 2);
 }
 
 void Camera::MoveBackward()
 {
-	m_Position -= m_FwdSpeed*m_Axes[2];	
+	m_Position -= m_FwdSpeed*bnu::row(m_Axes, 2);	
 }
 
 void Camera::TurnLeft()
 {
 	ublas::matrix<double> R(3,3);
-	R = AxisAngle(m_Axes[1], m_RotSpeed);
-	m_Axes[0] = ublas::prod(R, m_Axes[0]);
-	m_Axes[2] = ublas::prod(R, m_Axes[2]);
+	R = AxisAngle(bnu::row(m_Axes, 1), m_RotSpeed);
+	bnu::row(m_Axes, 0) = ublas::prod(R, bnu::row(m_Axes, 0));
+	bnu::row(m_Axes, 2) = ublas::prod(R, bnu::row(m_Axes, 2));
 }
 
 void Camera::StrafeLeft()
 {
-	m_Position = m_Position + m_FwdSpeed*m_Axes[0];
+	m_Position = m_Position + m_FwdSpeed*bnu::row(m_Axes, 0);
 }
 
 void Camera::StrafeRight()
 {
-	m_Position = m_Position - m_FwdSpeed*m_Axes[0];
+	m_Position = m_Position - m_FwdSpeed*bnu::row(m_Axes, 0);
 }
 
 void Camera::TurnUp()
 {		
 	ublas::matrix<double> R(3,3);
-	R = AxisAngle(m_Axes[0], m_RotSpeed);
-	m_Axes[1] = ublas::prod(R, m_Axes[1]);
-	m_Axes[2] = ublas::prod(R, m_Axes[2]);
+	R = AxisAngle(bnu::row(m_Axes, 0), m_RotSpeed);
+	bnu::row(m_Axes, 1) = ublas::prod(R, bnu::row(m_Axes, 1));
+	bnu::row(m_Axes, 2) = ublas::prod(R, bnu::row(m_Axes, 2));
 }
 
 void Camera::TurnDown()
 {	
 	ublas::matrix<double> R(3,3);
-	R = AxisAngle(m_Axes[0], -m_RotSpeed);
-	m_Axes[1] = ublas::prod(R, m_Axes[1]);
-	m_Axes[2] = ublas::prod(R, m_Axes[2]);
+	R = AxisAngle(bnu::row(m_Axes, 0), -m_RotSpeed);
+	bnu::row(m_Axes, 1) = ublas::prod(R, bnu::row(m_Axes, 1));
+	bnu::row(m_Axes, 2) = ublas::prod(R, bnu::row(m_Axes, 2));
 }
 
 void Camera::TurnRight()
 {	
 	ublas::matrix<double> R(3,3);
-	R = AxisAngle(m_Axes[1], -m_RotSpeed);
-	m_Axes[0] = ublas::prod(R, m_Axes[0]);
-	m_Axes[2] = ublas::prod(R, m_Axes[2]);
+	R = AxisAngle(bnu::row(m_Axes, 1), -m_RotSpeed);
+	bnu::row(m_Axes, 0) = ublas::prod(R, bnu::row(m_Axes, 0));
+	bnu::row(m_Axes, 2) = ublas::prod(R, bnu::row(m_Axes, 2));
 }
 

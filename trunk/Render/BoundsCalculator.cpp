@@ -122,9 +122,9 @@ BoundsCalculator::Visit(Edge::TranslatePtr pTrans)
 	const bnu::matrix<double>& CurTrans(GetTransform());
 	double x, y, z;
 	pTrans->GetTranslate(x, y, z);
-	Transform[0][3] = x;
-	Transform[1][3] = y;
-	Transform[2][3] = z;
+	Transform(0, 3) = x;
+	Transform(1, 3) = y;
+	Transform(2, 3) = z;
 	Transform = bnu::prod(CurTrans, Transform);
 	m_TransformStack.push_back(Transform);
 }
@@ -142,9 +142,9 @@ BoundsCalculator::Visit(Edge::ScalePtr pScale)
 	const bnu::matrix<double>& CurTrans(GetTransform());
 	double x, y, z;
 	pScale->GetScale(x, y, z);
-	Transform[0][0] = x;
-	Transform[1][1] = y;
-	Transform[2][2] = z;
+	Transform(0, 0) = x;
+	Transform(1, 1) = y;
+	Transform(2, 2) = z;
 	Transform = bnu::prod(CurTrans, Transform);
 	m_TransformStack.push_back(Transform);
 }
@@ -162,10 +162,9 @@ BoundsCalculator::Visit(Edge::RotatePtr pRotate)
 	//MRotate = bnu::trans(MRotate);
 	bnu::matrix<double> Transform(bnu::identity_matrix<double>(4));
 	const bnu::matrix<double>& CurTrans(GetTransform());
-	double x, y, z;
-	Transform[0][0] = MRotate[0][0]; Transform[0][1] = MRotate[0][1];	Transform[0][2] = MRotate[0][2];
-	Transform[1][0] = MRotate[1][0]; Transform[1][1] = MRotate[1][1];	Transform[1][2] = MRotate[1][2];
-	Transform[2][0] = MRotate[2][0]; Transform[2][1] = MRotate[2][1];	Transform[2][2] = MRotate[2][2];
+	Transform(0, 0) = MRotate(0, 0); Transform(0, 1) = MRotate(0, 1);	Transform(0, 2) = MRotate(0, 2);
+	Transform(1, 0) = MRotate(1, 0); Transform(1, 1) = MRotate(1, 1);	Transform(1, 2) = MRotate(1, 2);
+	Transform(2, 0) = MRotate(2, 0); Transform(2, 1) = MRotate(2, 1);	Transform(2, 2) = MRotate(2, 2);
 	Transform = bnu::prod(CurTrans, Transform);
 	m_TransformStack.push_back(Transform);
 }
