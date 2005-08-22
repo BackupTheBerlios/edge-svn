@@ -1,7 +1,6 @@
 // PENDULUM.cpp : Defines the entry point for the application.
 //
 
-#include "stdafx.h"
 #include "../../Render/Render.hpp"
 #include "../../Physics/Particle.hpp"
 #include "./Pendulum.h"
@@ -38,12 +37,12 @@ HDC   g_hDC;											// General HDC - (handle to device context)
 HGLRC g_hRC;											// General OpenGL_DC - Our Rendering Context for OpenGL
 HINSTANCE g_hInst;									// This holds the global hInstance for UnregisterClass() in DeInit()
 Camera g_Cam;
-Node::NodePtr g_pRoot(new Node);
+NodePtr g_pRoot(new Node);
 PendulumNode::PendulumNodePtr g_pPenNode(new PendulumNode);
 double g_TotalTime = 0;
 const double g_FixedTimeStep = 0.01;
 
-int APIENTRY _tWinMain(HINSTANCE hInstance,
+int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPTSTR    lpCmdLine,
                      int       nCmdShow)
@@ -444,8 +443,8 @@ void BuildScene()
 	Edge::ParticlePtr pP5(new Particle);	
 	Edge::ParticlePtr pP6(new Particle);	
 	Edge::ParticlePtr pP7(new Particle);
-	DirectionLight::DirectionLightPtr pDLight1(new DirectionLight(0));
-	DirectionLight::DirectionLightPtr pDLight(new DirectionLight(1));
+	DirectionLightPtr pDLight1(new DirectionLight(0));
+	DirectionLightPtr pDLight(new DirectionLight(1));
 	
 	//setup light properties	
 	//pALight->SetDirection(0,0,-1;)g_

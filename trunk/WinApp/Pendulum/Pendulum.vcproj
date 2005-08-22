@@ -19,13 +19,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../../boost"
+				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="TRUE"
-				UsePrecompiledHeader="3"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="TRUE"
 				DebugInformationFormat="4"/>
@@ -34,6 +34,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="../../Physics/Debug/Physics.lib ../../Render/Debug/Render.lib "
+				ShowProgress="0"
 				OutputFile="$(OutDir)/Pendulum.exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
@@ -69,11 +70,11 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="../../../boost"
+				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="TRUE"
-				UsePrecompiledHeader="3"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="TRUE"
 				DebugInformationFormat="3"/>
@@ -81,7 +82,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="../../Render/Release/Render.lib ../../Physics/Release/Physics.lib "
+				AdditionalDependencies="../../Render/Release/Render.lib ../../Physics/Release/Physics.lib ../../Math/Release/Math.lib"
 				OutputFile="$(OutDir)/Pendulum.exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="FALSE"
@@ -130,21 +131,6 @@
 			<File
 				RelativePath=".\PendulumRenderer.cpp">
 			</File>
-			<File
-				RelativePath=".\stdafx.cpp">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"/>
-				</FileConfiguration>
-			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -164,9 +150,6 @@
 			</File>
 			<File
 				RelativePath=".\Resource.h">
-			</File>
-			<File
-				RelativePath=".\stdafx.h">
 			</File>
 		</Filter>
 		<Filter

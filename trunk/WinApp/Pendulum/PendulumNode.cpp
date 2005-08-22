@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 #include "./PendulumNode.hpp"
 #include "./PendulumNodeWriter.hpp"
 #include "./PendulumRenderer.hpp"
@@ -45,10 +44,10 @@ void PendulumNode::Setup(Edge::Chain::ChainPtr pChain)
 	SetDEStateSource(pChain);
 	TDParticleVector::iterator itPart;
 	int i = 0;
-	vector<Material::MaterialPtr> Materials;	
+	vector<MaterialPtr> Materials;	
 	for (i = 0; i < 7; ++i)
 	{
-		Materials.push_back(Material::MaterialPtr(new Material));
+		Materials.push_back(MaterialPtr(new Material));
 	}
 	
 	//setup material properties
