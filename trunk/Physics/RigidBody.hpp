@@ -1,5 +1,5 @@
 #pragma once
-
+#include "../Math/DEStateSource.hpp"
 #include <boost/shared_ptr.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
@@ -13,9 +13,13 @@ For more information on simulating rigid bodies see http://www.pixar.com/company
 
 namespace Edge
 {
-	class RigidBody
+	class RigidBody :
+		public DEStateSource
 	{
-	public:		
+	public:
+		RigidBody();
+		virtual void GetState(StateType& State);
+		virtual void GetStateDerivative(StateType& StateDerivative);
 
 	private:
 		/* State variables */
@@ -23,18 +27,16 @@ namespace Edge
 		bnu::matrix<double> m_Rotate;				
 		bnu::vector<double> m_AngularMomentum;
 		bnu::vector<double> m_LinearMomentum;
-
-		/* Derived quantities (i.e. State'). */
-		bnu::vector<double> m_LinearVelocity;
-		double m_AngularVelocity;
-		bnu::matrix<double> m_InertiaTensor;
-        
+       
 		/* Values that should remain constant during the simulation. 
 		They are precalculated. */
 		double m_Mass;
 		bnu::matrix<double> m_BodySpaceInertiaTensor;
 		bnu::matrix<double> m_BodySpaceInertiaTensorInv;
 		
+		//count of the number of vectors that makeup the state. 1 vector for position,
+		//3 for rotate, 1 for angular momentum and 1 for linear momentum
+		const int m_CountStateVectors; 
 	};
 	typedef boost::shared_ptr<RigidBody> RigidBodyPtr;
 }
