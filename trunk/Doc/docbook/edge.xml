@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- >e-novative> DocBook Environment (eDE)                                  -->
+<!-- (c) 2002 e-novative GmbH, Munich, Germany                               -->
+<!-- http://www.e-novative.de                                                -->
+
+<!-- DocBook book template                                                   -->
+
+<!-- This file is part of eDE                                                -->
+
+<!-- eDE is free software; you can redistribute it and/or modify             -->
+<!-- it under the terms of the GNU General Public License as published by    -->
+<!-- the Free Software Foundation; either version 2 of the License, or       -->
+<!-- (at your option) any later version.                                     -->
+
+<!-- eDE is distributed in the hope that it will be useful,                  -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!-- GNU General Public License for more details.                            -->
+
+<!-- You should have received a copy of the GNU General Public License       -->
+<!-- along with eDe; if not, write to the Free Software                   -->
+<!-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA -->
+
+
+<!DOCTYPE book
+  PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "file:/c:/docbook/dtd/docbookx.dtd"
+  [
+    <!ENTITY % global.entities SYSTEM "file:/c:/docbook/include/global.xml">
+    %global.entities;
+
+    <!ENTITY % entities SYSTEM "entities.xml">
+    %entities;
+  ]
+>
+
+<book lang="en">
+
+  <bookinfo>
+
+   <title>Edge</title>
+    <copyright>
+      <year>2005</year>
+      <holder>Sashan Govender</holder>
+    </copyright>
+
+  </bookinfo>
+
+<chapter>
+  <title>Chapter</title>
+
+  <sect1>
+      <title>Introduction</title>
+
+    <para>
+      The Edge library can be used to simulate the motion of rigid bodies and render
+      them in real time. It's something I work on in my spare time and I hope it will
+      evolve into something better.
+    </para>
+
+  </sect1>
+
+</chapter>
+
+<chapter>
+  <title>Chapter</title>
+
+  <sect1>
+      <title>Differential Equation Solvers</title>
+
+    <para>
+      A differential equation solver is used to numerically solve a differential
+      system. Imagine a particle where the velocity and force on the particle at
+      a given time is know. Using this information and a differential equation
+      solver we can work out the position of the particle at the next time step.
+      Currently the library implements an Euler solver and an RK4 solver.
+    </para>
+
+  </sect1>
+
+</chapter>
+
+</book>
+
