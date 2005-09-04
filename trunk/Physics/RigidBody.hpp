@@ -23,10 +23,10 @@ namespace Edge
 
 	private:
 		/* State variables */
-		bnu::vector<double> m_Position;
-		bnu::matrix<double> m_Rotate;				
-		bnu::vector<double> m_AngularMomentum;
-		bnu::vector<double> m_LinearMomentum;
+		bnu::vector<double> m_Position; /* r(t) */
+		bnu::matrix<double> m_Rotate;	/* R(t) */			
+		bnu::vector<double> m_AngularMomentum; /* omega(t) */
+		bnu::vector<double> m_LinearMomentum;  /* P(t) */
        
 		/* Values that should remain constant during the simulation. 
 		They are precalculated. */
@@ -37,6 +37,9 @@ namespace Edge
 		//count of the number of vectors that makeup the state. 1 vector for position,
 		//3 for rotate, 1 for angular momentum and 1 for linear momentum
 		const int m_CountStateVectors; 
+
+		bnu::vector<double> m_Force;
+		bnu::vector<double> m_Torque;
 	};
 	typedef boost::shared_ptr<RigidBody> RigidBodyPtr;
 }

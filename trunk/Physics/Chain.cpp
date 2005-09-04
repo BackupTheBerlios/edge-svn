@@ -79,7 +79,7 @@ void Chain::GetStateDerivative(StateType& DState)
 	if (DState.size() != n*2)
 	{
 		DState.resize(n*2);
-		for (int i = 0; i < n*2; ++i)
+		for (TDParticleVector::size_type i = 0; i < n*2; ++i)
 			DState[i].resize(3);
 	}
 
